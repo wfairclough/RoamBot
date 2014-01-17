@@ -29,6 +29,7 @@
 		BEDA80D41889E226000D6023 /* BallNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDA80D31889E226000D6023 /* BallNode.m */; };
 		BEDA80D71889E24D000D6023 /* PlankNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDA80D61889E24D000D6023 /* PlankNode.m */; };
 		BEDA80DA1889E263000D6023 /* CollectableNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDA80D91889E263000D6023 /* CollectableNode.m */; };
+		BEDA80DD1889E2AA000D6023 /* LevelXmlParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDA80DC1889E2AA000D6023 /* LevelXmlParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		BEDA80D61889E24D000D6023 /* PlankNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlankNode.m; sourceTree = "<group>"; };
 		BEDA80D81889E263000D6023 /* CollectableNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectableNode.h; sourceTree = "<group>"; };
 		BEDA80D91889E263000D6023 /* CollectableNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectableNode.m; sourceTree = "<group>"; };
+		BEDA80DB1889E2AA000D6023 /* LevelXmlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelXmlParser.h; sourceTree = "<group>"; };
+		BEDA80DC1889E2AA000D6023 /* LevelXmlParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelXmlParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +236,8 @@
 		BEDA80CB1889E146000D6023 /* GameLevels */ = {
 			isa = PBXGroup;
 			children = (
+				BEDA80DB1889E2AA000D6023 /* LevelXmlParser.h */,
+				BEDA80DC1889E2AA000D6023 /* LevelXmlParser.m */,
 			);
 			name = GameLevels;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 				BE84814C1889DFFF009C21D2 /* AppDelegate.m in Sources */,
 				BE8481481889DFFF009C21D2 /* main.m in Sources */,
 				BEDA80CE1889E203000D6023 /* GameSpriteNode.m in Sources */,
+				BEDA80DD1889E2AA000D6023 /* LevelXmlParser.m in Sources */,
 				BEDA80D41889E226000D6023 /* BallNode.m in Sources */,
 				BEDA80D11889E216000D6023 /* WorldItemNode.m in Sources */,
 			);
