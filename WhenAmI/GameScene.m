@@ -12,11 +12,36 @@
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
-        /* Setup your scene here */
         
-        self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
     }
     return self;
+}
+
+-(void)didMoveToView:(SKView *)view {
+    // setup gesture recognizer
+    UIRotationGestureRecognizer *rotationGestureRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotation:)];
+    [self.view addGestureRecognizer:rotationGestureRecognizer];
+    
+    UITapGestureRecognizer *oneFingerTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleOneFingerTap:)];
+    [self.view addGestureRecognizer:oneFingerTapGestureRecognizer];
+    
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    [self.view addGestureRecognizer:panGestureRecognizer];
+    
+}
+
+#pragma mark - Gesture Handling
+
+- (void)handleRotation:(UIRotationGestureRecognizer*)sender {
+    NSLog(@"Rotate");
+}
+
+- (void)handleOneFingerTap:(UITapGestureRecognizer*)sender {
+    NSLog(@"1 Finger");
+}
+
+- (void)handlePan:(UIPanGestureRecognizer*)sender {
+    NSLog(@"Pan");
 }
 
 -(void)update:(CFTimeInterval)currentTime {
