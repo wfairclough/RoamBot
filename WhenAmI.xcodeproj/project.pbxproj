@@ -24,6 +24,11 @@
 		BE8481621889DFFF009C21D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813D1889DFFF009C21D2 /* UIKit.framework */; };
 		BE84816A1889DFFF009C21D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE8481681889DFFF009C21D2 /* InfoPlist.strings */; };
 		BE84816C1889DFFF009C21D2 /* WhenAmITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE84816B1889DFFF009C21D2 /* WhenAmITests.m */; };
+		BEDA80CE1889E203000D6023 /* GameSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDA80CD1889E203000D6023 /* GameSpriteNode.m */; };
+		BEDA80D11889E216000D6023 /* WorldItemNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDA80D01889E216000D6023 /* WorldItemNode.m */; };
+		BEDA80D41889E226000D6023 /* BallNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDA80D31889E226000D6023 /* BallNode.m */; };
+		BEDA80D71889E24D000D6023 /* PlankNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDA80D61889E24D000D6023 /* PlankNode.m */; };
+		BEDA80DA1889E263000D6023 /* CollectableNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDA80D91889E263000D6023 /* CollectableNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +65,16 @@
 		BE8481671889DFFF009C21D2 /* WhenAmITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WhenAmITests-Info.plist"; sourceTree = "<group>"; };
 		BE8481691889DFFF009C21D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE84816B1889DFFF009C21D2 /* WhenAmITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhenAmITests.m; sourceTree = "<group>"; };
+		BEDA80CC1889E203000D6023 /* GameSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSpriteNode.h; sourceTree = "<group>"; };
+		BEDA80CD1889E203000D6023 /* GameSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSpriteNode.m; sourceTree = "<group>"; };
+		BEDA80CF1889E216000D6023 /* WorldItemNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldItemNode.h; sourceTree = "<group>"; };
+		BEDA80D01889E216000D6023 /* WorldItemNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldItemNode.m; sourceTree = "<group>"; };
+		BEDA80D21889E226000D6023 /* BallNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BallNode.h; sourceTree = "<group>"; };
+		BEDA80D31889E226000D6023 /* BallNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BallNode.m; sourceTree = "<group>"; };
+		BEDA80D51889E24D000D6023 /* PlankNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlankNode.h; sourceTree = "<group>"; };
+		BEDA80D61889E24D000D6023 /* PlankNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlankNode.m; sourceTree = "<group>"; };
+		BEDA80D81889E263000D6023 /* CollectableNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectableNode.h; sourceTree = "<group>"; };
+		BEDA80D91889E263000D6023 /* CollectableNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectableNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +216,16 @@
 		BEDA80CA1889E141000D6023 /* GameNodes */ = {
 			isa = PBXGroup;
 			children = (
+				BEDA80CC1889E203000D6023 /* GameSpriteNode.h */,
+				BEDA80CD1889E203000D6023 /* GameSpriteNode.m */,
+				BEDA80CF1889E216000D6023 /* WorldItemNode.h */,
+				BEDA80D01889E216000D6023 /* WorldItemNode.m */,
+				BEDA80D21889E226000D6023 /* BallNode.h */,
+				BEDA80D31889E226000D6023 /* BallNode.m */,
+				BEDA80D51889E24D000D6023 /* PlankNode.h */,
+				BEDA80D61889E24D000D6023 /* PlankNode.m */,
+				BEDA80D81889E263000D6023 /* CollectableNode.h */,
+				BEDA80D91889E263000D6023 /* CollectableNode.m */,
 			);
 			name = GameNodes;
 			sourceTree = "<group>";
@@ -312,8 +337,13 @@
 			files = (
 				BE8481551889DFFF009C21D2 /* GameScene.m in Sources */,
 				BE8481521889DFFF009C21D2 /* ViewController.m in Sources */,
+				BEDA80D71889E24D000D6023 /* PlankNode.m in Sources */,
+				BEDA80DA1889E263000D6023 /* CollectableNode.m in Sources */,
 				BE84814C1889DFFF009C21D2 /* AppDelegate.m in Sources */,
 				BE8481481889DFFF009C21D2 /* main.m in Sources */,
+				BEDA80CE1889E203000D6023 /* GameSpriteNode.m in Sources */,
+				BEDA80D41889E226000D6023 /* BallNode.m in Sources */,
+				BEDA80D11889E216000D6023 /* WorldItemNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
