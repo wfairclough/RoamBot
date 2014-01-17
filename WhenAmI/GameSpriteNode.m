@@ -9,5 +9,4 @@
 #import "GameSpriteNode.h"
 
 @implementation GameSpriteNode
-
 @end
