@@ -9,5 +9,12 @@
 #import "BallNode.h"
 
 @implementation BallNode
-
++ (id)ballWithPosition:(CGPoint)position {
+    BallNode *node = [BallNode spriteNodeWithImageNamed:@"ball" position:position];
+    node.name = @"ball";
+    node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:node.size.width/2];
+    node.physicsBody.dynamic = NO;
+    node.physicsBody.restitution = 0.75;
+    return node;
+}
 @end

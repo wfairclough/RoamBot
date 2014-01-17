@@ -7,7 +7,8 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "LevelXmlParser.h"
 
-@interface GameScene : SKScene <UIGestureRecognizerDelegate>
+@interface GameScene : SKScene <UIGestureRecognizerDelegate, LevelSetupDelegate>
 
 @end

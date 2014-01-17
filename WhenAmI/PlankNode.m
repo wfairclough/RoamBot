@@ -9,5 +9,9 @@
 #import "PlankNode.h"
 
 @implementation PlankNode
-
++ (id)plankWithPosition:(CGPoint)position rotation:(CGFloat)degrees power:(BOOL)isPowered {
+    PlankNode *node = [PlankNode spriteNodeWithImageNamed:@"plank" position:position rotation:degrees];
+    node.name = @"plank";
+    return node;
+}
 @end

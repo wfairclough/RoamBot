@@ -9,5 +9,6 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface GameSpriteNode : SKSpriteNode
-
++ (id)spriteNodeWithImageNamed:(NSString *)name position:(CGPoint)position;
++ (id)spriteNodeWithImageNamed:(NSString *)name position:(CGPoint)position rotation:(CGFloat)degrees;
 @end
