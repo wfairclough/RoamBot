@@ -16,7 +16,7 @@
 		BE84814C1889DFFF009C21D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE84814B1889DFFF009C21D2 /* AppDelegate.m */; };
 		BE84814F1889DFFF009C21D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE84814D1889DFFF009C21D2 /* Main.storyboard */; };
 		BE8481521889DFFF009C21D2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8481511889DFFF009C21D2 /* ViewController.m */; };
-		BE8481551889DFFF009C21D2 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8481541889DFFF009C21D2 /* MyScene.m */; };
+		BE8481551889DFFF009C21D2 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8481541889DFFF009C21D2 /* GameScene.m */; };
 		BE8481571889DFFF009C21D2 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = BE8481561889DFFF009C21D2 /* Spaceship.png */; };
 		BE8481591889DFFF009C21D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE8481581889DFFF009C21D2 /* Images.xcassets */; };
 		BE8481601889DFFF009C21D2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84815F1889DFFF009C21D2 /* XCTest.framework */; };
@@ -51,8 +51,8 @@
 		BE84814E1889DFFF009C21D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE8481501889DFFF009C21D2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		BE8481511889DFFF009C21D2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		BE8481531889DFFF009C21D2 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
-		BE8481541889DFFF009C21D2 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
+		BE8481531889DFFF009C21D2 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		BE8481541889DFFF009C21D2 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		BE8481561889DFFF009C21D2 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		BE8481581889DFFF009C21D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BE84815E1889DFFF009C21D2 /* WhenAmITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhenAmITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,13 +121,15 @@
 		BE8481411889DFFF009C21D2 /* WhenAmI */ = {
 			isa = PBXGroup;
 			children = (
+				BEDA80C61889E106000D6023 /* Resources */,
+				BEDA80CB1889E146000D6023 /* GameLevels */,
+				BEDA80CA1889E141000D6023 /* GameNodes */,
+				BEDA80C91889E13B000D6023 /* GameScenes */,
 				BE84814A1889DFFF009C21D2 /* AppDelegate.h */,
 				BE84814B1889DFFF009C21D2 /* AppDelegate.m */,
 				BE84814D1889DFFF009C21D2 /* Main.storyboard */,
 				BE8481501889DFFF009C21D2 /* ViewController.h */,
 				BE8481511889DFFF009C21D2 /* ViewController.m */,
-				BE8481531889DFFF009C21D2 /* MyScene.h */,
-				BE8481541889DFFF009C21D2 /* MyScene.m */,
 				BE8481561889DFFF009C21D2 /* Spaceship.png */,
 				BE8481581889DFFF009C21D2 /* Images.xcassets */,
 				BE8481421889DFFF009C21D2 /* Supporting Files */,
@@ -162,6 +164,52 @@
 				BE8481681889DFFF009C21D2 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BEDA80C61889E106000D6023 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BEDA80C81889E114000D6023 /* Levels */,
+				BEDA80C71889E10F000D6023 /* Sounds */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		BEDA80C71889E10F000D6023 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
+		BEDA80C81889E114000D6023 /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Levels;
+			sourceTree = "<group>";
+		};
+		BEDA80C91889E13B000D6023 /* GameScenes */ = {
+			isa = PBXGroup;
+			children = (
+				BE8481531889DFFF009C21D2 /* GameScene.h */,
+				BE8481541889DFFF009C21D2 /* GameScene.m */,
+			);
+			name = GameScenes;
+			sourceTree = "<group>";
+		};
+		BEDA80CA1889E141000D6023 /* GameNodes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = GameNodes;
+			sourceTree = "<group>";
+		};
+		BEDA80CB1889E146000D6023 /* GameLevels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = GameLevels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE8481551889DFFF009C21D2 /* MyScene.m in Sources */,
+				BE8481551889DFFF009C21D2 /* GameScene.m in Sources */,
 				BE8481521889DFFF009C21D2 /* ViewController.m in Sources */,
 				BE84814C1889DFFF009C21D2 /* AppDelegate.m in Sources */,
 				BE8481481889DFFF009C21D2 /* main.m in Sources */,
@@ -476,6 +524,7 @@
 				BE8481711889DFFF009C21D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE8481721889DFFF009C21D2 /* Build configuration list for PBXNativeTarget "WhenAmITests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +533,7 @@
 				BE8481741889DFFF009C21D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
