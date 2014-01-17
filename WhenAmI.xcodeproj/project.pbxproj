@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46B04D2B1889F9C400805BE1 /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B04D2A1889F9C400805BE1 /* MenuScene.m */; };
 		BE84813A1889DFFF009C21D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8481391889DFFF009C21D2 /* Foundation.framework */; };
 		BE84813C1889DFFF009C21D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */; };
 		BE84813E1889DFFF009C21D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813D1889DFFF009C21D2 /* UIKit.framework */; };
@@ -44,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		46B04D281889F19E00805BE1 /* GameConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
+		46B04D291889F9C400805BE1 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
+		46B04D2A1889F9C400805BE1 /* MenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuScene.m; sourceTree = "<group>"; };
 		BE8481361889DFFF009C21D2 /* WhenAmI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhenAmI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8481391889DFFF009C21D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -213,6 +216,8 @@
 			children = (
 				BE8481531889DFFF009C21D2 /* GameScene.h */,
 				BE8481541889DFFF009C21D2 /* GameScene.m */,
+				46B04D291889F9C400805BE1 /* MenuScene.h */,
+				46B04D2A1889F9C400805BE1 /* MenuScene.m */,
 			);
 			name = GameScenes;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46B04D2B1889F9C400805BE1 /* MenuScene.m in Sources */,
 				BE8481551889DFFF009C21D2 /* GameScene.m in Sources */,
 				BE8481521889DFFF009C21D2 /* ViewController.m in Sources */,
 				BEDA80D71889E24D000D6023 /* PlankNode.m in Sources */,
