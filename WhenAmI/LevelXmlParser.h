@@ -17,6 +17,7 @@
 - (void) setupWorldType:(NSString*)worldType;
 
 - (void) setupPlankWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)roation  powered:(BOOL)powered;
+- (void) setupWallWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)roation  type:(int)type;
 - (void) setupBallWithXPosition:(float)x yPosition:(float)y;
 
 @end
