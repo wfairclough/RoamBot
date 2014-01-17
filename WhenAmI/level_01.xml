@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<level value="1">
+    <world type="rome">
+        <ball x="100" y="500" />
+        <plank x="100" y="200" rotation="45" powered="false" />
+        <plank x="250" y="400" rotation="65" powered="false" />
+    </world>
+</level>
