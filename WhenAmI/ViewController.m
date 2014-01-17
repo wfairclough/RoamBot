@@ -48,4 +48,11 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+/**
+ * Use this to get rid of the status bar.
+ */
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 @end
