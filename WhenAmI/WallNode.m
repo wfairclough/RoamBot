@@ -16,8 +16,9 @@
     NSString *imageName;
     imageName = [[[@"wall_" stringByAppendingString:type] stringByAppendingString:@"_"] stringByAppendingString:levelStyle];
     if (self = [super initWithImageNamed:imageName position:position allowInteraction:isInteractable rotation:degrees]) {
+        self.name = @"wall";
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
-        [[self childNodeWithName:@"bounding"] setXScale:0.8];
+        [[self childNodeWithName:@"bounding"] setXScale:2.5];
         self.physicsBody.dynamic = NO;
         self.physicsBody.restitution = 0.5;
         self.levelStyle = levelStyle;
@@ -37,7 +38,7 @@
 - (NSString *)gameNodeXml {
     CGFloat degrees = [GameSpriteNode radiansToDegrees:self.zRotation];
     NSString *interacts = (self.allowInteractions) ? @"true" : @"false";
-    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' interacts='%@' rotation='%f' levelStyle='%@' type='%@'></%@>", kWallTag, self.position.x, self.position.y, interacts ,degrees, self.levelStyle, self.imageSize, kWallTag];
+    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' interacts='%@' rotation='%f' levelStyle='%@' imageType='%@'></%@>", kWallTag, self.position.x, self.position.y, interacts ,degrees, self.levelStyle, self.imageSize, kWallTag];
 }
 
 
