@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46B04D2B1889F9C400805BE1 /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B04D2A1889F9C400805BE1 /* MenuScene.m */; };
-		46B04D31188A197600805BE1 /* CustomFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B04D30188A197600805BE1 /* CustomFadeTransition.m */; };
-		46B04D38188AA5D900805BE1 /* LogoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B04D37188AA5D900805BE1 /* LogoViewController.m */; };
+		46B04D40188AA7E800805BE1 /* CustomFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B04D3A188AA7E800805BE1 /* CustomFadeTransition.m */; };
+		46B04D41188AA7E800805BE1 /* LogoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B04D3D188AA7E800805BE1 /* LogoViewController.m */; };
 		BE12D6EA188A3099009937C9 /* LevelXmlWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE12D6E9188A3099009937C9 /* LevelXmlWriter.m */; };
 		BE84813A1889DFFF009C21D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8481391889DFFF009C21D2 /* Foundation.framework */; };
 		BE84813C1889DFFF009C21D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */; };
@@ -48,12 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		46B04D281889F19E00805BE1 /* GameConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
-		46B04D291889F9C400805BE1 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
-		46B04D2A1889F9C400805BE1 /* MenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuScene.m; sourceTree = "<group>"; };
-		46B04D2F188A197600805BE1 /* CustomFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFadeTransition.h; sourceTree = "<group>"; };
-		46B04D30188A197600805BE1 /* CustomFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFadeTransition.m; sourceTree = "<group>"; };
-		46B04D37188AA5D900805BE1 /* LogoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoViewController.m; sourceTree = "<group>"; };
+		46B04D39188AA7E800805BE1 /* CustomFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFadeTransition.h; sourceTree = "<group>"; };
+		46B04D3A188AA7E800805BE1 /* CustomFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFadeTransition.m; sourceTree = "<group>"; };
+		46B04D3B188AA7E800805BE1 /* GameConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
+		46B04D3C188AA7E800805BE1 /* LogoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoViewController.h; sourceTree = "<group>"; };
+		46B04D3D188AA7E800805BE1 /* LogoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoViewController.m; sourceTree = "<group>"; };
 		BE12D6E7188A2BAD009937C9 /* LevelXmlConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelXmlConstants.h; sourceTree = "<group>"; };
 		BE12D6E8188A3099009937C9 /* LevelXmlWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelXmlWriter.h; sourceTree = "<group>"; };
 		BE12D6E9188A3099009937C9 /* LevelXmlWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelXmlWriter.m; sourceTree = "<group>"; };
@@ -69,7 +67,6 @@
 		BE84814A1889DFFF009C21D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BE84814B1889DFFF009C21D2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BE84814E1889DFFF009C21D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BE8481501889DFFF009C21D2 /* LogoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogoViewController.h; sourceTree = "<group>"; };
 		BE8481531889DFFF009C21D2 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		BE8481541889DFFF009C21D2 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		BE8481581889DFFF009C21D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -164,12 +161,13 @@
 				BE84814A1889DFFF009C21D2 /* AppDelegate.h */,
 				BE84814B1889DFFF009C21D2 /* AppDelegate.m */,
 				BE84814D1889DFFF009C21D2 /* Main.storyboard */,
-				BE8481501889DFFF009C21D2 /* LogoViewController.h */,
-				46B04D37188AA5D900805BE1 /* LogoViewController.m */,
+				46B04D39188AA7E800805BE1 /* CustomFadeTransition.h */,
+				46B04D3A188AA7E800805BE1 /* CustomFadeTransition.m */,
+				46B04D3B188AA7E800805BE1 /* GameConstants.h */,
+				46B04D3C188AA7E800805BE1 /* LogoViewController.h */,
+				46B04D3D188AA7E800805BE1 /* LogoViewController.m */,
 				BE8481581889DFFF009C21D2 /* Images.xcassets */,
 				BE8481421889DFFF009C21D2 /* Supporting Files */,
-				46B04D2F188A197600805BE1 /* CustomFadeTransition.h */,
-				46B04D30188A197600805BE1 /* CustomFadeTransition.m */,
 			);
 			path = WhenAmI;
 			sourceTree = "<group>";
@@ -232,8 +230,6 @@
 			children = (
 				BE8481531889DFFF009C21D2 /* GameScene.h */,
 				BE8481541889DFFF009C21D2 /* GameScene.m */,
-				46B04D291889F9C400805BE1 /* MenuScene.h */,
-				46B04D2A1889F9C400805BE1 /* MenuScene.m */,
 			);
 			name = GameScenes;
 			sourceTree = "<group>";
@@ -251,7 +247,6 @@
 				BEDA80D61889E24D000D6023 /* PlankNode.m */,
 				BEDA80D81889E263000D6023 /* CollectableNode.h */,
 				BEDA80D91889E263000D6023 /* CollectableNode.m */,
-				46B04D281889F19E00805BE1 /* GameConstants.h */,
 				BEDA80E01889EBD8000D6023 /* WallNode.h */,
 				BEDA80E11889EBD8000D6023 /* WallNode.m */,
 			);
@@ -377,20 +372,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46B04D2B1889F9C400805BE1 /* MenuScene.m in Sources */,
 				BE8481551889DFFF009C21D2 /* GameScene.m in Sources */,
 				BEDA80E61889ED05000D6023 /* GamePlayer.m in Sources */,
 				BE12D6EA188A3099009937C9 /* LevelXmlWriter.m in Sources */,
 				BEDA80E21889EBD8000D6023 /* WallNode.m in Sources */,
 				BEDA80D71889E24D000D6023 /* PlankNode.m in Sources */,
+				46B04D41188AA7E800805BE1 /* LogoViewController.m in Sources */,
 				BEDA80DA1889E263000D6023 /* CollectableNode.m in Sources */,
 				BE84814C1889DFFF009C21D2 /* AppDelegate.m in Sources */,
 				BE8481481889DFFF009C21D2 /* main.m in Sources */,
 				BEDA80CE1889E203000D6023 /* GameSpriteNode.m in Sources */,
-				46B04D38188AA5D900805BE1 /* LogoViewController.m in Sources */,
 				BEDA80DD1889E2AA000D6023 /* LevelXmlParser.m in Sources */,
 				BEDA80D41889E226000D6023 /* BallNode.m in Sources */,
-				46B04D31188A197600805BE1 /* CustomFadeTransition.m in Sources */,
+				46B04D40188AA7E800805BE1 /* CustomFadeTransition.m in Sources */,
 				BEDA80D11889E216000D6023 /* WorldItemNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
