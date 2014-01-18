@@ -24,6 +24,7 @@
 #define kBallTag @"ball"
 #define kPlankTag @"plank"
 #define kWallTag @"wall"
+#define kGoalTag @"goal"
 
 
 

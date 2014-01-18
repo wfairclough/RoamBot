@@ -74,6 +74,14 @@
         if ([self.setupDelegate respondsToSelector:@selector (setupWallWithXPosition:yPosition:rotationAngle:type:)]) {
             [self.setupDelegate setupWallWithXPosition:x yPosition:y rotationAngle:rotation type:type];
         }
+    } else if ([elementName isEqualToString:kGoalTag]){
+        float x = [[attributeDict valueForKey:kXAttribute] floatValue];
+        float y = [[attributeDict valueForKey:kYAttribute] floatValue];
+        NSString* type = [attributeDict valueForKey:kTypeAttribute];
+        
+        if ([self.setupDelegate respondsToSelector:@selector (setupGoalWithXPosition:yPosition:type:)]) {
+            [self.setupDelegate setupGoalWithXPosition:x yPosition:y type:type];
+        }
     }
 
 

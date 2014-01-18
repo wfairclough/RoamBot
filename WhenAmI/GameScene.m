@@ -11,6 +11,7 @@
 #import "PlankNode.h"
 #import "LevelXmlWriter.h"
 #import "GamePlayer.h"
+#import "GoalNode.h"
 
 
 @interface GameScene()
@@ -237,6 +238,11 @@
 - (void) setupPlankWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotationAngle:(float)rotation  powered:(BOOL)powered {
     PlankNode *plank = [PlankNode plankWithPosition:CGPointMake(x, y) allowInteraction:(BOOL)isInteractable rotation:rotation power:YES];
     [self addChild:plank];
+}
+
+- (void) setupGoalWithXPosition:(float)x yPosition:(float)y type:(NSString*)type {
+    GoalNode *goal = [GoalNode goalWithPosition:CGPointMake(x, y) type:type];
+    [self addChild:goal];
 }
 
 #pragma mark - Game Logic
