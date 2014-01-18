@@ -11,7 +11,6 @@
 #import "PlankNode.h"
 #import "LevelXmlWriter.h"
 
-
 @interface GameScene()
 @property (nonatomic, strong) BallNode *ball;
 @property (nonatomic, strong) SKNode *currentlySelectedNode;
