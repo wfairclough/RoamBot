@@ -245,12 +245,19 @@
 }
 
 #pragma mark - Private
+- (void)loadLevel:(int)level {
+    static BOOL firstLoad = YES;
 
-- (void)loadLevel:(NSInteger)level {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"level_%02d", level] ofType:@"xml"];
-    
-    if (kDavMode) {
-        filePath = [NSString stringWithFormat:@"%@/level_-1.xml", [self documentDirectory]];
+    [self removeAllChildren];
+    NSString *filePath = nil;
+    if (firstLoad) {
+        filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"level_%02d", level] ofType:@"xml"];
+        firstLoad = NO;
+    } else {
+        filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"level_%02d", level] ofType:@"xml"];
+        if (kDavMode) {
+            filePath = [NSString stringWithFormat:@"%@/level_%02d.xml", [self documentDirectory], level];
+        }
     }
     
     NSData *levelData = [NSData dataWithContentsOfFile:filePath];
