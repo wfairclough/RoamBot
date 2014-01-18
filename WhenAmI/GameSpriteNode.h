@@ -8,7 +8,15 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+#define kDavMode YES
+
 @interface GameSpriteNode : SKSpriteNode
-+ (id)spriteNodeWithImageNamed:(NSString *)name position:(CGPoint)position;
-+ (id)spriteNodeWithImageNamed:(NSString *)name position:(CGPoint)position rotation:(CGFloat)degrees;
+
+@property BOOL allowInteractions;
+
++ (id)spriteNodeWithImageNamed:(NSString *)name position:(CGPoint)position allowInteraction:(BOOL)isInteractable;
++ (id)spriteNodeWithImageNamed:(NSString *)name position:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees;
+- (void)rotateByAngle:(CGFloat)rotation;
+- (BOOL)isBoundingBox;
+- (BOOL)isDavMode;
 @end

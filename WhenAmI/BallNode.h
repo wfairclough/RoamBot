@@ -9,6 +9,6 @@
 #import "WorldItemNode.h"
 
 @interface BallNode : WorldItemNode
-+ (id)ballWithPosition:(CGPoint)position;
++ (id)ballWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable;
 
 @end
