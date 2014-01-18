@@ -29,7 +29,7 @@
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
 
-        [self setBackgroundColor:[UIColor colorWithRed:196.0f/255.0f green:133.0f/255.0f blue:79.0f/255.0f alpha:1]];
+        [self setBackgroundColor:[UIColor colorWithRed:6.0f/255.0f green:80.0f/255.0f blue:112.0f/255.0f alpha:1]];
         [self.physicsWorld setContactDelegate:self];
         
         [[GameSounds sharedInstance] playLevelMusic];

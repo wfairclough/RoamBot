@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "cannon-1.png"
+      "filename" : "Cannon.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Cannon.png"
+      "filename" : "Cannon@2x.png"
     }
   ],
   "info" : {

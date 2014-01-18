@@ -14,14 +14,14 @@
 - (id) initWithPosition:(CGPoint)position rotation:(CGFloat)degrees {
     if (self = [super initWithImageNamed:@"Cannon" position:position allowInteraction:NO rotation:degrees]) {
         self.name = @"cannon";
-        self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
+        [self setAnchorPoint:CGPointMake(self.anchorPoint.x, 0.10f)];
+        self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.size.width, self.size.height * 0.4)];
         self.physicsBody.dynamic = NO;
         self.physicsBody.categoryBitMask = cannonConst;
         self.physicsBody.contactTestBitMask = cannonConst | ballConst;
         
-        [[self childNodeWithName:@"bounding"] setYScale:2.0f];
+        [[self childNodeWithName:@"bounding"] setYScale:1.0f];
         [[self childNodeWithName:@"bounding"] setXScale:2.0f];
-        [self setAnchorPoint:CGPointMake(self.anchorPoint.x, 0.0f)];
     }
     
     return self;
