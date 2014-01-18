@@ -13,23 +13,23 @@
 @implementation CollectableNode
 
 
--(id) init {
-    if (self = [super initWithImageNamed:@"energy_collectable"]) {
-        self.physicsBody.categoryBitMask = collectableConst;
-        
-        
-        // Init stuff here
-        // self.physicsBody.restitution = 1.0; // Stuff like this here but you dont need restitution for this one
-        
+- (id)initWithPosition:(CGPoint)position type:(NSString *)type {
+    if (self = [super initWithImageNamed:@"energy_collectable" position:position allowInteraction:NO]) {
+        self.name = @"collectable";
+        self.physicsBody.dynamic = NO;
     }
-    return self;
     
+    return self;
+}
+
++ (id)collectableWithPosition:(CGPoint)position type:(NSString *)type {
+    return [[CollectableNode alloc] initWithPosition:position type:type];
 }
 
 #pragma mark - XML Writer
 
 - (NSString *)gameNodeXml {
-    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f'></%@>", kCollectableTag, self.position.x, self.position.y, kCollectableTag];
+    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f'/>", kCollectableTag, self.position.x, self.position.y];
 }
 
 

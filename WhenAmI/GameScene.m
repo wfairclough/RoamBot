@@ -15,6 +15,7 @@
 #import "GamePlayer.h"
 #import "GameSounds.h"
 #import "GoalNode.h"
+#import "CollectableNode.h"
 
 
 @interface GameScene()
@@ -303,6 +304,11 @@
 - (void) setupGoalWithXPosition:(float)x yPosition:(float)y type:(NSString*)type {
     GoalNode *goal = [GoalNode goalWithPosition:CGPointMake(x, y) type:type];
     [self addChild:goal];
+}
+
+- (void) setupCollectableWithXPosition:(float)x yPosition:(float)y type:(NSString*)type {
+    CollectableNode *collectable = [CollectableNode collectableWithPosition:CGPointMake(x, y) type:type];
+    [self addChild:collectable];
 }
 
 - (void) setupCanonWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)degrees {
