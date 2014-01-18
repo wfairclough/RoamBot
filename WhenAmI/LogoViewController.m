@@ -40,8 +40,8 @@
     } else {
         // Configure the view.
         SKView * skView = (SKView *)self.view;
-        skView.showsFPS = YES;
-        skView.showsNodeCount = YES;
+        skView.showsFPS = kDavMode;
+        skView.showsNodeCount = kDavMode;
         
         // Create and configure the scene.
         SKScene * scene = [GameScene sceneWithSize:skView.bounds.size];
