@@ -23,6 +23,14 @@
         
     }
     return self;
+    
 }
+
+#pragma mark - XML Writer
+
+- (void)gameNodeXml {
+    self.xmlTag = [NSString stringWithFormat:@"\t<%@ x='%f' y='%f'></%@>", kCollectableTag, self.position.x, self.position.y, kCollectableTag];
+}
+
 
 @end
