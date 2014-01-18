@@ -8,15 +8,11 @@
 
 #import "GameSpriteNode.h"
 
-typedef enum wall_t
-{
-    small = 0,
-    medium,
-    large
-} WallType;
-
 @interface WallNode : GameSpriteNode
 
-@property WallType wallType;
+@property (nonatomic, strong) NSString *levelStyle;
+@property (nonatomic, strong) NSString *imageSize;
+
++ (id)wallWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(NSString*)type;
 
 @end

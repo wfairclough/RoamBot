@@ -9,6 +9,7 @@
 #import "GameScene.h"
 #import "BallNode.h"
 #import "PlankNode.h"
+#import "WallNode.h"
 #import "LevelXmlWriter.h"
 #import "GamePlayer.h"
 
@@ -237,6 +238,11 @@
 - (void) setupPlankWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotationAngle:(float)rotation  powered:(BOOL)powered {
     PlankNode *plank = [PlankNode plankWithPosition:CGPointMake(x, y) allowInteraction:(BOOL)isInteractable rotation:rotation power:YES];
     [self addChild:plank];
+}
+
+- (void) setupWallWithPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(NSString*)type {
+    WallNode *wall = [WallNode wallWithPosition:CGPointMake(x, y) allowInteraction:isInteractable rotation:degrees theme:levelStyle Type:type];
+    [self addChild:wall];
 }
 
 #pragma mark - Game Logic

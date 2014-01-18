@@ -12,23 +12,23 @@
 
 @implementation WallNode
 
-
--(id)initWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(WallType)type {
+-(id)initWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(NSString*)type {
     NSString *imageName;
-    if (type == small) {
-        imageName = [@"wall_small_" stringByAppendingString:levelStyle];
-    } else if (type == medium) {
-        imageName = [@"wall_medium_" stringByAppendingString:levelStyle];
-    } else if (type == large) {
-        imageName = [@"wall_large_" stringByAppendingString:levelStyle];
-    }
+    imageName = [[[@"wall_" stringByAppendingString:type] stringByAppendingString:@"_"] stringByAppendingString:levelStyle];
     if (self = [super initWithImageNamed:imageName position:position allowInteraction:isInteractable rotation:degrees]) {
+        self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
+        [[self childNodeWithName:@"bounding"] setXScale:0.8];
+        self.physicsBody.dynamic = NO;
         self.physicsBody.restitution = 0.5;
-        self.wallType = type;
+        self.levelStyle = levelStyle;
+        self.imageSize = type;
     }
     return self;
 }
 
++ (id)wallWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(NSString*)type {
+    return [[WallNode alloc ] initWithPosition:position allowInteraction:isInteractable rotation:degrees theme:levelStyle Type:type];
+}
 
 
 
@@ -36,7 +36,8 @@
 
 - (NSString *)gameNodeXml {
     CGFloat degrees = [GameSpriteNode radiansToDegrees:self.zRotation];
-    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' rotation='%f' type='%d'></%@>", kWallTag, self.position.x, self.position.y, degrees, self.wallType, kWallTag];
+    NSString *interacts = (self.allowInteractions) ? @"true" : @"false";
+    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' interacts='%@' rotation='%f' levelStyle='%@' type='%@'></%@>", kWallTag, self.position.x, self.position.y, interacts ,degrees, self.levelStyle, self.imageSize, kWallTag];
 }
 
 

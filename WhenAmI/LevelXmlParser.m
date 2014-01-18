@@ -68,11 +68,13 @@
     } else if ([elementName isEqualToString:kWallTag]){
         float x = [[attributeDict valueForKey:kXAttribute] floatValue];
         float y = [[attributeDict valueForKey:kYAttribute] floatValue];
-        int type = [[attributeDict valueForKey:kTypeAttribute] floatValue];
+        bool isInteractable = [[attributeDict valueForKey:kInteractable] boolValue];
         float rotation = [[attributeDict valueForKey:kRotationAttribute] floatValue];
+        NSString *levelTheme = [attributeDict valueForKey:kThemeAttribute];
+        NSString *type = [attributeDict valueForKey:kTypeAttribute];
         
-        if ([self.setupDelegate respondsToSelector:@selector (setupWallWithXPosition:yPosition:rotationAngle:type:)]) {
-            [self.setupDelegate setupWallWithXPosition:x yPosition:y rotationAngle:rotation type:type];
+        if ([self.setupDelegate respondsToSelector:@selector (setupWallWithPosition:yPosition:allowInteraction:rotation:theme:Type:)]) {
+            [self.setupDelegate setupWallWithPosition:x yPosition:y allowInteraction:isInteractable rotation:rotation theme:levelTheme Type:type];
         }
     }
 
