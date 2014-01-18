@@ -13,8 +13,16 @@
 @implementation WallNode
 
 
--(id)initType:(WallType)type {
-    if (self = [super initWithImageNamed:@"wall_rome"]) {
+-(id)initWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(WallType)type {
+    NSString *imageName;
+    if (type == small) {
+        imageName = [@"wall_small_" stringByAppendingString:levelStyle];
+    } else if (type == medium) {
+        imageName = [@"wall_medium_" stringByAppendingString:levelStyle];
+    } else if (type == large) {
+        imageName = [@"wall_large_" stringByAppendingString:levelStyle];
+    }
+    if (self = [super initWithImageNamed:imageName position:position allowInteraction:isInteractable rotation:degrees]) {
         self.physicsBody.restitution = 0.5;
         self.wallType = type;
     }

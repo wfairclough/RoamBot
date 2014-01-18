@@ -11,6 +11,7 @@
 typedef enum wall_t
 {
     small = 0,
+    medium,
     large
 } WallType;
 

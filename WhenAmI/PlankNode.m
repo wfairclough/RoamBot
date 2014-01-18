@@ -13,7 +13,7 @@
 @implementation PlankNode
 
 - (id)initWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees power:(BOOL)powered {
-    if (self = [super initWithImageNamed:@"plank" position:position allowInteraction:isInteractable rotation:degrees]) {
+    if (self = [super initWithImageNamed:@"plank_1" position:position allowInteraction:isInteractable rotation:degrees]) {
         self.name = @"plank";
         self.isPowered = powered;
         [[self childNodeWithName:@"bounding"] setYScale:3.0];
