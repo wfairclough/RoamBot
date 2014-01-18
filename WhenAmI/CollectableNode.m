@@ -17,6 +17,10 @@
     if (self = [super initWithImageNamed:@"energy_collectable" position:position allowInteraction:NO]) {
         self.name = @"collectable";
         self.physicsBody.dynamic = NO;
+        
+        SKAction *rotation = [SKAction rotateByAngle: M_PI*2 duration:5];
+        //and just run the action
+        [self runAction: [SKAction repeatActionForever:rotation]];
     }
     
     return self;

@@ -3,5 +3,6 @@
     <world theme="space">
         <ball x="100" y="450" interacts="true"/>
         <goal x="100" y="0" />
+        <collectable x="150" y="50" />
     </world>
 </level>
