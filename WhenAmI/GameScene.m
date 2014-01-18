@@ -58,7 +58,7 @@
 - (void) saveLevelToFile:(NSInteger)level {
     LevelXmlWriter* writer = [[LevelXmlWriter alloc] init];
     
-    [writer startXmlWithLevel:5];
+    [writer startXmlWithLevel:level];
     for (SKNode* node in self.children) {
         if ([node isKindOfClass:[GameSpriteNode class]]) {
             GameSpriteNode* gameNode = (GameSpriteNode *)node;

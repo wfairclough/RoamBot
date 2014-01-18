@@ -14,9 +14,7 @@
     //make a file name to write the data to using the documents directory:
     self.fileName = [NSString stringWithFormat:@"%@/level_%02d.xml", [self documentDirectory], level];
     
-    [self.xmlContent appendString:@"<?xml version=\"1.0\"?>"];
-    [self.xmlContent appendString:@"\t<level value='1'>"];
-    [self.xmlContent appendString:@"\t\t<world type='rome'>"];
+    self.xmlContent = @"<?xml version=\"1.0\"?>\n<level value='1'>\n\t<world type='rome'>\n";
     
     NSLog(@"%@\nStart XML Tag", self.fileName);
 }
@@ -24,7 +22,8 @@
 
 - (void) addXmlTagWithGameNode:(GameSpriteNode *)node {
     
-    [self.xmlContent appendString:[NSString stringWithFormat:@"\t%@", node.xmlTag]];
+    self.xmlContent = [NSString stringWithFormat:@"%@\t\t%@\n", self.xmlContent, node.xmlTag];
+    
     
     NSLog(@"ADD: %@", node.xmlTag);
 }
@@ -34,13 +33,11 @@
 
     NSLog(@"End XML Tag");
     
-    [self.xmlContent appendString:@"\t\t</world>"];
-    [self.xmlContent appendString:@"\t</level>"];
+    self.xmlContent = [NSString stringWithFormat:@"%@%@", self.xmlContent, @"\t</world>\n</level>\n"];
     
     NSError* error = nil;
     
-    NSString* content = [NSString stringWithFormat:@"%@", self.xmlContent];
-    [content writeToFile:self.fileName
+    [self.xmlContent writeToFile:self.fileName
               atomically:YES
                 encoding:NSUTF8StringEncoding
                    error:&error];
