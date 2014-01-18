@@ -14,6 +14,7 @@
 #import "LevelXmlWriter.h"
 #import "GamePlayer.h"
 #import "GameSounds.h"
+#import "GoalNode.h"
 
 
 @interface GameScene()
@@ -276,6 +277,11 @@
 - (void) setupWallWithPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(NSString*)type {
     WallNode *wall = [WallNode wallWithPosition:CGPointMake(x, y) allowInteraction:isInteractable rotation:degrees theme:levelStyle Type:type];
     [self addChild:wall];
+}
+    
+- (void) setupGoalWithXPosition:(float)x yPosition:(float)y type:(NSString*)type {
+    GoalNode *goal = [GoalNode goalWithPosition:CGPointMake(x, y) type:type];
+    [self addChild:goal];
 }
 
 - (void) setupCanonWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)degrees {

@@ -320,6 +320,8 @@
 				BEDA80E11889EBD8000D6023 /* WallNode.m */,
 				BE12D701188AFEE5009937C9 /* CannonNode.h */,
 				BE12D702188AFEE5009937C9 /* CannonNode.m */,
+				46BAB4E7188AFFD200C5518F /* GoalNode.h */,
+				46BAB4E8188AFFD200C5518F /* GoalNode.m */,
 			);
 			name = GameNodes;
 			sourceTree = "<group>";

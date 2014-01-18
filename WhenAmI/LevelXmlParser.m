@@ -84,11 +84,13 @@
         if ([self.setupDelegate respondsToSelector:@selector (setupCanonWithXPosition:yPosition:rotationAngle:)]) {
             [self.setupDelegate setupCanonWithXPosition:x yPosition:y rotationAngle:rotation];
         }
+        
     } else if ([elementName isEqualToString:kGoalTag]){
         float x = [[attributeDict valueForKey:kXAttribute] floatValue];
         float y = [[attributeDict valueForKey:kYAttribute] floatValue];
         NSString* type = [attributeDict valueForKey:kTypeAttribute];
         
+
         if ([self.setupDelegate respondsToSelector:@selector (setupGoalWithXPosition:yPosition:type:)]) {
             [self.setupDelegate setupGoalWithXPosition:x yPosition:y type:type];
         }
