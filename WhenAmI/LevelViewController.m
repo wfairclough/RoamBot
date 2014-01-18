@@ -34,7 +34,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
+    BOOL icon1Enabled = false;
+    BOOL icon2Enabled = false;
+    BOOL icon3Enabled = false;
+    
     int level = [[[GamePlayer sharedInstance] currentLevel] intValue];
+    
+    //TODO: HARD CODED TO TEST LEVEL DISABLE
+    level++;
     
     //TODO: hard coded until we have level select implemented properly with GamePlayer settings
     [self.level1Btn addTarget:self action:@selector(levelPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -42,23 +49,47 @@
     [self.level3Btn addTarget:self action:@selector(levelPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     
+    NSString *btn1ImageName;
+    NSString *btn2ImageName;
+    NSString *btn3ImageName;
     
     [self.level1Btn setTag:((self.index * 3) + 1)];
     [self.level2Btn setTag:((self.index * 3) + 2)];
     [self.level3Btn setTag:((self.index * 3) + 3)];
     
+    if(self.level1Btn.tag > level) {
+        btn1ImageName = [NSString stringWithFormat:@"menu_button_%d_off", self.index];
+        icon1Enabled = false;
+    } else {
+        btn1ImageName = [NSString stringWithFormat:@"menu_button_%d_%d", self.index, [self.level1Btn tag]];
+        icon1Enabled = true;
+    }
     
-    NSString *btn1ImageName = [NSString stringWithFormat:@"menu_button_%d_%d", self.index, [self.level1Btn tag]];
-    NSString *btn2ImageName = [NSString stringWithFormat:@"menu_button_%d_%d", self.index, [self.level2Btn tag]];
-    NSString *btn3ImageName = [NSString stringWithFormat:@"menu_button_%d_%d", self.index, [self.level3Btn tag]];
+    
+    if(self.level2Btn.tag > level) {
+        btn2ImageName = [NSString stringWithFormat:@"menu_button_%d_off", self.index];
+        icon2Enabled = false;
+    } else {
+        btn2ImageName = [NSString stringWithFormat:@"menu_button_%d_%d", self.index, [self.level2Btn tag]];
+        icon2Enabled = true;
+    }
+    
+    
+    if(self.level3Btn.tag > level) {
+        btn3ImageName = [NSString stringWithFormat:@"menu_button_%d_off", self.index];
+        icon3Enabled = false;
+    } else {
+        btn3ImageName = [NSString stringWithFormat:@"menu_button_%d_%d", self.index, [self.level3Btn tag]];
+        icon3Enabled = true;
+    }
+
+    [self.level1Btn setEnabled:icon1Enabled];
+    [self.level2Btn setEnabled:icon2Enabled];
+    [self.level3Btn setEnabled:icon3Enabled];
     
     [self.level1Btn setImage:[UIImage imageNamed:btn1ImageName] forState:UIControlStateNormal];
     [self.level2Btn setImage:[UIImage imageNamed:btn2ImageName] forState:UIControlStateNormal];
     [self.level3Btn setImage:[UIImage imageNamed:btn3ImageName] forState:UIControlStateNormal];
-    
-    
-//    [self.birdButton setImage:bird forState:UIControlStateNormal]; //change state for highlighted
-    
     
 }
 
