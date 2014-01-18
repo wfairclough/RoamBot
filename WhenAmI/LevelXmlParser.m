@@ -60,9 +60,10 @@
         bool isInteractable = [[attributeDict valueForKey:kInteractable] boolValue];
         float rotation = [[attributeDict valueForKey:kRotationAttribute] floatValue];
         BOOL powered = [[attributeDict valueForKey:kPoweredAttribute] boolValue];
+        NSString* theme = [attributeDict valueForKey:kThemeAttribute];
         
-        if ([self.setupDelegate respondsToSelector:@selector (setupPlankWithXPosition:yPosition:allowInteraction:rotationAngle:powered:)]) {
-            [self.setupDelegate setupPlankWithXPosition:x yPosition:y allowInteraction:isInteractable rotationAngle:rotation powered:powered];
+        if ([self.setupDelegate respondsToSelector:@selector (setupPlankWithXPosition:yPosition:allowInteraction:rotationAngle:powered:theme:)]) {
+            [self.setupDelegate setupPlankWithXPosition:x yPosition:y allowInteraction:isInteractable rotationAngle:rotation powered:powered theme:theme];
         }
         
     } else if ([elementName isEqualToString:kWallTag]){
@@ -70,11 +71,11 @@
         float y = [[attributeDict valueForKey:kYAttribute] floatValue];
         bool isInteractable = [[attributeDict valueForKey:kInteractable] boolValue];
         float rotation = [[attributeDict valueForKey:kRotationAttribute] floatValue];
-        NSString *levelTheme = [attributeDict valueForKey:kThemeAttribute];
+        NSString *theme = [attributeDict valueForKey:kThemeAttribute];
         NSString *type = [attributeDict valueForKey:kTypeAttribute];
         
         if ([self.setupDelegate respondsToSelector:@selector (setupWallWithPosition:yPosition:allowInteraction:rotation:theme:Type:)]) {
-            [self.setupDelegate setupWallWithPosition:x yPosition:y allowInteraction:isInteractable rotation:rotation theme:levelTheme Type:type];
+            [self.setupDelegate setupWallWithPosition:x yPosition:y allowInteraction:isInteractable rotation:rotation theme:theme Type:type];
         }
     } else if ([elementName isEqualToString:kCannonTag]){
         float x = [[attributeDict valueForKey:kXAttribute] floatValue];
