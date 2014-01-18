@@ -11,6 +11,6 @@
 #import "LevelXmlParser.h"
 #import "GameConstants.h"
 
-@interface GameScene : SKScene <UIGestureRecognizerDelegate, LevelSetupDelegate>
+@interface GameScene : SKScene <UIGestureRecognizerDelegate, LevelSetupDelegate, SKPhysicsContactDelegate>
 
 @end

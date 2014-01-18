@@ -19,6 +19,10 @@
 - (void) setupPlankWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotationAngle:(float)rotation  powered:(BOOL)powered;
 - (void) setupBallWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable;
 - (void) setupWallWithPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(NSString*)type;
+- (void) setupCanonWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)degrees;
+
+
+
 
 @end
 

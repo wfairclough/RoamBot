@@ -25,6 +25,7 @@
 #define kBallTag @"ball"
 #define kPlankTag @"plank"
 #define kWallTag @"wall"
+#define kCannonTag @"cannon"
 
 
 

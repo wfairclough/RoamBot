@@ -10,6 +10,7 @@
 #import "BallNode.h"
 #import "PlankNode.h"
 #import "WallNode.h"
+#import "CannonNode.h"
 #import "LevelXmlWriter.h"
 #import "GamePlayer.h"
 #import "GameSounds.h"
@@ -26,6 +27,9 @@
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
+
+        [self setBackgroundColor:[UIColor colorWithRed:196.0f/255.0f green:133.0f/255.0f blue:79.0f/255.0f alpha:1]];
+        [self.physicsWorld setContactDelegate:self];
         
         [[GameSounds sharedInstance] playLevelMusic];
         
@@ -229,6 +233,18 @@
     }
 }
 
+
+#pragma mark - Contact Delegate
+
+- (void)didBeginContact:(SKPhysicsContact *)contact {
+//    NSLog(@"%@", contact.bodyA.node.name);
+}
+
+- (void)didEndContact:(SKPhysicsContact *)contact {
+    
+}
+
+
 #pragma mark - Level Setup
 - (void) setupBallWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable {
     self.ball = [BallNode ballWithPosition:CGPointMake(x, y) allowInteraction:isInteractable];
@@ -243,6 +259,11 @@
 - (void) setupWallWithPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(NSString*)type {
     WallNode *wall = [WallNode wallWithPosition:CGPointMake(x, y) allowInteraction:isInteractable rotation:degrees theme:levelStyle Type:type];
     [self addChild:wall];
+}
+
+- (void) setupCanonWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)degrees {
+    CannonNode* canon = [CannonNode canonWithPosition:CGPointMake(x, y) rotation:degrees];
+    [self addChild:canon];
 }
 
 #pragma mark - Game Logic

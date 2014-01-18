@@ -76,6 +76,14 @@
         if ([self.setupDelegate respondsToSelector:@selector (setupWallWithPosition:yPosition:allowInteraction:rotation:theme:Type:)]) {
             [self.setupDelegate setupWallWithPosition:x yPosition:y allowInteraction:isInteractable rotation:rotation theme:levelTheme Type:type];
         }
+    } else if ([elementName isEqualToString:kCannonTag]){
+        float x = [[attributeDict valueForKey:kXAttribute] floatValue];
+        float y = [[attributeDict valueForKey:kYAttribute] floatValue];
+        float rotation = [[attributeDict valueForKey:kRotationAttribute] floatValue];
+        
+        if ([self.setupDelegate respondsToSelector:@selector (setupCanonWithXPosition:yPosition:rotationAngle:)]) {
+            [self.setupDelegate setupCanonWithXPosition:x yPosition:y rotationAngle:rotation];
+        }
     }
 
 

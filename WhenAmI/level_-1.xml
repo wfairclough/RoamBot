@@ -2,5 +2,6 @@
 <level value="1">
     <world type="space">
         <ball x="100" y="450" interacts="true"/>
+        <cannon x="200" y="200" rotation="45"/>
     </world>
 </level>

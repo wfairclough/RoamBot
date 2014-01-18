@@ -19,6 +19,8 @@
         self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
         self.physicsBody.dynamic = NO;
         self.physicsBody.restitution = 0.75;
+        self.physicsBody.categoryBitMask = ballConst;
+        self.physicsBody.contactTestBitMask =  ballConst | cannonConst;
     }
     
     return self;
