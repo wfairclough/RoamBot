@@ -7,21 +7,7 @@
 //
 
 #import "LevelXmlParser.h"
-
-
-#define kLevelTag @"level"
-#define kWorldTag @"world"
-#define kValueAttribute @"value"
-#define kTypeAttribute @"value"
-#define kXAttribute @"x"
-#define kYAttribute @"y"
-#define kRotationAttribute @"rotation"
-#define kPoweredAttribute @"powered"
-
-#define kBallTag @"ball"
-#define kPlankTag @"plank"
-#define kDrumTag @"drum"
-
+#import "LevelXmlConstants.h"
 
 #pragma mark - Private Methods
 
@@ -62,24 +48,36 @@
     } else if ([elementName isEqualToString:kBallTag]){
         float x = [[attributeDict valueForKey:kXAttribute] floatValue];
         float y = [[attributeDict valueForKey:kYAttribute] floatValue];
+        bool isInteractable = [[attributeDict valueForKey:kInteractable] boolValue];
         
-        if ([self.setupDelegate respondsToSelector:@selector (setupBallWithXPosition:yPosition:)]) {
-            [self.setupDelegate setupBallWithXPosition:x yPosition:y];
+        if ([self.setupDelegate respondsToSelector:@selector (setupBallWithXPosition:yPosition:allowInteraction:)]) {
+            [self.setupDelegate setupBallWithXPosition:x yPosition:y allowInteraction:isInteractable];
         }
         
     } else if ([elementName isEqualToString:kPlankTag]){
         float x = [[attributeDict valueForKey:kXAttribute] floatValue];
         float y = [[attributeDict valueForKey:kYAttribute] floatValue];
+        bool isInteractable = [[attributeDict valueForKey:kInteractable] boolValue];
         float rotation = [[attributeDict valueForKey:kRotationAttribute] floatValue];
         BOOL powered = [[attributeDict valueForKey:kPoweredAttribute] boolValue];
         
-        if ([self.setupDelegate respondsToSelector:@selector (setupPlankWithXPosition:yPosition:rotationAngle:powered:)]) {
-            [self.setupDelegate setupPlankWithXPosition:x yPosition:y rotationAngle:rotation powered:powered];
+        if ([self.setupDelegate respondsToSelector:@selector (setupPlankWithXPosition:yPosition:allowInteraction:rotationAngle:powered:)]) {
+            [self.setupDelegate setupPlankWithXPosition:x yPosition:y allowInteraction:isInteractable rotationAngle:rotation powered:powered];
+        }
+        
+    } else if ([elementName isEqualToString:kWallTag]){
+        float x = [[attributeDict valueForKey:kXAttribute] floatValue];
+        float y = [[attributeDict valueForKey:kYAttribute] floatValue];
+        int type = [[attributeDict valueForKey:kTypeAttribute] floatValue];
+        float rotation = [[attributeDict valueForKey:kRotationAttribute] floatValue];
+        
+        if ([self.setupDelegate respondsToSelector:@selector (setupWallWithXPosition:yPosition:rotationAngle:type:)]) {
+            [self.setupDelegate setupWallWithXPosition:x yPosition:y rotationAngle:rotation type:type];
         }
     }
-    
-    
-    
+
+
+
     [self.currentStringValue setString:@""];
 }
 

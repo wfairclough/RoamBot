@@ -8,9 +8,13 @@
 
 #import "GameScene.h"
 #import "BallNode.h"
+#import "PlankNode.h"
+#import "LevelXmlWriter.h"
+
 
 @interface GameScene()
 @property (nonatomic, strong) BallNode *ball;
+@property (nonatomic, strong) SKNode *currentlySelectedNode;
 @end
 
 @implementation GameScene
@@ -33,27 +37,78 @@
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     [self.view addGestureRecognizer:panGestureRecognizer];
     
+    
+    LevelXmlWriter* writer = [[LevelXmlWriter alloc] init];
+    
+    [writer startXmlWithLevel:5];
+    for (SKNode* node in self.children) {
+        if ([node isKindOfClass:[GameSpriteNode class]]) {
+            GameSpriteNode* gameNode = (GameSpriteNode *)node;
+            [writer addXmlTagWithGameNode:gameNode];
+        }
+    }
+    [writer endXml];
+    
 }
 
 #pragma mark - Gesture Handling
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.currentlySelectedNode = [self nodeAtPoint:[self convertPointFromView:[[touches anyObject] locationInView:self.view]]];
+    NSLog(@"Tap Gesture Began - %@", self.currentlySelectedNode);
+}
+
 - (void)handleRotation:(UIRotationGestureRecognizer*)sender {
-    NSLog(@"Rotate");
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        self.currentlySelectedNode = [self nodeAtPoint:[self convertPointFromView:[sender locationInView:self.view]]];
+    } else if (sender.state == UIGestureRecognizerStateChanged) {
+        if ([self.currentlySelectedNode respondsToSelector:@selector(rotateByAngle:)]) {
+            GameSpriteNode* boundingBoxNode = (GameSpriteNode *)self.currentlySelectedNode;
+            if (boundingBoxNode.isBoundingBox) {
+                GameSpriteNode* currentGameNode = (GameSpriteNode *)boundingBoxNode.parent;
+                [currentGameNode rotateByAngle:[sender rotation]];
+                [sender setRotation:0.0];
+            }
+        }
+    } else if (sender.state == UIGestureRecognizerStateEnded) {
+        
+    }
 }
 
 - (void)handleOneFingerTap:(UITapGestureRecognizer*)sender {
-    NSLog(@"1 Finger");
-    self.ball.physicsBody.dynamic = YES;
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        self.ball.physicsBody.dynamic = YES;
+    }
 }
 
 - (void)handlePan:(UIPanGestureRecognizer*)sender {
-    NSLog(@"Pan");
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        
+    } else if (sender.state == UIGestureRecognizerStateChanged) {
+        if ([self.currentlySelectedNode respondsToSelector:@selector(rotateByAngle:)]) {
+            GameSpriteNode* boundingBoxNode = (GameSpriteNode *)self.currentlySelectedNode;
+            if (boundingBoxNode.isBoundingBox) {
+                GameSpriteNode* currentGameNode = (GameSpriteNode *)boundingBoxNode.parent;
+                CGPoint pos = CGPointMake((currentGameNode.position.x + [sender translationInView:self.view].x), (currentGameNode.position.y - [sender translationInView:self.view].y));
+                [currentGameNode setPosition:pos];
+                [sender setTranslation:CGPointMake(0.0, 0.0) inView:self.view];
+                
+            }
+        }
+    } else if (sender.state == UIGestureRecognizerStateEnded) {
+        
+    }
 }
 
 #pragma mark - Level Setup
-- (void) setupBallWithXPosition:(float)x yPosition:(float)y {
-    self.ball = [BallNode ballWithPosition:CGPointMake(x, y)];
+- (void) setupBallWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable {
+    self.ball = [BallNode ballWithPosition:CGPointMake(x, y) allowInteraction:isInteractable];
     [self addChild:self.ball];
+}
+
+- (void) setupPlankWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotationAngle:(float)rotation  powered:(BOOL)powered {
+    PlankNode *plank = [PlankNode plankWithPosition:CGPointMake(x, y) allowInteraction:(BOOL)isInteractable rotation:rotation power:YES];
+    [self addChild:plank];
 }
 
 #pragma mark - Game Logic

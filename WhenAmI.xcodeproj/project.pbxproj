@@ -32,6 +32,8 @@
 		BEDA80DA1889E263000D6023 /* CollectableNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDA80D91889E263000D6023 /* CollectableNode.m */; };
 		BEDA80DD1889E2AA000D6023 /* LevelXmlParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDA80DC1889E2AA000D6023 /* LevelXmlParser.m */; };
 		BEDA80DF1889E820000D6023 /* level_01.xml in Resources */ = {isa = PBXBuildFile; fileRef = BEDA80DE1889E820000D6023 /* level_01.xml */; };
+		BEDA80E21889EBD8000D6023 /* WallNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDA80E11889EBD8000D6023 /* WallNode.m */; };
+		BEDA80E61889ED05000D6023 /* GamePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDA80E51889ED05000D6023 /* GamePlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,10 @@
 		BEDA80DB1889E2AA000D6023 /* LevelXmlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelXmlParser.h; sourceTree = "<group>"; };
 		BEDA80DC1889E2AA000D6023 /* LevelXmlParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelXmlParser.m; sourceTree = "<group>"; };
 		BEDA80DE1889E820000D6023 /* level_01.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_01.xml; sourceTree = "<group>"; };
+		BEDA80E01889EBD8000D6023 /* WallNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallNode.h; sourceTree = "<group>"; };
+		BEDA80E11889EBD8000D6023 /* WallNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallNode.m; sourceTree = "<group>"; };
+		BEDA80E41889ED05000D6023 /* GamePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayer.h; sourceTree = "<group>"; };
+		BEDA80E51889ED05000D6023 /* GamePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,7 @@
 			children = (
 				BEDA80C61889E106000D6023 /* Resources */,
 				BEDA80CB1889E146000D6023 /* GameLevels */,
+				BEDA80E31889EC98000D6023 /* GamePlayer */,
 				BEDA80C91889E13B000D6023 /* GameScenes */,
 				BEDA80CA1889E141000D6023 /* GameNodes */,
 				BE84814A1889DFFF009C21D2 /* AppDelegate.h */,
@@ -250,8 +257,20 @@
 			children = (
 				BEDA80DB1889E2AA000D6023 /* LevelXmlParser.h */,
 				BEDA80DC1889E2AA000D6023 /* LevelXmlParser.m */,
+				BE12D6E7188A2BAD009937C9 /* LevelXmlConstants.h */,
+				BE12D6E8188A3099009937C9 /* LevelXmlWriter.h */,
+				BE12D6E9188A3099009937C9 /* LevelXmlWriter.m */,
 			);
 			name = GameLevels;
+			sourceTree = "<group>";
+		};
+		BEDA80E31889EC98000D6023 /* GamePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				BEDA80E41889ED05000D6023 /* GamePlayer.h */,
+				BEDA80E51889ED05000D6023 /* GamePlayer.m */,
+			);
+			name = GamePlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

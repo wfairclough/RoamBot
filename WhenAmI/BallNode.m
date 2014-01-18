@@ -7,14 +7,34 @@
 //
 
 #import "BallNode.h"
+#import "LevelXmlConstants.h"
+
 
 @implementation BallNode
-+ (id)ballWithPosition:(CGPoint)position {
-    BallNode *node = [BallNode spriteNodeWithImageNamed:@"ball" position:position];
-    node.name = @"ball";
-    node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:node.size.width/2];
-    node.physicsBody.dynamic = NO;
-    node.physicsBody.restitution = 0.75;
-    return node;
+
+- (id) initWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable {
+    if (self = [super initWithImageNamed:@"ball" position:position allowInteraction:isInteractable]) {
+        self.name = @"ball";
+        self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
+        self.physicsBody.dynamic = NO;
+        self.physicsBody.restitution = 0.75;
+        [self gameNodeXml];
+    }
+    
+    return self;
 }
+
++ (id)ballWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable {
+    return [[BallNode alloc] initWithPosition:position allowInteraction:isInteractable];
+}
+
+
+
+#pragma mark - XML Writer
+
+- (void)gameNodeXml {
+    self.xmlTag = [NSString stringWithFormat:@"\t<%@ x='%f' y='%f'></%@>", kBallTag, self.position.x, self.position.y, kBallTag];
+}
+
+
 @end

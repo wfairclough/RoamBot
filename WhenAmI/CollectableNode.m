@@ -7,6 +7,8 @@
 //
 
 #import "CollectableNode.h"
+#import "LevelXmlConstants.h"
+
 
 @implementation CollectableNode
 

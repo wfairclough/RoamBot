@@ -16,8 +16,9 @@
 - (void) setupLevelNumber:(NSInteger)levelNum;
 - (void) setupWorldType:(NSString*)worldType;
 
-- (void) setupPlankWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)roation  powered:(BOOL)powered;
-- (void) setupBallWithXPosition:(float)x yPosition:(float)y;
+- (void) setupPlankWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotationAngle:(float)rotation  powered:(BOOL)powered;
+- (void) setupWallWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)rotation type:(int)type;
+- (void) setupBallWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable;
 
 @end
 
