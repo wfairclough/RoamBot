@@ -37,7 +37,12 @@
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     [self.view addGestureRecognizer:panGestureRecognizer];
     
-    
+}
+
+
+#pragma mark - Level Writer
+
+- (void) saveLevelToFile:(NSInteger)level {
     LevelXmlWriter* writer = [[LevelXmlWriter alloc] init];
     
     [writer startXmlWithLevel:5];
@@ -48,7 +53,6 @@
         }
     }
     [writer endXml];
-    
 }
 
 #pragma mark - Gesture Handling
