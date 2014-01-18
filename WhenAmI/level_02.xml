@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<level value='1'>
+	<world type='rome'>
+			<ball x='121.000404' y='461.000885'></ball>
+			<plank x='223.500320' y='58.500175' interacts='true' rotation='85.666519'></plank>
+			<plank x='304.000427' y='204.000412' interacts='true' rotation='0.000000'></plank>
+			<plank x='110.000137' y='130.000153' interacts='true' rotation='-49.608688'></plank>
+	</world>
+</level>

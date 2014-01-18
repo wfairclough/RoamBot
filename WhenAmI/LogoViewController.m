@@ -26,15 +26,13 @@
         
         UIImage *gameLogo = [UIImage imageNamed: @"ball"];
         
+        // chickenwaffle Logo
         dispatch_time_t logoDelay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(logoDelay, dispatch_get_main_queue(), ^(void){
             [self.imageView setImage:gameLogo];
         });
         
-        /* TODO:
-         * FIX PAGE SCROLLING
-         */
-        
+        // Game Logo
         dispatch_time_t gameLogoDelay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds2 * NSEC_PER_SEC));
         dispatch_after(gameLogoDelay, dispatch_get_main_queue(), ^(void){
             [self performSegueWithIdentifier:@"LogoToWorldTransition" sender:self];

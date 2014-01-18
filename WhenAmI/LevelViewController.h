@@ -15,8 +15,10 @@
 @property (nonatomic, weak) id <GameLoaderDelegate> delegate;
 
 @property (assign, nonatomic) NSInteger index;
-@property (strong, nonatomic) IBOutlet UILabel *screenNumber;
+//@property (strong, nonatomic) IBOutlet UILabel *screenNumber;
 
-@property (weak, nonatomic) IBOutlet UIButton *birdButton;
+@property (weak, nonatomic) IBOutlet UIButton *level1Btn;
+@property (weak, nonatomic) IBOutlet UIButton *level2Btn;
+@property (weak, nonatomic) IBOutlet UIButton *level3Btn;
 
 @end

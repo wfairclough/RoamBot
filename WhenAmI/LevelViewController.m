@@ -8,6 +8,8 @@
 
 #import "LevelViewController.h"
 #import "GameScene.h"
+#import "GamePlayer.h"
+
 
 @interface LevelViewController ()
 
@@ -32,36 +34,39 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    self.screenNumber.text = [NSString stringWithFormat:@"WORLD #%d", self.index];
+    int level = [[[GamePlayer sharedInstance] currentLevel] intValue];
     
     //TODO: hard coded until we have level select implemented properly with GamePlayer settings
-    if(self.index != 1) {
-//        [self.W1L1 setBackgroundColor:[UIColor darkGrayColor]];
-    }
-    
-//    UIImageView *t = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"test"]];
-//    [self.W1L1 setUserInteractionEnabled:YES];
+    [self.level1Btn addTarget:self action:@selector(levelPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.level2Btn addTarget:self action:@selector(levelPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.level3Btn addTarget:self action:@selector(levelPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     
-//    SEL setErrorSelector = sel_registerName("setError:");
     
-//    UITapGestureRecognizer *tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(levelPressed:)];
-//    
-//    [self.W1L1 addGestureRecognizer:tapper];
+    [self.level1Btn setTag:((self.index * 3) + 1)];
+    [self.level2Btn setTag:((self.index * 3) + 2)];
+    [self.level3Btn setTag:((self.index * 3) + 3)];
     
-    UIImage *bird = [UIImage imageNamed:@"hipwoodbird"];
     
-    [self.birdButton setImage:bird forState:UIControlStateNormal]; //change state for highlighted
-    [self.birdButton addTarget:self action:@selector(levelPressed:) forControlEvents:UIControlEventTouchUpInside];
+    NSString *btn1ImageName = [NSString stringWithFormat:@"menu_button_%d_%d", self.index, [self.level1Btn tag]];
+    NSString *btn2ImageName = [NSString stringWithFormat:@"menu_button_%d_%d", self.index, [self.level2Btn tag]];
+    NSString *btn3ImageName = [NSString stringWithFormat:@"menu_button_%d_%d", self.index, [self.level3Btn tag]];
+    
+    [self.level1Btn setImage:[UIImage imageNamed:btn1ImageName] forState:UIControlStateNormal];
+    [self.level2Btn setImage:[UIImage imageNamed:btn2ImageName] forState:UIControlStateNormal];
+    [self.level3Btn setImage:[UIImage imageNamed:btn3ImageName] forState:UIControlStateNormal];
+    
+    
+//    [self.birdButton setImage:bird forState:UIControlStateNormal]; //change state for highlighted
+    
     
 }
 
 // Load SpriteKit View
 - (IBAction)levelPressed:(UIButton *)sender {
-    // Configure the view.
-    
-//    sender.tag
-    [self.delegate playLevel:-1];
+    NSLog(@"Tag: %d", sender.tag);
+    [[GamePlayer sharedInstance] setSelectedLevel:[NSNumber numberWithInteger:sender.tag]];
+    [self.delegate playLevel:[sender tag]];
     
 }
 
