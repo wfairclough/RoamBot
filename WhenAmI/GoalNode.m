@@ -12,9 +12,14 @@
 @implementation GoalNode
 
 - (id)initWithPosition:(CGPoint)position type:(NSString *)type {
-    if (self = [super initWithImageNamed:@"goal" position:position allowInteraction:NO]) {
+    if (self = [super initWithImageNamed:@"world_2_goal" position:position allowInteraction:NO]) {
         self.name = @"goal";
+        [self setAnchorPoint:CGPointMake(self.anchorPoint.x, 0.0f)];
+        self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;
+        self.physicsBody.categoryBitMask = goalConst;
+        self.physicsBody.contactTestBitMask = goalConst | ballConst;
+
     }
     
     return self;
@@ -22,6 +27,14 @@
 
 + (id)goalWithPosition:(CGPoint)position type:(NSString *)type {
     return [[GoalNode alloc] initWithPosition:position type:type];
+}
+
+- (void)contactWithBall {
+    NSLog(@"CONTACT WITH BALL");
+    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.size.width, self.size.height * 0.2)];
+    self.physicsBody.dynamic = NO;
+    self.physicsBody.contactTestBitMask ^= ballConst;
+    [self setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"world_2_base"]]];
 }
 
 

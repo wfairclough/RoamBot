@@ -6,11 +6,12 @@
 //  Copyright (c) 2014 Chicken Waffle. All rights reserved.
 //
 
-#import "GameSpriteNode.h"
+#import "WorldItemNode.h"
 #import "GameConstants.h"
 
-@interface GoalNode : GameSpriteNode
+@interface GoalNode : WorldItemNode
 
 + (id)goalWithPosition:(CGPoint)position type:(NSString *)type;
+- (void)contactWithBall;
 
 @end

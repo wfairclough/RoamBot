@@ -21,6 +21,7 @@
 - (void) setupWallWithPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(NSString*)type;
 - (void) setupGoalWithXPosition:(float)x yPosition:(float)y type:(NSString *)type;
 - (void) setupCanonWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)degrees;
+- (void) setupCollectableWithXPosition:(float)x yPosition:(float)y type:(NSString*)type;
 
 
 

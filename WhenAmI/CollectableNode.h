@@ -11,4 +11,6 @@
 
 @interface CollectableNode : GameSpriteNode
 
++ (id)collectableWithPosition:(CGPoint)position type:(NSString *)type;
+
 @end

@@ -15,6 +15,7 @@
 #import "GamePlayer.h"
 #import "GameSounds.h"
 #import "GoalNode.h"
+#import "CollectableNode.h"
 
 
 @interface GameScene()
@@ -255,7 +256,22 @@
 #pragma mark - Contact Delegate
 
 - (void)didBeginContact:(SKPhysicsContact *)contact {
-//    NSLog(@"%@", contact.bodyA.node.name);
+    
+    uint32_t collision = (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask);
+    
+    if (collision == (goalConst | ballConst)) {
+        GoalNode *goal;
+        
+        if ([contact.bodyA.node.name isEqualToString:@"goal"])
+        {
+            goal = (GoalNode*)contact.bodyA.node;
+            [goal contactWithBall];
+        } else {
+            goal = (GoalNode*)contact.bodyB.node;
+        }
+        return;
+    }
+    
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact {
@@ -282,6 +298,11 @@
 - (void) setupGoalWithXPosition:(float)x yPosition:(float)y type:(NSString*)type {
     GoalNode *goal = [GoalNode goalWithPosition:CGPointMake(x, y) type:type];
     [self addChild:goal];
+}
+
+- (void) setupCollectableWithXPosition:(float)x yPosition:(float)y type:(NSString*)type {
+    CollectableNode *collectable = [CollectableNode collectableWithPosition:CGPointMake(x, y) type:type];
+    [self addChild:collectable];
 }
 
 - (void) setupCanonWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)degrees {

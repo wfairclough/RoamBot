@@ -94,6 +94,15 @@
         if ([self.setupDelegate respondsToSelector:@selector (setupGoalWithXPosition:yPosition:type:)]) {
             [self.setupDelegate setupGoalWithXPosition:x yPosition:y type:type];
         }
+    } else if ([elementName isEqualToString:kCollectableTag]){
+        float x = [[attributeDict valueForKey:kXAttribute] floatValue];
+        float y = [[attributeDict valueForKey:kYAttribute] floatValue];
+        NSString* type = [attributeDict valueForKey:kTypeAttribute];
+        
+        
+        if ([self.setupDelegate respondsToSelector:@selector (setupCollectableWithXPosition:yPosition:type:)]) {
+            [self.setupDelegate setupCollectableWithXPosition:x yPosition:y type:type];
+        }
     }
 
 
