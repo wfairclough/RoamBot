@@ -124,8 +124,10 @@
         if (kDavMode) {
             if ([self.currentlySelectedNode.name  isEqualToString:@"label"]) {
                 SKLabelNode *label = (SKLabelNode*)self.currentlySelectedNode;
-                if ([label.text  isEqualToString:@"B"]) {
-                    [self addChild:[BallNode ballWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES]];
+                if ([label.text  isEqualToString:@"W"]) {
+                    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Select a size" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"small",@"medium",@"large",nil];
+                    alert.tag = 2;
+                    [alert show];
                 } else if ([label.text  isEqualToString:@"P"]) {
                     [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO]];
                 } else if ([label.text  isEqualToString:@"Reset"]) {
@@ -155,8 +157,15 @@
         [self saveLevelToFile:level];
     } else if ([alertView tag] == 1 && buttonIndex == 1) {
         [self loadLevel:[[[alertView textFieldAtIndex:0] text] intValue]];
+    } else if ([alertView tag] == 2) {
+        if (buttonIndex == 1) {
+            [self addChild:[WallNode wallWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:NO rotation:0.0f theme:@"space" Type:@"small"]];
+        } else if (buttonIndex == 2) {
+            [self addChild:[WallNode wallWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:NO rotation:0.0f theme:@"space" Type:@"medium"]];
+        } else if (buttonIndex == 3) {
+            [self addChild:[WallNode wallWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:NO rotation:0.0f theme:@"space" Type:@"large"]];
+        }
     }
-    
 }
 
 - (void)handleOneFingerDoubleTap:(UITapGestureRecognizer*)sender {
@@ -197,10 +206,18 @@
                 // Add Plank Label
                 SKLabelNode *plankLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
                 [plankLabel setFontSize:48.0f];
-                [plankLabel setPosition:CGPointMake(self.size.width - 20, self.size.height - 40)];
+                [plankLabel setPosition:CGPointMake(self.size.width - 30, self.size.height - 40)];
                 [plankLabel setText:@"P"];
                 [plankLabel setName:@"label"];
                 [self addChild:plankLabel];
+                
+                // Add Wall Label
+                SKLabelNode *wallLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+                [wallLabel setFontSize:48.0f];
+                [wallLabel setPosition:CGPointMake(self.size.width - 30, self.size.height - 90)];
+                [wallLabel setText:@"W"];
+                [wallLabel setName:@"label"];
+                [self addChild:wallLabel];
             } else {
                 if (![self childNodeWithName:@"label"].isHidden) {
                     for (SKNode *s in [self children]) {
