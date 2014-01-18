@@ -28,12 +28,12 @@
     /* TODO:
      * FIX PAGE SCROLLING
      */
-//    
-//    dispatch_time_t gameLogoDelay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds2 * NSEC_PER_SEC));
-//    dispatch_after(gameLogoDelay, dispatch_get_main_queue(), ^(void){
-//        [self performSegueWithIdentifier:@"logotologotransition" sender:self];
-//    });
-//    
+    
+    dispatch_time_t gameLogoDelay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds2 * NSEC_PER_SEC));
+    dispatch_after(gameLogoDelay, dispatch_get_main_queue(), ^(void){
+        [self performSegueWithIdentifier:@"LogoToWorldTransition" sender:self];
+    });
+    
 
 //    // Configure the view.
 //    SKView * skView = (SKView *)self.view;

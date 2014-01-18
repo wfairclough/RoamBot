@@ -25,11 +25,30 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="eEe-bS-zYp" id="2lP-C7-nds"/>
+                        <segue destination="Skh-R7-bR1" kind="custom" identifier="LogoToWorldTransition" customClass="CustomFadeTransition" id="6x8-z3-oTh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-174" y="-49"/>
+        </scene>
+        <!--Worlds View Controller-->
+        <scene sceneID="P8Z-M6-3lz">
+            <objects>
+                <viewController id="Skh-R7-bR1" customClass="WorldsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qMh-tW-6Ba"/>
+                        <viewControllerLayoutGuide type="bottom" id="pCy-op-SlF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qnS-vj-jQa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bna-KQ-oZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="263" y="-46"/>
         </scene>
     </scenes>
     <resources>
