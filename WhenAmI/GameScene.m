@@ -71,7 +71,7 @@
     if (sender.state == UIGestureRecognizerStateBegan) {
         
     } else if (sender.state == UIGestureRecognizerStateChanged) {
-        if ([self.currentlySelectedNode respondsToSelector:@selector(setPosition:)]) {
+        if ([self.currentlySelectedNode respondsToSelector:@selector(rotateByAngle:)]) {
             GameSpriteNode* boundingBoxNode = (GameSpriteNode *)self.currentlySelectedNode;
             if (boundingBoxNode.isBoundingBox) {
                 GameSpriteNode* currentGameNode = (GameSpriteNode *)boundingBoxNode.parent;
