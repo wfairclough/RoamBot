@@ -19,7 +19,6 @@
         [[self childNodeWithName:@"bounding"] setYScale:3.0];
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;
-        [self gameNodeXml];
     }
     
     return self;
@@ -33,10 +32,10 @@
 
 #pragma mark - XML Writer
 
-- (void)gameNodeXml {
+- (NSString *)gameNodeXml {
     NSString *interacts = (self.allowInteractions) ? @"true" : @"false";
     CGFloat degrees = [GameSpriteNode radiansToDegrees:self.zRotation];
-    self.xmlTag = [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' interacts='%@' rotation='%f'></%@>", kPlankTag, self.position.x, self.position.y, interacts, degrees, kPlankTag];
+    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' interacts='%@' rotation='%f'></%@>", kPlankTag, self.position.x, self.position.y, interacts, degrees, kPlankTag];
 }
 
 

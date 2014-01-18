@@ -18,7 +18,6 @@
         self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
         self.physicsBody.dynamic = NO;
         self.physicsBody.restitution = 0.75;
-        [self gameNodeXml];
     }
     
     return self;
@@ -32,8 +31,8 @@
 
 #pragma mark - XML Writer
 
-- (void)gameNodeXml {
-    self.xmlTag = [NSString stringWithFormat:@"\t<%@ x='%f' y='%f'></%@>", kBallTag, self.position.x, self.position.y, kBallTag];
+- (NSString *)gameNodeXml {
+    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f'></%@>", kBallTag, self.position.x, self.position.y, kBallTag];
 }
 
 

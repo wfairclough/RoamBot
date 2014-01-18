@@ -22,10 +22,7 @@
 
 - (void) addXmlTagWithGameNode:(GameSpriteNode *)node {
     
-    self.xmlContent = [NSString stringWithFormat:@"%@\t\t%@\n", self.xmlContent, node.xmlTag];
-    
-    
-    NSLog(@"ADD: %@", node.xmlTag);
+    self.xmlContent = [NSString stringWithFormat:@"%@\t\t%@\n", self.xmlContent, [node gameNodeXml]];
 }
 
 

@@ -12,7 +12,6 @@
 
 @interface GameSpriteNode : SKSpriteNode
 
-@property NSString* xmlTag;
 @property BOOL allowInteractions;
 
 - (id)initWithImageNamed:(NSString *)name position:(CGPoint)position allowInteraction:(BOOL)isInteractable;
@@ -23,6 +22,8 @@
 - (BOOL)isBoundingBox;
 - (BOOL)isDavMode;
 
+
+- (NSString *)gameNodeXml;
 
 #pragma mark - Utility Methods
 
