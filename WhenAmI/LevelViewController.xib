@@ -27,14 +27,14 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foV-zc-GZi">
                     <rect key="frame" x="100" y="223" width="121" height="121"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="World 1 Icon off">
+                    <state key="normal" image="menu_button_0_off">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHo-u2-x0J">
                     <rect key="frame" x="100" y="389" width="121" height="121"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="World 1 Icon off">
+                    <state key="normal" image="menu_button_0_off">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
@@ -43,7 +43,7 @@
         </view>
     </objects>
     <resources>
-        <image name="World 1 Icon off" width="200" height="200"/>
         <image name="menu_button_0_1" width="200" height="200"/>
+        <image name="menu_button_0_off" width="200" height="200"/>
     </resources>
 </document>
