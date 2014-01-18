@@ -34,6 +34,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
+    BOOL icon1Enabled = false;
+    BOOL icon2Enabled = false;
+    BOOL icon3Enabled = false;
+    
     int level = [[[GamePlayer sharedInstance] currentLevel] intValue];
     
     //TODO: HARD CODED TO TEST LEVEL DISABLE
@@ -55,23 +59,33 @@
     
     if(self.level1Btn.tag > level) {
         btn1ImageName = [NSString stringWithFormat:@"menu_button_%d_off", self.index];
+        icon1Enabled = false;
     } else {
         btn1ImageName = [NSString stringWithFormat:@"menu_button_%d_%d", self.index, [self.level1Btn tag]];
+        icon1Enabled = true;
     }
     
     
     if(self.level2Btn.tag > level) {
         btn2ImageName = [NSString stringWithFormat:@"menu_button_%d_off", self.index];
+        icon2Enabled = false;
     } else {
         btn2ImageName = [NSString stringWithFormat:@"menu_button_%d_%d", self.index, [self.level2Btn tag]];
+        icon2Enabled = true;
     }
+    
     
     if(self.level3Btn.tag > level) {
         btn3ImageName = [NSString stringWithFormat:@"menu_button_%d_off", self.index];
+        icon3Enabled = false;
     } else {
         btn3ImageName = [NSString stringWithFormat:@"menu_button_%d_%d", self.index, [self.level3Btn tag]];
+        icon3Enabled = true;
     }
 
+    [self.level1Btn setEnabled:icon1Enabled];
+    [self.level2Btn setEnabled:icon2Enabled];
+    [self.level3Btn setEnabled:icon3Enabled];
     
     [self.level1Btn setImage:[UIImage imageNamed:btn1ImageName] forState:UIControlStateNormal];
     [self.level2Btn setImage:[UIImage imageNamed:btn2ImageName] forState:UIControlStateNormal];
