@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B580DF66188AB77D00C48433 /* level_-1.xml in Resources */ = {isa = PBXBuildFile; fileRef = B580DF65188AB77D00C48433 /* level_-1.xml */; };
 		BE12D6EA188A3099009937C9 /* LevelXmlWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE12D6E9188A3099009937C9 /* LevelXmlWriter.m */; };
 		BE12D6EC188AB07C009937C9 /* level_00.xml in Resources */ = {isa = PBXBuildFile; fileRef = BE12D6EB188AB07C009937C9 /* level_00.xml */; };
 		BE84813A1889DFFF009C21D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8481391889DFFF009C21D2 /* Foundation.framework */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B580DF65188AB77D00C48433 /* level_-1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "level_-1.xml"; sourceTree = "<group>"; };
 		BE12D6E7188A2BAD009937C9 /* LevelXmlConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelXmlConstants.h; sourceTree = "<group>"; };
 		BE12D6E8188A3099009937C9 /* LevelXmlWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelXmlWriter.h; sourceTree = "<group>"; };
 		BE12D6E9188A3099009937C9 /* LevelXmlWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelXmlWriter.m; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 		BEDA80C81889E114000D6023 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				B580DF65188AB77D00C48433 /* level_-1.xml */,
 				BE12D6EB188AB07C009937C9 /* level_00.xml */,
 				BEDA80DE1889E820000D6023 /* level_01.xml */,
 			);
@@ -346,6 +349,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B580DF66188AB77D00C48433 /* level_-1.xml in Resources */,
 				BE12D6EC188AB07C009937C9 /* level_00.xml in Resources */,
 				BE8481461889DFFF009C21D2 /* InfoPlist.strings in Resources */,
 				BE8481591889DFFF009C21D2 /* Images.xcassets in Resources */,

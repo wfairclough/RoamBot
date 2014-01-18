@@ -51,6 +51,7 @@
 
 - (void)rotateByAngle:(CGFloat)rotation {
     [self runAction:[SKAction rotateByAngle:-2*rotation duration:0.0]];
+    
 }
 
 - (BOOL)isBoundingBox {

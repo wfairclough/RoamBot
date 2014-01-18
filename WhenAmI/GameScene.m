@@ -22,11 +22,15 @@
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
-        NSNumber* level = [[GamePlayer sharedInstance] selectedLevel];
-        if (level == nil)
-            level = [[GamePlayer sharedInstance] currentLevel];
-        
-        [self loadLevel:[level integerValue]];
+        if (kDavMode) {
+            [self loadLevel:-1];
+        } else {
+            NSNumber* level = [[GamePlayer sharedInstance] selectedLevel];
+            if (level == nil)
+                level = [[GamePlayer sharedInstance] currentLevel];
+            
+            [self loadLevel:[level integerValue]];
+        }
     }
     return self;
 }
@@ -68,6 +72,11 @@
     [writer endXml];
 }
 
+-(NSString *)documentDirectory{
+    [NSFileManager defaultManager];
+    return [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+}
+
 #pragma mark - Gesture Handling
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -107,6 +116,8 @@
                     [self addChild:[BallNode ballWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES]];
                 } else if ([label.text  isEqualToString:@"P"]) {
                     [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO]];
+                } else if ([label.text  isEqualToString:@"Reset"]) {
+                    [self resetLevel];
                 }
             }
         }
@@ -124,6 +135,14 @@
     if (sender.state == UIGestureRecognizerStateEnded) {
         if (kDavMode) {
             if (![self childNodeWithName:@"label"]) {
+                // Add Reset Label
+                SKLabelNode *resetLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+                [resetLabel setFontSize:26.0f];
+                [resetLabel setPosition:CGPointMake(40.0f, self.size.height - 20)];
+                [resetLabel setText:@"Reset"];
+                [resetLabel setName:@"label"];
+                [self addChild:resetLabel];
+                
                 // Add Ball Label
                 SKLabelNode *ballLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
                 [ballLabel setFontSize:48.0f];
@@ -190,6 +209,11 @@
 #pragma mark - Private
 - (void)loadLevel:(NSInteger)level {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"level_%02d", level] ofType:@"xml"];
+    
+    if (kDavMode) {
+        filePath = [NSString stringWithFormat:@"%@/level_-1.xml", [self documentDirectory]];
+    }
+    
     NSData *levelData = [NSData dataWithContentsOfFile:filePath];
     
     LevelXmlParser* levelXmlParser = [[LevelXmlParser alloc] initWithData:levelData];
@@ -200,6 +224,19 @@
     
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
     self.physicsBody.restitution = 0.5;
+}
+
+- (void)resetLevel {
+    [self removeAllChildren];
+    if (kDavMode) {
+        [self loadLevel:-1];
+    } else {
+        NSNumber* level = [[GamePlayer sharedInstance] selectedLevel];
+        if (level == nil)
+            level = [[GamePlayer sharedInstance] currentLevel];
+        
+        [self loadLevel:[level integerValue]];
+    }
 }
 
 @end
