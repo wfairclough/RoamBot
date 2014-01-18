@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <level value="1">
-    <world type="space">
+    <world theme="space">
         <ball x="100" y="450" interacts="true"/>
         <goal x="100" y="0" />
     </world>

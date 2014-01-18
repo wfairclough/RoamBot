@@ -14,7 +14,7 @@
     //make a file name to write the data to using the documents directory:
     self.fileName = [NSString stringWithFormat:@"%@/level_%02d.xml", [self documentDirectory], level];
     
-    self.xmlContent = @"<?xml version=\"1.0\"?>\n<level value='1'>\n\t<world type='rome'>\n";
+    self.xmlContent = @"<?xml version=\"1.0\"?>\n<level value='1'>\n\t<world theme='space'>\n";
     
     NSLog(@"%@\nStart XML Tag", self.fileName);
 }

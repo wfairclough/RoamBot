@@ -32,6 +32,8 @@
 
 @interface LevelXmlParser : NSXMLParser <NSXMLParserDelegate>
 
+@property (nonatomic, strong) NSString* worldTheme;
+
 @property (nonatomic, weak) id <LevelSetupDelegate> setupDelegate;
 
 @end

@@ -41,8 +41,9 @@
         
         
     } else if ([elementName isEqualToString:kWorldTag]){
+        self.worldTheme = [attributeDict valueForKey:kThemeAttribute];
         if ([self.setupDelegate respondsToSelector:@selector (setupWorldType:)]) {
-            [self.setupDelegate setupWorldType:[attributeDict valueForKey:kTypeAttribute]];
+            [self.setupDelegate setupWorldType:self.worldTheme];
         }
         
     } else if ([elementName isEqualToString:kBallTag]){
@@ -60,7 +61,7 @@
         bool isInteractable = [[attributeDict valueForKey:kInteractable] boolValue];
         float rotation = [[attributeDict valueForKey:kRotationAttribute] floatValue];
         BOOL powered = [[attributeDict valueForKey:kPoweredAttribute] boolValue];
-        NSString* theme = [attributeDict valueForKey:kThemeAttribute];
+        NSString* theme = ([attributeDict valueForKey:kThemeAttribute] == nil) ? self.worldTheme : [attributeDict valueForKey:kThemeAttribute];
         
         if ([self.setupDelegate respondsToSelector:@selector (setupPlankWithXPosition:yPosition:allowInteraction:rotationAngle:powered:theme:)]) {
             [self.setupDelegate setupPlankWithXPosition:x yPosition:y allowInteraction:isInteractable rotationAngle:rotation powered:powered theme:theme];
@@ -71,7 +72,7 @@
         float y = [[attributeDict valueForKey:kYAttribute] floatValue];
         bool isInteractable = [[attributeDict valueForKey:kInteractable] boolValue];
         float rotation = [[attributeDict valueForKey:kRotationAttribute] floatValue];
-        NSString *theme = [attributeDict valueForKey:kThemeAttribute];
+        NSString* theme = ([attributeDict valueForKey:kThemeAttribute] == nil) ? self.worldTheme : [attributeDict valueForKey:kThemeAttribute];
         NSString *imageSize = [attributeDict valueForKey:kImageSize];
         
         if ([self.setupDelegate respondsToSelector:@selector (setupWallWithPosition:yPosition:allowInteraction:rotation:theme:imageSize:)]) {
@@ -90,7 +91,7 @@
         float x = [[attributeDict valueForKey:kXAttribute] floatValue];
         float y = [[attributeDict valueForKey:kYAttribute] floatValue];
         float rotation = [[attributeDict valueForKey:kRotationAttribute] floatValue];
-        NSString* theme = [attributeDict valueForKey:kThemeAttribute];
+        NSString* theme = ([attributeDict valueForKey:kThemeAttribute] == nil) ? self.worldTheme : [attributeDict valueForKey:kThemeAttribute];
         
 
         if ([self.setupDelegate respondsToSelector:@selector (setupGoalWithXPosition:yPosition:rotationAngle:theme:)]) {
