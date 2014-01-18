@@ -8,30 +8,24 @@
 
 #import "MenuScene.h"
 
+@interface MenuScene()
+@property (nonatomic, strong) SKNode *currentlySelectedNode;
+
+@end
+
 @implementation MenuScene
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
+        //set background art 
         
     }
     return self;
 }
 
--(void)didMoveToView:(SKView *)view {
-    UITapGestureRecognizer *oneFingerTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleOneFingerTap:)];
-    [self.view addGestureRecognizer:oneFingerTapGestureRecognizer];
-
-    
-}
-
-#pragma mark - Gesture Handling
-
-- (void)handleOneFingerTap:(UITapGestureRecognizer*)sender {
-    NSLog(@"1 Finger");
-}
-
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
 }
+
 
 @end
