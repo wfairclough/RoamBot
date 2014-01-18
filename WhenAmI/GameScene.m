@@ -277,7 +277,22 @@
 #pragma mark - Contact Delegate
 
 - (void)didBeginContact:(SKPhysicsContact *)contact {
-
+    
+    uint32_t collision = (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask);
+    
+    if (collision == (goalConst | ballConst)) {
+        GoalNode *goal;
+        
+        if ([contact.bodyA.node.name isEqualToString:@"goal"])
+        {
+            goal = (GoalNode*)contact.bodyA.node;
+            [goal contactWithBall];
+        } else {
+            goal = (GoalNode*)contact.bodyB.node;
+        }
+        return;
+    }
+    
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact {
