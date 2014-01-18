@@ -14,14 +14,13 @@
 - (id) initWithPosition:(CGPoint)position rotation:(CGFloat)degrees {
     if (self = [super initWithImageNamed:@"Cannon" position:position allowInteraction:NO rotation:degrees]) {
         self.name = @"cannon";
-        [self setAnchorPoint:CGPointMake(self.anchorPoint.x, 0.10f)];
-        self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.size.width, self.size.height * 0.4)];
+        self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.size.width, self.size.height * 0.43)];
         self.physicsBody.dynamic = NO;
         self.physicsBody.categoryBitMask = cannonConst;
         self.physicsBody.contactTestBitMask = cannonConst | ballConst;
         
-        [[self childNodeWithName:@"bounding"] setYScale:1.0f];
-        [[self childNodeWithName:@"bounding"] setXScale:2.0f];
+        [[self childNodeWithName:@"bounding"] setYScale:0.7f];
+        [[self childNodeWithName:@"bounding"] setXScale:1.5f];
     }
     
     return self;
@@ -48,8 +47,6 @@
     SKAction *cannonNoise = [SKAction playSoundFileNamed:@"cannon_noise.wav" waitForCompletion:NO];
     [self runAction:cannonNoise];
     
-//    [self setYScale:0.6125];
-//    [self setTexture:[SKTexture textureWithImageNamed:@"Cannon"]];
 
 }
 
