@@ -10,4 +10,15 @@
 
 @interface GamePlayer : NSObject
 
++ (GamePlayer *) sharedInstance;
+
+@property (nonatomic, strong) NSNumber* currentLevel;
+@property (nonatomic, strong) NSNumber* gameAudioEnabled;
+
+- (void)loadPlayer;
+- (void)savePlayer;
 @end
+
+
+
+
