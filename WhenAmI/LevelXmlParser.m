@@ -72,10 +72,10 @@
         bool isInteractable = [[attributeDict valueForKey:kInteractable] boolValue];
         float rotation = [[attributeDict valueForKey:kRotationAttribute] floatValue];
         NSString *theme = [attributeDict valueForKey:kThemeAttribute];
-        NSString *type = [attributeDict valueForKey:kTypeAttribute];
+        NSString *imageSize = [attributeDict valueForKey:kImageSize];
         
-        if ([self.setupDelegate respondsToSelector:@selector (setupWallWithPosition:yPosition:allowInteraction:rotation:theme:Type:)]) {
-            [self.setupDelegate setupWallWithPosition:x yPosition:y allowInteraction:isInteractable rotation:rotation theme:theme Type:type];
+        if ([self.setupDelegate respondsToSelector:@selector (setupWallWithPosition:yPosition:allowInteraction:rotation:theme:imageSize:)]) {
+            [self.setupDelegate setupWallWithPosition:x yPosition:y allowInteraction:isInteractable rotation:rotation theme:theme imageSize:imageSize];
         }
     } else if ([elementName isEqualToString:kCannonTag]){
         float x = [[attributeDict valueForKey:kXAttribute] floatValue];
@@ -89,11 +89,12 @@
     } else if ([elementName isEqualToString:kGoalTag]){
         float x = [[attributeDict valueForKey:kXAttribute] floatValue];
         float y = [[attributeDict valueForKey:kYAttribute] floatValue];
-        NSString* type = [attributeDict valueForKey:kTypeAttribute];
+        float rotation = [[attributeDict valueForKey:kRotationAttribute] floatValue];
+        NSString* theme = [attributeDict valueForKey:kThemeAttribute];
         
 
-        if ([self.setupDelegate respondsToSelector:@selector (setupGoalWithXPosition:yPosition:type:)]) {
-            [self.setupDelegate setupGoalWithXPosition:x yPosition:y type:type];
+        if ([self.setupDelegate respondsToSelector:@selector (setupGoalWithXPosition:yPosition:rotationAngle:theme:)]) {
+            [self.setupDelegate setupGoalWithXPosition:x yPosition:y rotationAngle:rotation theme:theme];
         }
     } else if ([elementName isEqualToString:kCollectableTag]){
         float x = [[attributeDict valueForKey:kXAttribute] floatValue];

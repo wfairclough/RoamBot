@@ -12,23 +12,25 @@
 
 @implementation WallNode
 
--(id)initWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(NSString*)type {
+
+// IsInteractable is NEVER used, but that's okay
+-(id)initWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)theme imageSize:(NSString*)imageSize {
     NSString *imageName;
-    imageName = [[[@"wall_" stringByAppendingString:type] stringByAppendingString:@"_"] stringByAppendingString:levelStyle];
-    if (self = [super initWithImageNamed:imageName position:position allowInteraction:isInteractable rotation:degrees]) {
+    imageName = [[[@"wall_" stringByAppendingString:imageSize] stringByAppendingString:@"_"] stringByAppendingString:theme];
+    if (self = [super initWithImageNamed:imageName position:position allowInteraction:NO rotation:degrees]) {
         self.name = @"wall";
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         [[self childNodeWithName:@"bounding"] setXScale:2.5];
         self.physicsBody.dynamic = NO;
         self.physicsBody.restitution = 0.5;
-        self.levelStyle = levelStyle;
-        self.imageSize = type;
+        self.theme = theme;
+        self.imageSize = imageSize;
     }
     return self;
 }
 
-+ (id)wallWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(NSString*)type {
-    return [[WallNode alloc ] initWithPosition:position allowInteraction:isInteractable rotation:degrees theme:levelStyle Type:type];
++ (id)wallWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)theme imageSize:(NSString*)imageSize {
+    return [[WallNode alloc ] initWithPosition:position allowInteraction:isInteractable rotation:degrees theme:theme imageSize:imageSize];
 }
 
 
@@ -38,7 +40,7 @@
 - (NSString *)gameNodeXml {
     CGFloat degrees = [GameSpriteNode radiansToDegrees:self.zRotation];
     NSString *interacts = (self.allowInteractions) ? @"true" : @"false";
-    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' interacts='%@' rotation='%f' levelStyle='%@' imageType='%@'></%@>", kWallTag, self.position.x, self.position.y, interacts ,degrees, self.levelStyle, self.imageSize, kWallTag];
+    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' interacts='%@' rotation='%f' theme='%@' imageSize='%@'></%@>", kWallTag, self.position.x, self.position.y, interacts ,degrees, self.theme, self.imageSize, kWallTag];
 }
 
 
