@@ -66,7 +66,7 @@
 
 #pragma mark - Level Writer
 
-- (void) saveLevelToFile:(NSInteger)level {
+- (void) saveLevelToFile:(int)level {
     LevelXmlWriter* writer = [[LevelXmlWriter alloc] init];
     
     [writer startXmlWithLevel:level];
@@ -125,10 +125,33 @@
                     [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO]];
                 } else if ([label.text  isEqualToString:@"Reset"]) {
                     [self resetLevel];
+                } else if ([label.text  isEqualToString:@"S"]) {
+                    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Hey Davyn! Level number please :D" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"SAVE",nil];
+                    alert.tag = 0;
+                    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+                    [alert show];
+                }
+                else if ([label.text  isEqualToString:@"O"]) {
+                    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Open Level" message:@"enter a level number" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OPEN",nil];
+                    alert.tag = 1;
+                    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+                    [alert show];
                 }
             }
         }
     }
+}
+
+// grabs number from save dialog
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView tag] == 0 && buttonIndex == 1) {
+        int level = [[[alertView textFieldAtIndex:0] text] intValue];
+        NSLog(@"Level: %d", level);
+        [self saveLevelToFile:level];
+    } else if ([alertView tag] == 1 && buttonIndex == 1) {
+        [self loadLevel:[[[alertView textFieldAtIndex:0] text] intValue]];
+    }
+    
 }
 
 - (void)handleOneFingerDoubleTap:(UITapGestureRecognizer*)sender {
@@ -150,18 +173,26 @@
                 [resetLabel setName:@"label"];
                 [self addChild:resetLabel];
                 
-                // Add Ball Label
-                SKLabelNode *ballLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
-                [ballLabel setFontSize:48.0f];
-                [ballLabel setPosition:CGPointMake(self.size.width - 40, self.size.height - 40)];
-                [ballLabel setText:@"B"];
-                [ballLabel setName:@"label"];
-                [self addChild:ballLabel];
+                // Add Save Label
+                SKLabelNode *saveLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+                [saveLabel setFontSize:36.0f];
+                [saveLabel setPosition:CGPointMake(20.0f, 10.0f)];
+                [saveLabel setText:@"S"];
+                [saveLabel setName:@"label"];
+                [self addChild:saveLabel];
+                
+                // Add Open Label
+                SKLabelNode *openLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+                [openLabel setFontSize:36.0f];
+                [openLabel setPosition:CGPointMake(20.0f, 70.0f)];
+                [openLabel setText:@"O"];
+                [openLabel setName:@"label"];
+                [self addChild:openLabel];
                 
                 // Add Plank Label
                 SKLabelNode *plankLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
                 [plankLabel setFontSize:48.0f];
-                [plankLabel setPosition:CGPointMake(self.size.width - 40, self.size.height - 90)];
+                [plankLabel setPosition:CGPointMake(self.size.width - 20, self.size.height - 40)];
                 [plankLabel setText:@"P"];
                 [plankLabel setName:@"label"];
                 [self addChild:plankLabel];
