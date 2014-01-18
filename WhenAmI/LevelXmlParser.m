@@ -12,7 +12,7 @@
 #define kLevelTag @"level"
 #define kWorldTag @"world"
 #define kValueAttribute @"value"
-#define kTypeAttribute @"type"
+#define kTypeAttribute @"value"
 #define kXAttribute @"x"
 #define kYAttribute @"y"
 #define kInteractable @"interacts"
