@@ -35,7 +35,7 @@
 
 - (void)gameNodeXml {
     NSString *interacts = (self.allowInteractions) ? @"true" : @"false";
-    CGFloat degrees = [GameSpriteNode degreesToRadians:self.zRotation];
+    CGFloat degrees = [GameSpriteNode radiansToDegrees:self.zRotation];
     self.xmlTag = [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' interacts='%@' rotation='%f'></%@>", kPlankTag, self.position.x, self.position.y, interacts, degrees, kPlankTag];
 }
 

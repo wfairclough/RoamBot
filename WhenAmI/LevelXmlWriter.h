@@ -12,7 +12,7 @@
 
 @interface LevelXmlWriter : NSObject
 
-@property (nonatomic, strong) NSMutableString *xmlContent;
+@property (nonatomic, strong) NSString *xmlContent;
 @property (nonatomic, strong) NSString *fileName;
 
 - (void) startXmlWithLevel:(int)level;
