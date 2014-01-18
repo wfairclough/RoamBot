@@ -276,7 +276,7 @@
 #pragma mark - Contact Delegate
 
 - (void)didBeginContact:(SKPhysicsContact *)contact {
-//    NSLog(@"%@", contact.bodyA.node.name);
+
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact {

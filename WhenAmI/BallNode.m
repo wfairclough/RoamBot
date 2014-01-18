@@ -21,7 +21,7 @@
         self.physicsBody.dynamic = NO;
         self.physicsBody.restitution = 0.75;
         self.physicsBody.categoryBitMask = ballConst;
-        self.physicsBody.contactTestBitMask =  ballConst | cannonConst;
+        self.physicsBody.contactTestBitMask =  ballConst;
     }
     
     return self;
