@@ -45,10 +45,34 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="8U4-me-cyf" kind="custom" identifier="WorldsToGameTransition" customClass="CustomFadeTransition" id="DqD-Va-P8z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bna-KQ-oZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="263" y="-46"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="5cj-LT-Ioz">
+            <objects>
+                <viewController id="8U4-me-cyf" customClass="GameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yvj-1p-D9U"/>
+                        <viewControllerLayoutGuide type="bottom" id="1On-95-hp6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BGX-ga-EZd" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="view" destination="BGX-ga-EZd" id="8la-Xt-Ur7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ecV-tC-5a1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="729" y="-55"/>
         </scene>
     </scenes>
     <resources>

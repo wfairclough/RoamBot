@@ -12,6 +12,7 @@
 		46B04D46188AAEDC00805BE1 /* LevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B04D44188AAEDC00805BE1 /* LevelViewController.m */; };
 		46B04D47188AAEDC00805BE1 /* LevelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46B04D45188AAEDC00805BE1 /* LevelViewController.xib */; };
 		46B04D4A188AB10700805BE1 /* WorldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B04D49188AB10700805BE1 /* WorldsViewController.m */; };
+		46B04D4D188ACB4B00805BE1 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B04D4C188ACB4B00805BE1 /* GameViewController.m */; };
 		BE12D6EA188A3099009937C9 /* LevelXmlWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE12D6E9188A3099009937C9 /* LevelXmlWriter.m */; };
 		BE84813A1889DFFF009C21D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8481391889DFFF009C21D2 /* Foundation.framework */; };
 		BE84813C1889DFFF009C21D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */; };
@@ -60,6 +61,8 @@
 		46B04D45188AAEDC00805BE1 /* LevelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LevelViewController.xib; sourceTree = "<group>"; };
 		46B04D48188AB10700805BE1 /* WorldsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldsViewController.h; sourceTree = "<group>"; };
 		46B04D49188AB10700805BE1 /* WorldsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldsViewController.m; sourceTree = "<group>"; };
+		46B04D4B188ACB4B00805BE1 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		46B04D4C188ACB4B00805BE1 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		BE12D6E7188A2BAD009937C9 /* LevelXmlConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelXmlConstants.h; sourceTree = "<group>"; };
 		BE12D6E8188A3099009937C9 /* LevelXmlWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelXmlWriter.h; sourceTree = "<group>"; };
 		BE12D6E9188A3099009937C9 /* LevelXmlWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelXmlWriter.m; sourceTree = "<group>"; };
@@ -169,6 +172,8 @@
 				BE84814A1889DFFF009C21D2 /* AppDelegate.h */,
 				BE84814B1889DFFF009C21D2 /* AppDelegate.m */,
 				BE84814D1889DFFF009C21D2 /* Main.storyboard */,
+				46B04D4B188ACB4B00805BE1 /* GameViewController.h */,
+				46B04D4C188ACB4B00805BE1 /* GameViewController.m */,
 				46B04D39188AA7E800805BE1 /* CustomFadeTransition.h */,
 				46B04D3A188AA7E800805BE1 /* CustomFadeTransition.m */,
 				46B04D3B188AA7E800805BE1 /* GameConstants.h */,
@@ -394,6 +399,7 @@
 				46B04D41188AA7E800805BE1 /* LogoViewController.m in Sources */,
 				BEDA80DA1889E263000D6023 /* CollectableNode.m in Sources */,
 				BE84814C1889DFFF009C21D2 /* AppDelegate.m in Sources */,
+				46B04D4D188ACB4B00805BE1 /* GameViewController.m in Sources */,
 				BE8481481889DFFF009C21D2 /* main.m in Sources */,
 				BEDA80CE1889E203000D6023 /* GameSpriteNode.m in Sources */,
 				BEDA80DD1889E2AA000D6023 /* LevelXmlParser.m in Sources */,

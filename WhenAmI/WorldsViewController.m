@@ -83,6 +83,7 @@
 - (LevelViewController *)viewControllerAtIndex:(NSUInteger)index {
     
     LevelViewController *childViewController = [[LevelViewController alloc] initWithNibName:@"LevelViewController" bundle:nil];
+    [childViewController setDelegate:self];
     childViewController.index = index;
     
     return childViewController;
@@ -103,6 +104,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) playLevel:(int)level {
+    [self performSegueWithIdentifier:@"WorldsToGameTransition" sender:self];
+    
 }
 
 @end

@@ -7,8 +7,10 @@
 //
 
 #import "LevelViewController.h"
+#import "GameScene.h"
 
 @interface LevelViewController ()
+
 
 @end
 
@@ -26,14 +28,41 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-//    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"clouds2"]];
-//    [self.view addSubview:backgroundImage];
-//    [self.view sendSubviewToBack:backgroundImage];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
     self.screenNumber.text = [NSString stringWithFormat:@"WORLD #%d", self.index];
+    
+    //TODO: hard coded until we have level select implemented properly with GamePlayer settings
+    if(self.index != 1) {
+//        [self.W1L1 setBackgroundColor:[UIColor darkGrayColor]];
+    }
+    
+//    UIImageView *t = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"test"]];
+//    [self.W1L1 setUserInteractionEnabled:YES];
+    
+    
+//    SEL setErrorSelector = sel_registerName("setError:");
+    
+//    UITapGestureRecognizer *tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(levelPressed:)];
+//    
+//    [self.W1L1 addGestureRecognizer:tapper];
+    
+    UIImage *bird = [UIImage imageNamed:@"hipwoodbird"];
+    
+    [self.birdButton setImage:bird forState:UIControlStateNormal]; //change state for highlighted
+    [self.birdButton addTarget:self action:@selector(levelPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+// Load SpriteKit View
+- (IBAction)levelPressed:(UIButton *)sender {
+    // Configure the view.
+    
+//    sender.tag
+    [self.delegate playLevel:-1];
+    
 }
 
 

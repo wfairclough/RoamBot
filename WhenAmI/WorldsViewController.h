@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WorldsViewController : UIViewController <UIPageViewControllerDataSource>
+@protocol GameLoaderDelegate <NSObject>
+@required
+- (void) playLevel:(int)level;
+
+@end
+
+@interface WorldsViewController : UIViewController <UIPageViewControllerDataSource, GameLoaderDelegate>
 
 @property (strong, nonatomic) UIPageViewController *pageController;
 

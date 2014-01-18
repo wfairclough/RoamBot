@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WorldsViewController.h"
+#import <SpriteKit/SpriteKit.h>
 
 @interface LevelViewController : UIViewController
 
+@property (nonatomic, weak) id <GameLoaderDelegate> delegate;
+
 @property (assign, nonatomic) NSInteger index;
 @property (strong, nonatomic) IBOutlet UILabel *screenNumber;
+
+@property (weak, nonatomic) IBOutlet UIButton *birdButton;
 
 @end
