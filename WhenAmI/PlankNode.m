@@ -12,13 +12,13 @@
 
 @implementation PlankNode
 
-- (id)initWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees power:(BOOL)powered theme:(NSString*)levelStyle {
+- (id)initWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees power:(BOOL)powered theme:(NSString*)theme {
     NSString *imageName;
-    imageName = [@"plank_" stringByAppendingString:levelStyle];
+    imageName = [@"plank_" stringByAppendingString:theme];
     if (self = [super initWithImageNamed:imageName position:position allowInteraction:isInteractable rotation:degrees]) {
         self.name = @"plank";
         self.isPowered = powered;
-        self.levelStyle = levelStyle;
+        self.theme = theme;
         [[self childNodeWithName:@"bounding"] setYScale:3.0];
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;
@@ -38,7 +38,7 @@
 - (NSString *)gameNodeXml {
     NSString *interacts = (self.allowInteractions) ? @"true" : @"false";
     CGFloat degrees = [GameSpriteNode radiansToDegrees:self.zRotation];
-    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' interacts='%@' rotation='%f' levelStyle='%@'></%@>", kPlankTag, self.position.x, self.position.y, interacts, degrees, self.levelStyle, kPlankTag];
+    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' interacts='%@' rotation='%f' theme='%@' />", kPlankTag, self.position.x, self.position.y, interacts, degrees, self.theme];
 }
 
 

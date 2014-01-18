@@ -172,11 +172,11 @@
         [self loadLevel:[[[alertView textFieldAtIndex:0] text] intValue]];
     } else if ([alertView tag] == 2) {
         if (buttonIndex == 1) {
-            [self addChild:[WallNode wallWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:NO rotation:0.0f theme:@"space" Type:@"small"]];
+            [self addChild:[WallNode wallWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:NO rotation:0.0f theme:@"space" imageSize:@"small"]];
         } else if (buttonIndex == 2) {
-            [self addChild:[WallNode wallWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:NO rotation:0.0f theme:@"space" Type:@"medium"]];
+            [self addChild:[WallNode wallWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:NO rotation:0.0f theme:@"space" imageSize:@"medium"]];
         } else if (buttonIndex == 3) {
-            [self addChild:[WallNode wallWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:NO rotation:0.0f theme:@"space" Type:@"large"]];
+            [self addChild:[WallNode wallWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:NO rotation:0.0f theme:@"space" imageSize:@"large"]];
         }
     }
 }
@@ -306,18 +306,18 @@
     [self addChild:self.ball];
 }
 
-- (void) setupPlankWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotationAngle:(float)rotation  powered:(BOOL)powered theme:(NSString*)levelStyle{
-    PlankNode *plank = [PlankNode plankWithPosition:CGPointMake(x, y) allowInteraction:(BOOL)isInteractable rotation:rotation power:YES theme:levelStyle];
+- (void) setupPlankWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotationAngle:(float)rotation  powered:(BOOL)powered theme:(NSString*)theme{
+    PlankNode *plank = [PlankNode plankWithPosition:CGPointMake(x, y) allowInteraction:(BOOL)isInteractable rotation:rotation power:YES theme:theme];
     [self addChild:plank];
 }
 
-- (void) setupWallWithPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(NSString*)type {
-    WallNode *wall = [WallNode wallWithPosition:CGPointMake(x, y) allowInteraction:isInteractable rotation:degrees theme:levelStyle Type:type];
+- (void) setupWallWithPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)theme imageSize:(NSString*)imageSize {
+    WallNode *wall = [WallNode wallWithPosition:CGPointMake(x, y) allowInteraction:isInteractable rotation:degrees theme:theme imageSize:imageSize];
     [self addChild:wall];
 }
     
-- (void) setupGoalWithXPosition:(float)x yPosition:(float)y type:(NSString*)type {
-    GoalNode *goal = [GoalNode goalWithPosition:CGPointMake(x, y) type:type];
+- (void) setupGoalWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)rotation theme:(NSString*)theme {
+    GoalNode *goal = [GoalNode goalWithPosition:CGPointMake(x, y) rotation:rotation theme:theme];
     [self addChild:goal];
 }
 

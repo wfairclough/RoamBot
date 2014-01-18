@@ -10,9 +10,9 @@
 
 @interface WallNode : GameSpriteNode
 
-@property (nonatomic, strong) NSString *levelStyle;
+@property (nonatomic, strong) NSString *theme;
 @property (nonatomic, strong) NSString *imageSize;
 
-+ (id)wallWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(NSString*)type;
++ (id)wallWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)theme imageSize:(NSString*)imageSize;
 
 @end

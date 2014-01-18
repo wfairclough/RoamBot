@@ -11,9 +11,10 @@
 
 @implementation GoalNode
 
-- (id)initWithPosition:(CGPoint)position type:(NSString *)type {
+- (id)initWithPosition:(CGPoint)position rotation:(CGFloat)rotation theme:(NSString *)theme {
     if (self = [super initWithImageNamed:@"world_2_goal" position:position allowInteraction:NO]) {
         self.name = @"goal";
+        self.theme = theme;
         [self setAnchorPoint:CGPointMake(self.anchorPoint.x, 0.0f)];
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;
@@ -25,8 +26,8 @@
     return self;
 }
 
-+ (id)goalWithPosition:(CGPoint)position type:(NSString *)type {
-    return [[GoalNode alloc] initWithPosition:position type:type];
++ (id)goalWithPosition:(CGPoint)position rotation:(CGFloat)rotation theme:(NSString *)theme {
+    return [[GoalNode alloc] initWithPosition:position rotation:rotation theme:theme];
 }
 
 - (void)contactWithBall {
@@ -45,7 +46,8 @@
 #pragma mark - XML Writer
 
 - (NSString *)gameNodeXml {
-    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f'/>", kGoalTag, self.position.x, self.position.y];
+    CGFloat degrees = [GameSpriteNode radiansToDegrees:self.zRotation];
+    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' rotation='%f' theme='%@' />", kGoalTag, self.position.x, self.position.y, degrees, self.theme];
 }
 
 @end

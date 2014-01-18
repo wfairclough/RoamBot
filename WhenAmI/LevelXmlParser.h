@@ -16,13 +16,12 @@
 - (void) setupLevelNumber:(NSInteger)levelNum;
 - (void) setupWorldType:(NSString*)worldType;
 
-- (void) setupPlankWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotationAngle:(float)rotation  powered:(BOOL)powered theme:(NSString*)levelStyle;
+- (void) setupPlankWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotationAngle:(float)rotation  powered:(BOOL)powered theme:(NSString*)theme;
 - (void) setupBallWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable;
-- (void) setupWallWithPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(NSString*)type;
-- (void) setupGoalWithXPosition:(float)x yPosition:(float)y type:(NSString *)type;
+- (void) setupWallWithPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)theme imageSize:(NSString*)imageSize;
+- (void) setupGoalWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)degrees theme:(NSString *)theme;
 - (void) setupCanonWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)degrees;
 - (void) setupCollectableWithXPosition:(float)x yPosition:(float)y type:(NSString*)type;
-
 
 
 

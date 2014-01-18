@@ -11,7 +11,9 @@
 
 @interface GoalNode : WorldItemNode
 
-+ (id)goalWithPosition:(CGPoint)position type:(NSString *)type;
+@property (nonatomic, strong) NSString *theme;
+
++ (id)goalWithPosition:(CGPoint)position rotation:(CGFloat)rotation theme:(NSString *)theme;
 - (void)contactWithBall;
 
 @end
