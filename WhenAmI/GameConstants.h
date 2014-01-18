@@ -10,6 +10,9 @@
 #define WhenAmI_GameConstants_h
 
 
+#define kDavMode YES
+
+
 static const uint32_t ballConst =  0x1 << 0;
 static const uint32_t collectableConst =  0x1 << 1;
 

@@ -111,4 +111,11 @@
     
 }
 
+/**
+ * Use this to get rid of the status bar.
+ */
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 @end

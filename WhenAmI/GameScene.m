@@ -214,6 +214,7 @@
 }
 
 #pragma mark - Private
+
 - (void)loadLevel:(NSInteger)level {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"level_%02d", level] ofType:@"xml"];
     

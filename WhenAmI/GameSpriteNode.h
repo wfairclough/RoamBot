@@ -7,8 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-
-#define kDavMode YES
+#import "GameConstants.h"
 
 @interface GameSpriteNode : SKSpriteNode
 

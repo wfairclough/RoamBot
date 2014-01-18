@@ -9,6 +9,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "LevelXmlParser.h"
+#import "GameConstants.h"
 
 @interface GameScene : SKScene <UIGestureRecognizerDelegate, LevelSetupDelegate>
 
