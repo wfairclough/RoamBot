@@ -10,6 +10,8 @@
 #import "BallNode.h"
 #import "PlankNode.h"
 #import "LevelXmlWriter.h"
+#import "GamePlayer.h"
+
 
 @interface GameScene()
 @property (nonatomic, strong) BallNode *ball;
@@ -20,7 +22,11 @@
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
-        [self loadLevel];
+        NSNumber* level = [[GamePlayer sharedInstance] selectedLevel];
+        if (level == nil)
+            level = [[GamePlayer sharedInstance] currentLevel];
+        
+        [self loadLevel:[level integerValue]];
     }
     return self;
 }
@@ -89,6 +95,9 @@
     if (sender.state == UIGestureRecognizerStateEnded) {
         self.currentlySelectedNode = [self nodeAtPoint:[self convertPointFromView:[sender locationInView:self.view]]];
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"ball"]) {
+            if (kDavMode) {
+                [self saveLevelToFile:-1];
+            }
             self.currentlySelectedNode.parent.physicsBody.dynamic = YES;
         }
         if (kDavMode) {
@@ -179,8 +188,8 @@
 }
 
 #pragma mark - Private
-- (void)loadLevel {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"level_01" ofType:@"xml"];
+- (void)loadLevel:(NSInteger)level {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"level_%02d", level] ofType:@"xml"];
     NSData *levelData = [NSData dataWithContentsOfFile:filePath];
     
     LevelXmlParser* levelXmlParser = [[LevelXmlParser alloc] initWithData:levelData];

@@ -13,6 +13,7 @@
 + (GamePlayer *) sharedInstance;
 
 @property (nonatomic, strong) NSNumber* currentLevel;
+@property (nonatomic, strong) NSNumber* selectedLevel;
 @property (nonatomic, strong) NSNumber* gameAudioEnabled;
 
 - (void)loadPlayer;
