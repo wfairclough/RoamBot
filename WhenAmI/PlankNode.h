@@ -9,5 +9,5 @@
 #import "WorldItemNode.h"
 
 @interface PlankNode : WorldItemNode
-
++ (id)plankWithPosition:(CGPoint)position rotation:(CGFloat)degrees power:(BOOL)isPowered;
 @end

@@ -7,12 +7,17 @@
 //
 
 #import "GameScene.h"
+#import "BallNode.h"
+
+@interface GameScene()
+@property (nonatomic, strong) BallNode *ball;
+@end
 
 @implementation GameScene
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
-        
+        [self loadLevel];
     }
     return self;
 }
@@ -38,14 +43,37 @@
 
 - (void)handleOneFingerTap:(UITapGestureRecognizer*)sender {
     NSLog(@"1 Finger");
+    self.ball.physicsBody.dynamic = YES;
 }
 
 - (void)handlePan:(UIPanGestureRecognizer*)sender {
     NSLog(@"Pan");
 }
 
+#pragma mark - Level Setup
+- (void) setupBallWithXPosition:(float)x yPosition:(float)y {
+    self.ball = [BallNode ballWithPosition:CGPointMake(x, y)];
+    [self addChild:self.ball];
+}
+
+#pragma mark - Game Logic
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+}
+
+#pragma mark - Private
+- (void)loadLevel {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"level_01" ofType:@"xml"];
+    NSData *levelData = [NSData dataWithContentsOfFile:filePath];
+    
+    LevelXmlParser* levelXmlParser = [[LevelXmlParser alloc] initWithData:levelData];
+    
+    [levelXmlParser setSetupDelegate:self];
+    
+    [levelXmlParser parse];
+    
+    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+    self.physicsBody.restitution = 0.5;
 }
 
 @end
