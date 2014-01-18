@@ -2,6 +2,6 @@
 <level value="1">
     <world type="space">
         <ball x="100" y="450" interacts="true"/>
-        <goal x="200" y="20" />
+        <goal x="100" y="0" />
     </world>
 </level>
