@@ -7,8 +7,12 @@
 //
 
 #import "BallNode.h"
+#import "LevelXmlConstants.h"
+
 
 @implementation BallNode
+
+
 + (id)ballWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable {
     BallNode *node = [BallNode spriteNodeWithImageNamed:@"ball" position:position allowInteraction:isInteractable];
     node.name = @"ball";
@@ -17,4 +21,14 @@
     node.physicsBody.restitution = 0.75;
     return node;
 }
+
+
+
+#pragma mark - XML Writer
+
+- (NSString *)gameNodeXml {
+    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f'></%@>", kBallTag, self.position.x, self.position.y, kBallTag];
+}
+
+
 @end

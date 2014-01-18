@@ -45,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE12D6E7188A2BAD009937C9 /* LevelXmlConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelXmlConstants.h; sourceTree = "<group>"; };
 		BE8481361889DFFF009C21D2 /* WhenAmI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhenAmI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8481391889DFFF009C21D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -247,6 +248,7 @@
 			children = (
 				BEDA80DB1889E2AA000D6023 /* LevelXmlParser.h */,
 				BEDA80DC1889E2AA000D6023 /* LevelXmlParser.m */,
+				BE12D6E7188A2BAD009937C9 /* LevelXmlConstants.h */,
 			);
 			name = GameLevels;
 			sourceTree = "<group>";

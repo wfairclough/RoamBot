@@ -7,8 +7,8 @@
 //
 
 #import "WallNode.h"
+#import "LevelXmlConstants.h"
 
-static const uint32_t ball = 0x1 << 0;
 
 @implementation WallNode
 
@@ -20,5 +20,17 @@ static const uint32_t ball = 0x1 << 0;
     }
     return self;
 }
+
+
+
+
+#pragma mark - XML Writer
+
+- (NSString *)gameNodeXml {
+    CGFloat degrees = [GameSpriteNode degreesToRadians:self.zRotation];
+    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' rotation='%f' type='%d'></%@>", kWallTag, self.position.x, self.position.y, degrees, self.wallType, kWallTag];
+}
+
+
 
 @end

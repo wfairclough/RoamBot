@@ -7,22 +7,7 @@
 //
 
 #import "LevelXmlParser.h"
-
-
-#define kLevelTag @"level"
-#define kWorldTag @"world"
-#define kValueAttribute @"value"
-#define kTypeAttribute @"value"
-#define kXAttribute @"x"
-#define kYAttribute @"y"
-#define kInteractable @"interacts"
-#define kRotationAttribute @"rotation"
-#define kPoweredAttribute @"powered"
-
-#define kBallTag @"ball"
-#define kPlankTag @"plank"
-#define kWallTag @"wall"
-
+#import "LevelXmlConstants.h"
 
 #pragma mark - Private Methods
 

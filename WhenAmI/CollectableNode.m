@@ -7,7 +7,18 @@
 //
 
 #import "CollectableNode.h"
+#import "LevelXmlConstants.h"
+
 
 @implementation CollectableNode
+
+
+#pragma mark - XML Writer
+
+- (NSString *)gameNodeXml {
+    CGFloat degrees = [GameSpriteNode degreesToRadians:self.zRotation];
+    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f'></%@>", kCollectableTag, self.position.x, self.position.y, kCollectableTag];
+}
+
 
 @end

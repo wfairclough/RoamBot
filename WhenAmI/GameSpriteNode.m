@@ -7,6 +7,8 @@
 //
 
 #import "GameSpriteNode.h"
+#import "LevelXmlConstants.h"
+
 
 @implementation GameSpriteNode
 + (id)spriteNodeWithImageNamed:(NSString *)name position:(CGPoint)position allowInteraction:(BOOL)isInteractable {
@@ -51,5 +53,13 @@
         
 }
 
+
+#pragma mark - XML Writer
+
+- (NSString *)gameNodeXml {
+    NSString *interacts = (self.allowInteractions) ? @"true" : @"false";
+    CGFloat degrees = [GameSpriteNode degreesToRadians:self.zRotation];
+    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' interacts='%@' rotation='%f'></%@>", kGameNodeTag, self.position.x, self.position.y, interacts, degrees, kGameNodeTag];
+}
 
 @end

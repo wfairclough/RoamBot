@@ -19,4 +19,12 @@
 - (void)rotateByAngle:(CGFloat)rotation;
 - (BOOL)isBoundingBox;
 - (BOOL)isDavMode;
+- (NSString *)gameNodeXml;
+
+
+#pragma mark - Utility Methods
+
++ (CGFloat)degreesToRadians:(CGFloat)degrees;
++ (CGFloat)radiansToDegrees:(CGFloat)radians;
+
 @end
