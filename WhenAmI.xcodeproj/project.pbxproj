@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BE12D6EA188A3099009937C9 /* LevelXmlWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE12D6E9188A3099009937C9 /* LevelXmlWriter.m */; };
+		BE12D6EC188AB07C009937C9 /* level_00.xml in Resources */ = {isa = PBXBuildFile; fileRef = BE12D6EB188AB07C009937C9 /* level_00.xml */; };
 		BE84813A1889DFFF009C21D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8481391889DFFF009C21D2 /* Foundation.framework */; };
 		BE84813C1889DFFF009C21D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */; };
 		BE84813E1889DFFF009C21D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813D1889DFFF009C21D2 /* UIKit.framework */; };
@@ -49,6 +50,7 @@
 		BE12D6E7188A2BAD009937C9 /* LevelXmlConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelXmlConstants.h; sourceTree = "<group>"; };
 		BE12D6E8188A3099009937C9 /* LevelXmlWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelXmlWriter.h; sourceTree = "<group>"; };
 		BE12D6E9188A3099009937C9 /* LevelXmlWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelXmlWriter.m; sourceTree = "<group>"; };
+		BE12D6EB188AB07C009937C9 /* level_00.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_00.xml; sourceTree = "<group>"; };
 		BE8481361889DFFF009C21D2 /* WhenAmI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhenAmI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8481391889DFFF009C21D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -213,6 +215,7 @@
 		BEDA80C81889E114000D6023 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				BE12D6EB188AB07C009937C9 /* level_00.xml */,
 				BEDA80DE1889E820000D6023 /* level_01.xml */,
 			);
 			name = Levels;
@@ -343,6 +346,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE12D6EC188AB07C009937C9 /* level_00.xml in Resources */,
 				BE8481461889DFFF009C21D2 /* InfoPlist.strings in Resources */,
 				BE8481591889DFFF009C21D2 /* Images.xcassets in Resources */,
 				BE84814F1889DFFF009C21D2 /* Main.storyboard in Resources */,

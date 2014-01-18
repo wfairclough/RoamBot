@@ -11,12 +11,8 @@
 @implementation LevelXmlWriter
 
 - (void) startXmlWithLevel:(int)level {
-    //get the documents directory:
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    
     //make a file name to write the data to using the documents directory:
-    self.fileName = [NSString stringWithFormat:@"%@/level_%02d.xml", documentsDirectory, level];
+    self.fileName = [NSString stringWithFormat:@"%@/level_%02d.xml", [self documentDirectory], level];
     
     [self.xmlContent appendString:@"<?xml version=\"1.0\"?>"];
     [self.xmlContent appendString:@"\t<level value='1'>"];
@@ -43,14 +39,20 @@
     
     NSError* error = nil;
     
-    [self.xmlContent writeToFile:self.fileName
-              atomically:NO
-                encoding:NSStringEncodingConversionAllowLossy
+    NSString* content = [NSString stringWithFormat:@"%@", self.xmlContent];
+    [content writeToFile:self.fileName
+              atomically:YES
+                encoding:NSUTF8StringEncoding
                    error:&error];
     
     if (error != nil) {
         NSLog(@"ERROR: %@", error);
     }
+}
+
+-(NSString *)documentDirectory{
+    [NSFileManager defaultManager];
+    return [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
 }
 
 @end
