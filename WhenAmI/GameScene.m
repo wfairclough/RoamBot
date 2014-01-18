@@ -32,6 +32,14 @@
     UITapGestureRecognizer *oneFingerTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleOneFingerTap:)];
     [self.view addGestureRecognizer:oneFingerTapGestureRecognizer];
     
+    UITapGestureRecognizer *oneFingerDoubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleOneFingerDoubleTap:)];
+    [oneFingerDoubleTapGestureRecognizer setNumberOfTapsRequired:2];
+    [self.view addGestureRecognizer:oneFingerDoubleTapGestureRecognizer];
+    
+    UITapGestureRecognizer *twoFingerTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTwoFingerTap:)];
+    [twoFingerTapGestureRecognizer setNumberOfTouchesRequired:2];
+    [self.view addGestureRecognizer:twoFingerTapGestureRecognizer];
+    
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     [self.view addGestureRecognizer:panGestureRecognizer];
     
@@ -41,7 +49,6 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     self.currentlySelectedNode = [self nodeAtPoint:[self convertPointFromView:[[touches anyObject] locationInView:self.view]]];
-    NSLog(@"Tap Gesture Began - %@", self.currentlySelectedNode);
 }
 
 - (void)handleRotation:(UIRotationGestureRecognizer*)sender {
@@ -63,7 +70,59 @@
 
 - (void)handleOneFingerTap:(UITapGestureRecognizer*)sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
-        self.ball.physicsBody.dynamic = YES;
+        self.currentlySelectedNode = [self nodeAtPoint:[self convertPointFromView:[sender locationInView:self.view]]];
+        if ([self.currentlySelectedNode.parent.name isEqualToString:@"ball"]) {
+            self.currentlySelectedNode.parent.physicsBody.dynamic = YES;
+        }
+        if (kDavMode) {
+            if ([self.currentlySelectedNode.name  isEqualToString:@"label"]) {
+                SKLabelNode *label = (SKLabelNode*)self.currentlySelectedNode;
+                if ([label.text  isEqualToString:@"B"]) {
+                    [self addChild:[BallNode ballWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES]];
+                } else if ([label.text  isEqualToString:@"P"]) {
+                    [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO]];
+                }
+            }
+        }
+    }
+}
+
+- (void)handleOneFingerDoubleTap:(UITapGestureRecognizer*)sender {
+    if (kDavMode) {
+        self.currentlySelectedNode = [self nodeAtPoint:[self convertPointFromView:[sender locationInView:self.view]]];
+        [self.currentlySelectedNode.parent removeFromParent];
+    }
+}
+
+- (void)handleTwoFingerTap:(UITapGestureRecognizer*)sender {
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        if (kDavMode) {
+            if (![self childNodeWithName:@"label"]) {
+                // Add Ball Label
+                SKLabelNode *ballLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+                [ballLabel setFontSize:48.0f];
+                [ballLabel setPosition:CGPointMake(self.size.width - 40, self.size.height - 40)];
+                [ballLabel setText:@"B"];
+                [ballLabel setName:@"label"];
+                [self addChild:ballLabel];
+                
+                // Add Plank Label
+                SKLabelNode *plankLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+                [plankLabel setFontSize:48.0f];
+                [plankLabel setPosition:CGPointMake(self.size.width - 40, self.size.height - 90)];
+                [plankLabel setText:@"P"];
+                [plankLabel setName:@"label"];
+                [self addChild:plankLabel];
+            } else {
+                if (![self childNodeWithName:@"label"].isHidden) {
+                    for (SKNode *s in [self children]) {
+                        if ([s.name isEqualToString:@"label"]) {
+                            [s removeFromParent];
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

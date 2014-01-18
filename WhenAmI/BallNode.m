@@ -17,4 +17,5 @@
     node.physicsBody.restitution = 0.75;
     return node;
 }
+
 @end

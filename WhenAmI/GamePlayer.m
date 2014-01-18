@@ -53,7 +53,7 @@ static GamePlayer* _sharedInstance;
     self.currentLevel = [defaults objectForKey:kCurrentLevel];
     self.gameAudioEnabled = [defaults objectForKey:kGameAudioEnabled];
     
-    NSLog(@"%@   %@", self.currentLevel, self.gameAudioEnabled);
+    NSLog(@"Current Level - %@, Audio - %@", self.currentLevel, self.gameAudioEnabled);
 }
 
 - (void)savePlayer {
