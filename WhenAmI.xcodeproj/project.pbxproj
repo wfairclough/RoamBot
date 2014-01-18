@@ -32,7 +32,6 @@
 		BE8481481889DFFF009C21D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8481471889DFFF009C21D2 /* main.m */; };
 		BE84814C1889DFFF009C21D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE84814B1889DFFF009C21D2 /* AppDelegate.m */; };
 		BE84814F1889DFFF009C21D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE84814D1889DFFF009C21D2 /* Main.storyboard */; };
-		BE8481521889DFFF009C21D2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8481511889DFFF009C21D2 /* ViewController.m */; };
 		BE8481551889DFFF009C21D2 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8481541889DFFF009C21D2 /* GameScene.m */; };
 		BE8481591889DFFF009C21D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE8481581889DFFF009C21D2 /* Images.xcassets */; };
 		BE8481601889DFFF009C21D2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84815F1889DFFF009C21D2 /* XCTest.framework */; };
@@ -99,8 +98,6 @@
 		BE84814A1889DFFF009C21D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BE84814B1889DFFF009C21D2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BE84814E1889DFFF009C21D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BE8481501889DFFF009C21D2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BE8481511889DFFF009C21D2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BE8481531889DFFF009C21D2 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		BE8481541889DFFF009C21D2 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		BE8481581889DFFF009C21D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -197,8 +194,18 @@
 				BE84814A1889DFFF009C21D2 /* AppDelegate.h */,
 				BE84814B1889DFFF009C21D2 /* AppDelegate.m */,
 				BE84814D1889DFFF009C21D2 /* Main.storyboard */,
-				BE8481501889DFFF009C21D2 /* ViewController.h */,
-				BE8481511889DFFF009C21D2 /* ViewController.m */,
+				46B04D4B188ACB4B00805BE1 /* GameViewController.h */,
+				46B04D4C188ACB4B00805BE1 /* GameViewController.m */,
+				46B04D39188AA7E800805BE1 /* CustomFadeTransition.h */,
+				46B04D3A188AA7E800805BE1 /* CustomFadeTransition.m */,
+				46B04D3B188AA7E800805BE1 /* GameConstants.h */,
+				46B04D3C188AA7E800805BE1 /* LogoViewController.h */,
+				46B04D3D188AA7E800805BE1 /* LogoViewController.m */,
+				46B04D43188AAEDC00805BE1 /* LevelViewController.h */,
+				46B04D44188AAEDC00805BE1 /* LevelViewController.m */,
+				46B04D48188AB10700805BE1 /* WorldsViewController.h */,
+				46B04D49188AB10700805BE1 /* WorldsViewController.m */,
+				46B04D45188AAEDC00805BE1 /* LevelViewController.xib */,
 				BE8481581889DFFF009C21D2 /* Images.xcassets */,
 				BE8481421889DFFF009C21D2 /* Supporting Files */,
 			);
@@ -399,6 +406,7 @@
 				BE12D6F6188AC499009937C9 /* Level Complete.mp3 in Resources */,
 				BE12D6F8188AC499009937C9 /* Main Menu (Without Intro).mp3 in Resources */,
 				BE8481461889DFFF009C21D2 /* InfoPlist.strings in Resources */,
+				46B04D47188AAEDC00805BE1 /* LevelViewController.xib in Resources */,
 				BE8481591889DFFF009C21D2 /* Images.xcassets in Resources */,
 				BE12D6FA188AC499009937C9 /* Press 2.wav in Resources */,
 				BE84814F1889DFFF009C21D2 /* Main.storyboard in Resources */,
@@ -424,17 +432,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE8481551889DFFF009C21D2 /* GameScene.m in Sources */,
-				BE8481521889DFFF009C21D2 /* ViewController.m in Sources */,
 				BEDA80E61889ED05000D6023 /* GamePlayer.m in Sources */,
 				BE12D6EA188A3099009937C9 /* LevelXmlWriter.m in Sources */,
 				BEDA80E21889EBD8000D6023 /* WallNode.m in Sources */,
 				BEDA80D71889E24D000D6023 /* PlankNode.m in Sources */,
+				46B04D41188AA7E800805BE1 /* LogoViewController.m in Sources */,
 				BEDA80DA1889E263000D6023 /* CollectableNode.m in Sources */,
 				BE84814C1889DFFF009C21D2 /* AppDelegate.m in Sources */,
+				46B04D4D188ACB4B00805BE1 /* GameViewController.m in Sources */,
 				BE8481481889DFFF009C21D2 /* main.m in Sources */,
 				BEDA80CE1889E203000D6023 /* GameSpriteNode.m in Sources */,
 				BEDA80DD1889E2AA000D6023 /* LevelXmlParser.m in Sources */,
+				46B04D4A188AB10700805BE1 /* WorldsViewController.m in Sources */,
+				46B04D46188AAEDC00805BE1 /* LevelViewController.m in Sources */,
 				BEDA80D41889E226000D6023 /* BallNode.m in Sources */,
+				46B04D40188AA7E800805BE1 /* CustomFadeTransition.m in Sources */,
 				BEDA80D11889E216000D6023 /* WorldItemNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

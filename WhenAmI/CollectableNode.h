@@ -7,6 +7,7 @@
 //
 
 #import "GameSpriteNode.h"
+#import "GameConstants.h"
 
 @interface CollectableNode : GameSpriteNode
 

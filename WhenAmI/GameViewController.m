@@ -1,20 +1,23 @@
 //
-//  ViewController.m
+//  GameViewController.m
 //  WhenAmI
 //
-//  Created by Will Fairclough on 2014-01-17.
+//  Created by Kat Butler on 2014-01-18.
 //  Copyright (c) 2014 Chicken Waffle. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "GameScene.h"
+#import "GameViewController.h"
 
-@implementation ViewController
+@interface GameViewController ()
+
+@end
+
+@implementation GameViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
@@ -36,7 +39,7 @@
 - (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,5 +54,4 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
-
 @end

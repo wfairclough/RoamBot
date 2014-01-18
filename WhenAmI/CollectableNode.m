@@ -13,6 +13,19 @@
 @implementation CollectableNode
 
 
+-(id) init {
+    if (self = [super initWithImageNamed:@"energy_collectable"]) {
+        self.physicsBody.categoryBitMask = collectableConst;
+        
+        
+        // Init stuff here
+        // self.physicsBody.restitution = 1.0; // Stuff like this here but you dont need restitution for this one
+        
+    }
+    return self;
+    
+}
+
 #pragma mark - XML Writer
 
 - (NSString *)gameNodeXml {
