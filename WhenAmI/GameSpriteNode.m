@@ -9,8 +9,9 @@
 #import "GameSpriteNode.h"
 
 @implementation GameSpriteNode
-+ (id)spriteNodeWithImageNamed:(NSString *)name position:(CGPoint)position {
++ (id)spriteNodeWithImageNamed:(NSString *)name position:(CGPoint)position allowInteraction:(BOOL)isInteractable {
     GameSpriteNode *node = [GameSpriteNode spriteNodeWithImageNamed:name];
+    node.allowInteractions = isInteractable;
     node.position = position;
     GameSpriteNode *boundingBox = [GameSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.3] size:node.size];
     boundingBox.name = @"bounding";
@@ -19,8 +20,8 @@
     return node;
 }
 
-+ (id)spriteNodeWithImageNamed:(NSString *)name position:(CGPoint)position rotation:(CGFloat)degrees {
-    GameSpriteNode * node = [GameSpriteNode spriteNodeWithImageNamed:name position:position];
++ (id)spriteNodeWithImageNamed:(NSString *)name position:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees {
+    GameSpriteNode * node = [GameSpriteNode spriteNodeWithImageNamed:name position:position allowInteraction:isInteractable];
     node.zRotation = [GameSpriteNode degreesToRadians:degrees];
     return node;
 }
@@ -32,4 +33,23 @@
 + (CGFloat)radiansToDegrees:(CGFloat)radians {
     return radians * 180 / M_PI;
 }
+
+- (void)rotateByAngle:(CGFloat)rotation {
+    [self runAction:[SKAction rotateByAngle:-2*rotation duration:0.0]];
+}
+
+- (BOOL)isBoundingBox {
+    return [self.name isEqualToString:@"bounding"];
+}
+
+
+- (BOOL) isDavMode {
+    if (kDavMode)
+        return kDavMode;
+    
+    return self.allowInteractions;
+        
+}
+
+
 @end

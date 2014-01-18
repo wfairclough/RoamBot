@@ -15,6 +15,7 @@
 #define kTypeAttribute @"value"
 #define kXAttribute @"x"
 #define kYAttribute @"y"
+#define kInteractable @"interacts"
 #define kRotationAttribute @"rotation"
 #define kPoweredAttribute @"powered"
 
@@ -62,19 +63,21 @@
     } else if ([elementName isEqualToString:kBallTag]){
         float x = [[attributeDict valueForKey:kXAttribute] floatValue];
         float y = [[attributeDict valueForKey:kYAttribute] floatValue];
+        bool isInteractable = [[attributeDict valueForKey:kInteractable] boolValue];
         
-        if ([self.setupDelegate respondsToSelector:@selector (setupBallWithXPosition:yPosition:)]) {
-            [self.setupDelegate setupBallWithXPosition:x yPosition:y];
+        if ([self.setupDelegate respondsToSelector:@selector (setupBallWithXPosition:yPosition:allowInteraction:)]) {
+            [self.setupDelegate setupBallWithXPosition:x yPosition:y allowInteraction:isInteractable];
         }
         
     } else if ([elementName isEqualToString:kPlankTag]){
         float x = [[attributeDict valueForKey:kXAttribute] floatValue];
         float y = [[attributeDict valueForKey:kYAttribute] floatValue];
+        bool isInteractable = [[attributeDict valueForKey:kInteractable] boolValue];
         float rotation = [[attributeDict valueForKey:kRotationAttribute] floatValue];
         BOOL powered = [[attributeDict valueForKey:kPoweredAttribute] boolValue];
         
-        if ([self.setupDelegate respondsToSelector:@selector (setupPlankWithXPosition:yPosition:rotationAngle:powered:)]) {
-            [self.setupDelegate setupPlankWithXPosition:x yPosition:y rotationAngle:rotation powered:powered];
+        if ([self.setupDelegate respondsToSelector:@selector (setupPlankWithXPosition:yPosition:allowInteraction:rotationAngle:powered:)]) {
+            [self.setupDelegate setupPlankWithXPosition:x yPosition:y allowInteraction:isInteractable rotationAngle:rotation powered:powered];
         }
     }
     
