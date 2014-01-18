@@ -3,11 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "ball3.png"
+      "filename" : "World 1 Wall Medium.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "World 1 Wall Medium@2x.png"
     }
   ],
   "info" : {

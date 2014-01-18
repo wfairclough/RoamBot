@@ -12,15 +12,23 @@
 
 @implementation WallNode
 
-
--(id)initType:(WallType)type {
-    if (self = [super initWithImageNamed:@"wall_rome"]) {
+-(id)initWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(NSString*)type {
+    NSString *imageName;
+    imageName = [[[@"wall_" stringByAppendingString:type] stringByAppendingString:@"_"] stringByAppendingString:levelStyle];
+    if (self = [super initWithImageNamed:imageName position:position allowInteraction:isInteractable rotation:degrees]) {
+        self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
+        [[self childNodeWithName:@"bounding"] setXScale:0.8];
+        self.physicsBody.dynamic = NO;
         self.physicsBody.restitution = 0.5;
-        self.wallType = type;
+        self.levelStyle = levelStyle;
+        self.imageSize = type;
     }
     return self;
 }
 
++ (id)wallWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees theme:(NSString*)levelStyle Type:(NSString*)type {
+    return [[WallNode alloc ] initWithPosition:position allowInteraction:isInteractable rotation:degrees theme:levelStyle Type:type];
+}
 
 
 
@@ -28,7 +36,8 @@
 
 - (NSString *)gameNodeXml {
     CGFloat degrees = [GameSpriteNode radiansToDegrees:self.zRotation];
-    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' rotation='%f' type='%d'></%@>", kWallTag, self.position.x, self.position.y, degrees, self.wallType, kWallTag];
+    NSString *interacts = (self.allowInteractions) ? @"true" : @"false";
+    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' interacts='%@' rotation='%f' levelStyle='%@' type='%@'></%@>", kWallTag, self.position.x, self.position.y, interacts ,degrees, self.levelStyle, self.imageSize, kWallTag];
 }
 
 

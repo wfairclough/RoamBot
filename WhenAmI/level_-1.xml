@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <level value="1">
-    <world type="rome">
+    <world type="space">
         <ball x="100" y="450" interacts="true"/>
     </world>
 </level>

@@ -12,11 +12,12 @@
 #define kLevelTag @"level"
 #define kWorldTag @"world"
 #define kValueAttribute @"value"
-#define kTypeAttribute @"value"
+#define kTypeAttribute @"imageType"
 #define kXAttribute @"x"
 #define kYAttribute @"y"
 #define kInteractable @"interacts"
 #define kRotationAttribute @"rotation"
+#define kThemeAttribute @"levelStyle"
 #define kPoweredAttribute @"powered"
 
 #define kGameNodeTag @"gameNode"
