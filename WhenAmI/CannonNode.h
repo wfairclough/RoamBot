@@ -12,4 +12,6 @@
 
 + (id)canonWithPosition:(CGPoint)position rotation:(CGFloat)degrees;
 
+- (void)fire;
+
 @end

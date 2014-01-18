@@ -16,7 +16,7 @@
     if (self = [super initWithImageNamed:@"ball" position:position allowInteraction:isInteractable]) {
         self.name = @"ball";
         self.zPosition = 1000.0f;
-        [[self childNodeWithName:@"bounding"] setScale:2.0];
+        [[self childNodeWithName:@"bounding"] setScale:1.6];
         self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
         self.physicsBody.dynamic = NO;
         self.physicsBody.restitution = 0.75;

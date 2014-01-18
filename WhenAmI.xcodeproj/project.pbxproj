@@ -28,6 +28,8 @@
 		BE12D6FC188AC499009937C9 /* RomeBotLevel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BE12D6F5188AC499009937C9 /* RomeBotLevel.mp3 */; };
 		BE12D700188AEEC1009937C9 /* GameSounds.m in Sources */ = {isa = PBXBuildFile; fileRef = BE12D6FF188AEEC1009937C9 /* GameSounds.m */; };
 		BE12D703188AFEE5009937C9 /* CannonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BE12D702188AFEE5009937C9 /* CannonNode.m */; };
+		BE12D709188B1D6C009937C9 /* Cannon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BE12D708188B1D6C009937C9 /* Cannon.atlas */; };
+		BE12D70B188B1E42009937C9 /* cannon_noise.wav in Resources */ = {isa = PBXBuildFile; fileRef = BE12D70A188B1E42009937C9 /* cannon_noise.wav */; };
 		BE84813A1889DFFF009C21D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8481391889DFFF009C21D2 /* Foundation.framework */; };
 		BE84813C1889DFFF009C21D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */; };
 		BE84813E1889DFFF009C21D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813D1889DFFF009C21D2 /* UIKit.framework */; };
@@ -97,6 +99,8 @@
 		BE12D6FF188AEEC1009937C9 /* GameSounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSounds.m; sourceTree = "<group>"; };
 		BE12D701188AFEE5009937C9 /* CannonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CannonNode.h; sourceTree = "<group>"; };
 		BE12D702188AFEE5009937C9 /* CannonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CannonNode.m; sourceTree = "<group>"; };
+		BE12D708188B1D6C009937C9 /* Cannon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Cannon.atlas; sourceTree = "<group>"; };
+		BE12D70A188B1E42009937C9 /* cannon_noise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cannon_noise.wav; sourceTree = "<group>"; };
 		BE8481361889DFFF009C21D2 /* WhenAmI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhenAmI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8481391889DFFF009C21D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -178,6 +182,44 @@
 				46B04D45188AAEDC00805BE1 /* LevelViewController.xib */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BE12D704188B1B58009937C9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BE12D705188B1B5D009937C9 /* Atlas */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		BE12D705188B1B5D009937C9 /* Atlas */ = {
+			isa = PBXGroup;
+			children = (
+				BE12D708188B1D6C009937C9 /* Cannon.atlas */,
+			);
+			name = Atlas;
+			sourceTree = "<group>";
+		};
+		BE12D70C188B1E49009937C9 /* Efx */ = {
+			isa = PBXGroup;
+			children = (
+				BE12D6F2188AC499009937C9 /* Press 1.wav */,
+				BE12D6F4188AC499009937C9 /* Press 3.wav */,
+				BE12D6F3188AC499009937C9 /* Press 2.wav */,
+				BE12D6EF188AC499009937C9 /* Level Complete.mp3 */,
+				BE12D70A188B1E42009937C9 /* cannon_noise.wav */,
+			);
+			name = Efx;
+			sourceTree = "<group>";
+		};
+		BE12D70D188B1E54009937C9 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				BE12D6F0188AC499009937C9 /* MainMenuWithIntro.mp3 */,
+				BE12D6F1188AC499009937C9 /* MainMenuNoIntro.mp3 */,
+				BE12D6F5188AC499009937C9 /* RomeBotLevel.mp3 */,
+			);
+			name = Music;
 			sourceTree = "<group>";
 		};
 		BE84812D1889DFFF009C21D2 = {
@@ -263,6 +305,7 @@
 		BEDA80C61889E106000D6023 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BE12D704188B1B58009937C9 /* Images */,
 				BEDA80C81889E114000D6023 /* Levels */,
 				BEDA80C71889E10F000D6023 /* Sounds */,
 			);
@@ -272,13 +315,8 @@
 		BEDA80C71889E10F000D6023 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				BE12D6EF188AC499009937C9 /* Level Complete.mp3 */,
-				BE12D6F0188AC499009937C9 /* MainMenuWithIntro.mp3 */,
-				BE12D6F1188AC499009937C9 /* MainMenuNoIntro.mp3 */,
-				BE12D6F2188AC499009937C9 /* Press 1.wav */,
-				BE12D6F3188AC499009937C9 /* Press 2.wav */,
-				BE12D6F4188AC499009937C9 /* Press 3.wav */,
-				BE12D6F5188AC499009937C9 /* RomeBotLevel.mp3 */,
+				BE12D70D188B1E54009937C9 /* Music */,
+				BE12D70C188B1E49009937C9 /* Efx */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -433,10 +471,12 @@
 				BE12D6F6188AC499009937C9 /* Level Complete.mp3 in Resources */,
 				BE12D6F8188AC499009937C9 /* MainMenuNoIntro.mp3 in Resources */,
 				BE8481461889DFFF009C21D2 /* InfoPlist.strings in Resources */,
+				BE12D70B188B1E42009937C9 /* cannon_noise.wav in Resources */,
 				46B04D47188AAEDC00805BE1 /* LevelViewController.xib in Resources */,
 				BE8481591889DFFF009C21D2 /* Images.xcassets in Resources */,
 				BE12D6FA188AC499009937C9 /* Press 2.wav in Resources */,
 				BE84814F1889DFFF009C21D2 /* Main.storyboard in Resources */,
+				BE12D709188B1D6C009937C9 /* Cannon.atlas in Resources */,
 				BE12D6F7188AC499009937C9 /* MainMenuWithIntro.mp3 in Resources */,
 				BEDA80DF1889E820000D6023 /* level_01.xml in Resources */,
 				BE12D6FB188AC499009937C9 /* Press 3.wav in Resources */,

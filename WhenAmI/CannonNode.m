@@ -18,6 +18,10 @@
         self.physicsBody.dynamic = NO;
         self.physicsBody.categoryBitMask = cannonConst;
         self.physicsBody.contactTestBitMask = cannonConst | ballConst;
+        
+        [[self childNodeWithName:@"bounding"] setYScale:2.0f];
+        [[self childNodeWithName:@"bounding"] setXScale:2.0f];
+        [self setAnchorPoint:CGPointMake(self.anchorPoint.x, 0.0f)];
     }
     
     return self;
@@ -27,6 +31,27 @@
     return [[CannonNode alloc] initWithPosition:position rotation:degrees];
 }
 
+
+- (void)fire {
+    
+    SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"Cannon"];
+    SKTexture *f1 = [atlas textureNamed:@"CannonFrame1.png"];
+    SKTexture *f2 = [atlas textureNamed:@"CannonFrame2.png"];
+    SKTexture *f3 = [atlas textureNamed:@"CannonFrame3.png"];
+    SKTexture *f4 = [atlas textureNamed:@"CannonFrame4.png"];
+    SKTexture *f5 = [atlas textureNamed:@"CannonFrame5.png"];
+    NSArray *cannonFireTextures = @[f1,f2,f3,f4, f5];
+
+    SKAction *cannonFireAction = [SKAction animateWithTextures:cannonFireTextures timePerFrame:0.1 resize:YES restore:YES];
+    [self runAction:cannonFireAction];
+    
+    SKAction *cannonNoise = [SKAction playSoundFileNamed:@"cannon_noise.wav" waitForCompletion:NO];
+    [self runAction:cannonNoise];
+    
+//    [self setYScale:0.6125];
+//    [self setTexture:[SKTexture textureWithImageNamed:@"Cannon"]];
+
+}
 
 #pragma mark - XML Writer
 

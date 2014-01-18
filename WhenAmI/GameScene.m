@@ -116,12 +116,21 @@
 - (void)handleOneFingerTap:(UITapGestureRecognizer*)sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
         self.currentlySelectedNode = [self nodeAtPoint:[self convertPointFromView:[sender locationInView:self.view]]];
+        NSLog(@"Tapped on: %@", self.currentlySelectedNode.parent.name);
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"ball"]) {
             if (kDavMode) {
                 [self saveLevelToFile:-1];
             }
             self.currentlySelectedNode.parent.physicsBody.dynamic = YES;
         }
+        
+        if ([self.currentlySelectedNode.parent.name isEqualToString:@"cannon"]) {
+            CannonNode* cannon = (CannonNode *)self.currentlySelectedNode.parent;
+            [cannon fire];
+        }
+        
+        
+        // DavMode Only
         if (kDavMode) {
             if ([self.currentlySelectedNode.name  isEqualToString:@"label"]) {
                 SKLabelNode *label = (SKLabelNode*)self.currentlySelectedNode;
@@ -133,6 +142,8 @@
                     [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO]];
                 } else if ([label.text  isEqualToString:@"Reset"]) {
                     [self resetLevel];
+                } else if ([label.text  isEqualToString:@"C"]) {
+                    [self addChild:[CannonNode canonWithPosition:CGPointMake(self.size.width/2, self.size.height/2) rotation:45.0f]];
                 } else if ([label.text  isEqualToString:@"S"]) {
                     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Hey Davyn! Level number please :D" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"SAVE",nil];
                     alert.tag = 0;
@@ -219,6 +230,16 @@
                 [wallLabel setText:@"W"];
                 [wallLabel setName:@"label"];
                 [self addChild:wallLabel];
+                
+                // Add Cannon Label
+                SKLabelNode *cannonLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+                [cannonLabel setFontSize:48.0f];
+                [cannonLabel setPosition:CGPointMake(self.size.width - 30, self.size.height - 140)];
+                [cannonLabel setText:@"C"];
+                [cannonLabel setName:@"label"];
+                [self addChild:cannonLabel];
+                
+                
             } else {
                 if (![self childNodeWithName:@"label"].isHidden) {
                     for (SKNode *s in [self children]) {
