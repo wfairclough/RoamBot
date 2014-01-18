@@ -59,7 +59,7 @@
 
 #pragma mark - Level Writer
 
-- (void) saveLevelToFile:(NSInteger)level {
+- (void) saveLevelToFile:(int)level {
     LevelXmlWriter* writer = [[LevelXmlWriter alloc] init];
     
     [writer startXmlWithLevel:level];
@@ -118,10 +118,19 @@
                     [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO]];
                 } else if ([label.text  isEqualToString:@"Reset"]) {
                     [self resetLevel];
+                } else if ([label.text  isEqualToString:@"S"]) {
+                    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Hey Davyn! Level number please :D" message:nil delegate:self cancelButtonTitle:@"SAVE" otherButtonTitles:nil];
+                    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+                    [alert show];
                 }
             }
         }
     }
+}
+
+// grabs number from save dialog
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    [self saveLevelToFile:[[[alertView textFieldAtIndex:0] text] intValue]];
 }
 
 - (void)handleOneFingerDoubleTap:(UITapGestureRecognizer*)sender {
@@ -143,18 +152,18 @@
                 [resetLabel setName:@"label"];
                 [self addChild:resetLabel];
                 
-                // Add Ball Label
-                SKLabelNode *ballLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
-                [ballLabel setFontSize:48.0f];
-                [ballLabel setPosition:CGPointMake(self.size.width - 40, self.size.height - 40)];
-                [ballLabel setText:@"B"];
-                [ballLabel setName:@"label"];
-                [self addChild:ballLabel];
+                // Add Save Label
+                SKLabelNode *saveLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+                [saveLabel setFontSize:36.0f];
+                [saveLabel setPosition:CGPointMake(20.0f, 10.0f)];
+                [saveLabel setText:@"S"];
+                [saveLabel setName:@"label"];
+                [self addChild:saveLabel];
                 
                 // Add Plank Label
                 SKLabelNode *plankLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
                 [plankLabel setFontSize:48.0f];
-                [plankLabel setPosition:CGPointMake(self.size.width - 40, self.size.height - 90)];
+                [plankLabel setPosition:CGPointMake(self.size.width - 20, self.size.height - 40)];
                 [plankLabel setText:@"P"];
                 [plankLabel setName:@"label"];
                 [self addChild:plankLabel];
@@ -207,10 +216,10 @@
 }
 
 #pragma mark - Private
-- (void)loadLevel:(NSInteger)level {
+- (void)loadLevel:(int)level {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"level_%02d", level] ofType:@"xml"];
     
-    if (kDavMode) {
+    if (kDavMode && level == -1) {
         filePath = [NSString stringWithFormat:@"%@/level_-1.xml", [self documentDirectory]];
     }
     
