@@ -11,21 +11,34 @@
 
 
 @implementation GameSpriteNode
+
+- (id)initWithImageNamed:(NSString *)name position:(CGPoint)position allowInteraction:(BOOL)isInteractable {
+    if (self = [super initWithImageNamed:name]) {
+        self.allowInteractions = isInteractable;
+        self.position = position;
+        GameSpriteNode *boundingBox = [GameSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.3] size:self.size];
+        boundingBox.name = @"bounding";
+        [boundingBox setHidden:YES];
+        [self addChild:boundingBox];
+    }
+    
+    return self;
+}
+
+- (id)initWithImageNamed:(NSString *)name position:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees {
+    if (self = [self initWithImageNamed:name position:position allowInteraction:isInteractable]) {
+        self.zRotation = [GameSpriteNode degreesToRadians:degrees];
+    }
+    
+    return self;
+}
+
 + (id)spriteNodeWithImageNamed:(NSString *)name position:(CGPoint)position allowInteraction:(BOOL)isInteractable {
-    GameSpriteNode *node = [GameSpriteNode spriteNodeWithImageNamed:name];
-    node.allowInteractions = isInteractable;
-    node.position = position;
-    GameSpriteNode *boundingBox = [GameSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.3] size:node.size];
-    boundingBox.name = @"bounding";
-    [boundingBox setHidden:YES];
-    [node addChild:boundingBox];
-    return node;
+    return [[GameSpriteNode alloc] initWithImageNamed:name position:position allowInteraction:isInteractable];
 }
 
 + (id)spriteNodeWithImageNamed:(NSString *)name position:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees {
-    GameSpriteNode * node = [GameSpriteNode spriteNodeWithImageNamed:name position:position allowInteraction:isInteractable];
-    node.zRotation = [GameSpriteNode degreesToRadians:degrees];
-    return node;
+    return [[GameSpriteNode alloc] initWithImageNamed:name position:position allowInteraction:isInteractable rotation:degrees];
 }
 
 + (CGFloat)degreesToRadians:(CGFloat)degrees {
@@ -53,13 +66,5 @@
         
 }
 
-
-#pragma mark - XML Writer
-
-- (NSString *)gameNodeXml {
-    NSString *interacts = (self.allowInteractions) ? @"true" : @"false";
-    CGFloat degrees = [GameSpriteNode degreesToRadians:self.zRotation];
-    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' interacts='%@' rotation='%f'></%@>", kGameNodeTag, self.position.x, self.position.y, interacts, degrees, kGameNodeTag];
-}
 
 @end

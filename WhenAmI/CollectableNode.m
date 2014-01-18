@@ -15,9 +15,8 @@
 
 #pragma mark - XML Writer
 
-- (NSString *)gameNodeXml {
-    CGFloat degrees = [GameSpriteNode degreesToRadians:self.zRotation];
-    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f'></%@>", kCollectableTag, self.position.x, self.position.y, kCollectableTag];
+- (void)gameNodeXml {
+    self.xmlTag = [NSString stringWithFormat:@"\t<%@ x='%f' y='%f'></%@>", kCollectableTag, self.position.x, self.position.y, kCollectableTag];
 }
 
 

@@ -12,14 +12,16 @@
 
 @interface GameSpriteNode : SKSpriteNode
 
+@property NSString* xmlTag;
 @property BOOL allowInteractions;
 
+- (id)initWithImageNamed:(NSString *)name position:(CGPoint)position allowInteraction:(BOOL)isInteractable;
+- (id)initWithImageNamed:(NSString *)name position:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees;
 + (id)spriteNodeWithImageNamed:(NSString *)name position:(CGPoint)position allowInteraction:(BOOL)isInteractable;
 + (id)spriteNodeWithImageNamed:(NSString *)name position:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees;
 - (void)rotateByAngle:(CGFloat)rotation;
 - (BOOL)isBoundingBox;
 - (BOOL)isDavMode;
-- (NSString *)gameNodeXml;
 
 
 #pragma mark - Utility Methods

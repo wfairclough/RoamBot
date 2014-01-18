@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE12D6EA188A3099009937C9 /* LevelXmlWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE12D6E9188A3099009937C9 /* LevelXmlWriter.m */; };
 		BE84813A1889DFFF009C21D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8481391889DFFF009C21D2 /* Foundation.framework */; };
 		BE84813C1889DFFF009C21D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */; };
 		BE84813E1889DFFF009C21D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813D1889DFFF009C21D2 /* UIKit.framework */; };
@@ -46,6 +47,8 @@
 
 /* Begin PBXFileReference section */
 		BE12D6E7188A2BAD009937C9 /* LevelXmlConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelXmlConstants.h; sourceTree = "<group>"; };
+		BE12D6E8188A3099009937C9 /* LevelXmlWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelXmlWriter.h; sourceTree = "<group>"; };
+		BE12D6E9188A3099009937C9 /* LevelXmlWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelXmlWriter.m; sourceTree = "<group>"; };
 		BE8481361889DFFF009C21D2 /* WhenAmI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhenAmI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8481391889DFFF009C21D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -249,6 +252,8 @@
 				BEDA80DB1889E2AA000D6023 /* LevelXmlParser.h */,
 				BEDA80DC1889E2AA000D6023 /* LevelXmlParser.m */,
 				BE12D6E7188A2BAD009937C9 /* LevelXmlConstants.h */,
+				BE12D6E8188A3099009937C9 /* LevelXmlWriter.h */,
+				BE12D6E9188A3099009937C9 /* LevelXmlWriter.m */,
 			);
 			name = GameLevels;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				BE8481551889DFFF009C21D2 /* GameScene.m in Sources */,
 				BE8481521889DFFF009C21D2 /* ViewController.m in Sources */,
 				BEDA80E61889ED05000D6023 /* GamePlayer.m in Sources */,
+				BE12D6EA188A3099009937C9 /* LevelXmlWriter.m in Sources */,
 				BEDA80E21889EBD8000D6023 /* WallNode.m in Sources */,
 				BEDA80D71889E24D000D6023 /* PlankNode.m in Sources */,
 				BEDA80DA1889E263000D6023 /* CollectableNode.m in Sources */,

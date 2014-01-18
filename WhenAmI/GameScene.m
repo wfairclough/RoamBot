@@ -9,6 +9,8 @@
 #import "GameScene.h"
 #import "BallNode.h"
 #import "PlankNode.h"
+#import "LevelXmlWriter.h"
+
 
 @interface GameScene()
 @property (nonatomic, strong) BallNode *ball;
@@ -34,6 +36,18 @@
     
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     [self.view addGestureRecognizer:panGestureRecognizer];
+    
+    
+    LevelXmlWriter* writer = [[LevelXmlWriter alloc] init];
+    
+    [writer startXmlWithLevel:5];
+    for (SKNode* node in self.children) {
+        if ([node isKindOfClass:[GameSpriteNode class]]) {
+            GameSpriteNode* gameNode = (GameSpriteNode *)node;
+            [writer addXmlTagWithGameNode:gameNode];
+        }
+    }
+    [writer endXml];
     
 }
 
