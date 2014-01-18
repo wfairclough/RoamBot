@@ -47,7 +47,7 @@ static GamePlayer* _sharedInstance;
     if (([defaults objectForKey:kFirstTimeLoad] == nil) || ([[defaults objectForKey:kFirstTimeLoad] isEqualToNumber:[NSNumber numberWithBool:YES]])) {
         // Init First Time
         [[NSUserDefaults standardUserDefaults] registerDefaults:@{kFirstTimeLoad: [NSNumber numberWithBool:NO],
-                                                                  kCurrentLevel: [NSNumber numberWithInteger:0],
+                                                                  kCurrentLevel: [NSNumber numberWithInteger:1],
                                                                   kGameAudioEnabled: [NSNumber numberWithBool:YES]}];
     }
     self.currentLevel = [defaults objectForKey:kCurrentLevel];
