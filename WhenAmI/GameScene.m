@@ -14,6 +14,9 @@
 
 
 @interface GameScene()
+
+@property AVAudioPlayer* musicPlayer;
+
 @property (nonatomic, strong) BallNode *ball;
 @property (nonatomic, strong) SKNode *currentlySelectedNode;
 @end
@@ -22,6 +25,9 @@
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
+        
+        [self playMusic:@"RomeBotLevel"];
+        
         if (kDavMode) {
             [self loadLevel:-1];
         } else {
@@ -30,6 +36,7 @@
                 level = [[GamePlayer sharedInstance] currentLevel];
             
             [self loadLevel:[level integerValue]];
+            
         }
     }
     return self;
@@ -238,5 +245,19 @@
         [self loadLevel:[level integerValue]];
     }
 }
+
+#pragma mark - Audio
+
+- (void)playMusic:(NSString *)filename
+{
+	NSError *error;
+	NSURL *musicURL = [[NSBundle mainBundle] URLForResource:filename withExtension:@"mp3"];
+	self.musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:musicURL error:&error];
+	self.musicPlayer.numberOfLoops = -1;
+	self.musicPlayer.volume = 0.40f;
+	[self.musicPlayer prepareToPlay];
+	[self.musicPlayer play];
+}
+
 
 @end
