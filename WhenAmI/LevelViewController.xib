@@ -43,7 +43,7 @@
         </view>
     </objects>
     <resources>
-        <image name="menu_button_0_1" width="200" height="200"/>
-        <image name="menu_button_0_off" width="200" height="200"/>
+        <image name="menu_button_0_1" width="100" height="100"/>
+        <image name="menu_button_0_off" width="100" height="100"/>
     </resources>
 </document>
