@@ -119,7 +119,14 @@
                 } else if ([label.text  isEqualToString:@"Reset"]) {
                     [self resetLevel];
                 } else if ([label.text  isEqualToString:@"S"]) {
-                    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Hey Davyn! Level number please :D" message:nil delegate:self cancelButtonTitle:@"SAVE" otherButtonTitles:nil];
+                    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Hey Davyn! Level number please :D" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"SAVE",nil];
+                    alert.tag = 0;
+                    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+                    [alert show];
+                }
+                else if ([label.text  isEqualToString:@"O"]) {
+                    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Open Level" message:@"enter a level number" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OPEN",nil];
+                    alert.tag = 1;
                     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
                     [alert show];
                 }
@@ -130,7 +137,14 @@
 
 // grabs number from save dialog
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    [self saveLevelToFile:[[[alertView textFieldAtIndex:0] text] intValue]];
+    if ([alertView tag] == 0 && buttonIndex == 1) {
+        int level = [[[alertView textFieldAtIndex:0] text] intValue];
+        NSLog(@"Level: %d", level);
+        [self saveLevelToFile:level];
+    } else if ([alertView tag] == 1 && buttonIndex == 1) {
+        [self loadLevel:[[[alertView textFieldAtIndex:0] text] intValue]];
+    }
+    
 }
 
 - (void)handleOneFingerDoubleTap:(UITapGestureRecognizer*)sender {
@@ -159,6 +173,14 @@
                 [saveLabel setText:@"S"];
                 [saveLabel setName:@"label"];
                 [self addChild:saveLabel];
+                
+                // Add Open Label
+                SKLabelNode *openLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+                [openLabel setFontSize:36.0f];
+                [openLabel setPosition:CGPointMake(20.0f, 70.0f)];
+                [openLabel setText:@"O"];
+                [openLabel setName:@"label"];
+                [self addChild:openLabel];
                 
                 // Add Plank Label
                 SKLabelNode *plankLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
@@ -217,10 +239,18 @@
 
 #pragma mark - Private
 - (void)loadLevel:(int)level {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"level_%02d", level] ofType:@"xml"];
-    
-    if (kDavMode && level == -1) {
-        filePath = [NSString stringWithFormat:@"%@/level_-1.xml", [self documentDirectory]];
+    static BOOL firstLoad = YES;
+
+    [self removeAllChildren];
+    NSString *filePath = nil;
+    if (firstLoad) {
+        filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"level_%02d", level] ofType:@"xml"];
+        firstLoad = NO;
+    } else {
+        filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"level_%02d", level] ofType:@"xml"];
+        if (kDavMode) {
+            filePath = [NSString stringWithFormat:@"%@/level_%02d.xml", [self documentDirectory], level];
+        }
     }
     
     NSData *levelData = [NSData dataWithContentsOfFile:filePath];
