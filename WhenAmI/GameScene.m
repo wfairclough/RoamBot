@@ -139,7 +139,7 @@
                     alert.tag = 2;
                     [alert show];
                 } else if ([label.text  isEqualToString:@"P"]) {
-                    [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO]];
+                    [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"space"]];
                 } else if ([label.text  isEqualToString:@"Reset"]) {
                     [self resetLevel];
                 } else if ([label.text  isEqualToString:@"C"]) {
@@ -290,8 +290,8 @@
     [self addChild:self.ball];
 }
 
-- (void) setupPlankWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotationAngle:(float)rotation  powered:(BOOL)powered {
-    PlankNode *plank = [PlankNode plankWithPosition:CGPointMake(x, y) allowInteraction:(BOOL)isInteractable rotation:rotation power:YES];
+- (void) setupPlankWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotationAngle:(float)rotation  powered:(BOOL)powered theme:(NSString*)levelStyle{
+    PlankNode *plank = [PlankNode plankWithPosition:CGPointMake(x, y) allowInteraction:(BOOL)isInteractable rotation:rotation power:YES theme:levelStyle];
     [self addChild:plank];
 }
 
