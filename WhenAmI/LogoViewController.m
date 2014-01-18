@@ -8,6 +8,7 @@
 
 #import "LogoViewController.h"
 #import "GameScene.h"
+#import "GameSounds.h"
 
 @implementation LogoViewController
 
@@ -30,6 +31,7 @@
         dispatch_time_t logoDelay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(logoDelay, dispatch_get_main_queue(), ^(void){
             [self.imageView setImage:gameLogo];
+            [[GameSounds sharedInstance] playMenuMusic];
         });
         
         // Game Logo

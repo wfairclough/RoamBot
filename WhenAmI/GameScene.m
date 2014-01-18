@@ -11,14 +11,14 @@
 #import "PlankNode.h"
 #import "LevelXmlWriter.h"
 #import "GamePlayer.h"
+#import "GameSounds.h"
 
 
 @interface GameScene()
 
-@property AVAudioPlayer* musicPlayer;
-
 @property (nonatomic, strong) BallNode *ball;
 @property (nonatomic, strong) SKNode *currentlySelectedNode;
+
 @end
 
 @implementation GameScene
@@ -26,7 +26,7 @@
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
         
-        [self playMusic:@"RomeBotLevel"];
+        [[GameSounds sharedInstance] playLevelMusic];
         
         if (kDavMode) {
             [self loadLevel:-1];
@@ -283,19 +283,6 @@
         
         [self loadLevel:[level integerValue]];
     }
-}
-
-#pragma mark - Audio
-
-- (void)playMusic:(NSString *)filename
-{
-	NSError *error;
-	NSURL *musicURL = [[NSBundle mainBundle] URLForResource:filename withExtension:@"mp3"];
-	self.musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:musicURL error:&error];
-	self.musicPlayer.numberOfLoops = -1;
-	self.musicPlayer.volume = 0.40f;
-	[self.musicPlayer prepareToPlay];
-	[self.musicPlayer play];
 }
 
 

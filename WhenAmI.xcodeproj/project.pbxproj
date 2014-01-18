@@ -19,12 +19,13 @@
 		BE12D6EC188AB07C009937C9 /* level_00.xml in Resources */ = {isa = PBXBuildFile; fileRef = BE12D6EB188AB07C009937C9 /* level_00.xml */; };
 		BE12D6EE188AC403009937C9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE12D6ED188AC403009937C9 /* AVFoundation.framework */; };
 		BE12D6F6188AC499009937C9 /* Level Complete.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BE12D6EF188AC499009937C9 /* Level Complete.mp3 */; };
-		BE12D6F7188AC499009937C9 /* Main Menu (+Intro).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BE12D6F0188AC499009937C9 /* Main Menu (+Intro).mp3 */; };
-		BE12D6F8188AC499009937C9 /* Main Menu (Without Intro).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BE12D6F1188AC499009937C9 /* Main Menu (Without Intro).mp3 */; };
+		BE12D6F7188AC499009937C9 /* MainMenuWithIntro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BE12D6F0188AC499009937C9 /* MainMenuWithIntro.mp3 */; };
+		BE12D6F8188AC499009937C9 /* MainMenuNoIntro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BE12D6F1188AC499009937C9 /* MainMenuNoIntro.mp3 */; };
 		BE12D6F9188AC499009937C9 /* Press 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = BE12D6F2188AC499009937C9 /* Press 1.wav */; };
 		BE12D6FA188AC499009937C9 /* Press 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = BE12D6F3188AC499009937C9 /* Press 2.wav */; };
 		BE12D6FB188AC499009937C9 /* Press 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = BE12D6F4188AC499009937C9 /* Press 3.wav */; };
 		BE12D6FC188AC499009937C9 /* RomeBotLevel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BE12D6F5188AC499009937C9 /* RomeBotLevel.mp3 */; };
+		BE12D700188AEEC1009937C9 /* GameSounds.m in Sources */ = {isa = PBXBuildFile; fileRef = BE12D6FF188AEEC1009937C9 /* GameSounds.m */; };
 		BE84813A1889DFFF009C21D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8481391889DFFF009C21D2 /* Foundation.framework */; };
 		BE84813C1889DFFF009C21D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */; };
 		BE84813E1889DFFF009C21D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813D1889DFFF009C21D2 /* UIKit.framework */; };
@@ -82,12 +83,14 @@
 		BE12D6EB188AB07C009937C9 /* level_00.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_00.xml; sourceTree = "<group>"; };
 		BE12D6ED188AC403009937C9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BE12D6EF188AC499009937C9 /* Level Complete.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Level Complete.mp3"; path = "Resources/Sounds/Level Complete.mp3"; sourceTree = "<group>"; };
-		BE12D6F0188AC499009937C9 /* Main Menu (+Intro).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Main Menu (+Intro).mp3"; path = "Resources/Sounds/Main Menu (+Intro).mp3"; sourceTree = "<group>"; };
-		BE12D6F1188AC499009937C9 /* Main Menu (Without Intro).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Main Menu (Without Intro).mp3"; path = "Resources/Sounds/Main Menu (Without Intro).mp3"; sourceTree = "<group>"; };
+		BE12D6F0188AC499009937C9 /* MainMenuWithIntro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = MainMenuWithIntro.mp3; path = Resources/Sounds/MainMenuWithIntro.mp3; sourceTree = "<group>"; };
+		BE12D6F1188AC499009937C9 /* MainMenuNoIntro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = MainMenuNoIntro.mp3; path = Resources/Sounds/MainMenuNoIntro.mp3; sourceTree = "<group>"; };
 		BE12D6F2188AC499009937C9 /* Press 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Press 1.wav"; path = "Resources/Sounds/Press 1.wav"; sourceTree = "<group>"; };
 		BE12D6F3188AC499009937C9 /* Press 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Press 2.wav"; path = "Resources/Sounds/Press 2.wav"; sourceTree = "<group>"; };
 		BE12D6F4188AC499009937C9 /* Press 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Press 3.wav"; path = "Resources/Sounds/Press 3.wav"; sourceTree = "<group>"; };
 		BE12D6F5188AC499009937C9 /* RomeBotLevel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = RomeBotLevel.mp3; path = Resources/Sounds/RomeBotLevel.mp3; sourceTree = "<group>"; };
+		BE12D6FE188AEEC1009937C9 /* GameSounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSounds.h; sourceTree = "<group>"; };
+		BE12D6FF188AEEC1009937C9 /* GameSounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSounds.m; sourceTree = "<group>"; };
 		BE8481361889DFFF009C21D2 /* WhenAmI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhenAmI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8481391889DFFF009C21D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -264,8 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				BE12D6EF188AC499009937C9 /* Level Complete.mp3 */,
-				BE12D6F0188AC499009937C9 /* Main Menu (+Intro).mp3 */,
-				BE12D6F1188AC499009937C9 /* Main Menu (Without Intro).mp3 */,
+				BE12D6F0188AC499009937C9 /* MainMenuWithIntro.mp3 */,
+				BE12D6F1188AC499009937C9 /* MainMenuNoIntro.mp3 */,
 				BE12D6F2188AC499009937C9 /* Press 1.wav */,
 				BE12D6F3188AC499009937C9 /* Press 2.wav */,
 				BE12D6F4188AC499009937C9 /* Press 3.wav */,
@@ -330,6 +333,8 @@
 			children = (
 				BEDA80E41889ED05000D6023 /* GamePlayer.h */,
 				BEDA80E51889ED05000D6023 /* GamePlayer.m */,
+				BE12D6FE188AEEC1009937C9 /* GameSounds.h */,
+				BE12D6FF188AEEC1009937C9 /* GameSounds.m */,
 			);
 			name = GamePlayer;
 			sourceTree = "<group>";
@@ -416,13 +421,13 @@
 				BE12D6FC188AC499009937C9 /* RomeBotLevel.mp3 in Resources */,
 				BE12D6EC188AB07C009937C9 /* level_00.xml in Resources */,
 				BE12D6F6188AC499009937C9 /* Level Complete.mp3 in Resources */,
-				BE12D6F8188AC499009937C9 /* Main Menu (Without Intro).mp3 in Resources */,
+				BE12D6F8188AC499009937C9 /* MainMenuNoIntro.mp3 in Resources */,
 				BE8481461889DFFF009C21D2 /* InfoPlist.strings in Resources */,
 				46B04D47188AAEDC00805BE1 /* LevelViewController.xib in Resources */,
 				BE8481591889DFFF009C21D2 /* Images.xcassets in Resources */,
 				BE12D6FA188AC499009937C9 /* Press 2.wav in Resources */,
 				BE84814F1889DFFF009C21D2 /* Main.storyboard in Resources */,
-				BE12D6F7188AC499009937C9 /* Main Menu (+Intro).mp3 in Resources */,
+				BE12D6F7188AC499009937C9 /* MainMenuWithIntro.mp3 in Resources */,
 				BEDA80DF1889E820000D6023 /* level_01.xml in Resources */,
 				BE12D6FB188AC499009937C9 /* Press 3.wav in Resources */,
 			);
@@ -448,6 +453,7 @@
 				BE12D6EA188A3099009937C9 /* LevelXmlWriter.m in Sources */,
 				BEDA80E21889EBD8000D6023 /* WallNode.m in Sources */,
 				BEDA80D71889E24D000D6023 /* PlankNode.m in Sources */,
+				BE12D700188AEEC1009937C9 /* GameSounds.m in Sources */,
 				46B04D41188AA7E800805BE1 /* LogoViewController.m in Sources */,
 				BEDA80DA1889E263000D6023 /* CollectableNode.m in Sources */,
 				BE84814C1889DFFF009C21D2 /* AppDelegate.m in Sources */,
