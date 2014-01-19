@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <level value='2'>
 	<world theme='space'>
-        <ball x='80.500328' y='352.500366'/>
+        <ball x='80.500328' y='422.500366'/>
         <goal x='35.500130' y='154.000214'/>
         <wall x='54.000172' y='65.000198' interacts='false' rotation='0.000000' imageSize='medium'/>
-        <wall x='23.500416' y='140.000473' interacts='false' rotation='-91.414795' imageSize='small'/>
+        <wall x='13.500416' y='140.000473' interacts='false' rotation='-91.414795' imageSize='small'/>
         <wall x='101.500137' y='266.000153' interacts='false' rotation='85.950165' imageSize='large'/>
         <icon type='poweredplank' amount='1'/>
 	</world>
