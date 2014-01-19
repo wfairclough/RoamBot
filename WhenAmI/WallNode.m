@@ -38,7 +38,7 @@
 
 
 - (void) initializeCollision {
-    NSLog(@"Initialized Collision for Wall: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
+//    NSLog(@"Initialized Collision for Wall: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
     self.physicsBody.categoryBitMask = wallConst;
     self.physicsBody.collisionBitMask = 0xFFFFFFFF;
     self.physicsBody.contactTestBitMask = 0x0;

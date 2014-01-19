@@ -35,11 +35,11 @@
 }
 
 - (void) initializeCollision {
-    NSLog(@"Initialized Collision for Collectable: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
+//    NSLog(@"Initialized Collision for Collectable: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
     self.physicsBody.categoryBitMask = collectableConst;
     self.physicsBody.collisionBitMask = 0x0;
     self.physicsBody.contactTestBitMask = ballConst;
-    NSLog(@"Did Initialized Collision for Collectable: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
+//    NSLog(@"Did Initialized Collision for Collectable: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
 }
 
 - (void)contactWithBall {

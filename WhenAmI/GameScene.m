@@ -436,9 +436,6 @@
     for (GameSpriteNode *gs in [self children]) {
         if ([gs respondsToSelector:@selector(initializeCollision)]) {
             [gs initializeCollision];
-        } else {
-            NSLog(@"Not initing: %@", gs.name);
-            
         }
     }
     

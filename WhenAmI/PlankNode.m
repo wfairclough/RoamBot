@@ -41,11 +41,11 @@
 
 
 - (void) initializeCollision {
-    NSLog(@"Initialized Collision for Plank: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
+//    NSLog(@"Initialized Collision for Plank: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
     self.physicsBody.categoryBitMask = plankConst;
     self.physicsBody.collisionBitMask = 0xFFFFFFFF;
     self.physicsBody.contactTestBitMask = 0x0;
-    NSLog(@"Did Initialized Collision for Plank: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
+//    NSLog(@"Did Initialized Collision for Plank: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
 }
 
 

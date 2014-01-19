@@ -34,12 +34,12 @@
 
 
 - (void) initializeCollision {
-    NSLog(@"Initialized Collision for Ball: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
+//    NSLog(@"Initialized Collision for Ball: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
     self.physicsBody.categoryBitMask = ballConst;
     self.physicsBody.collisionBitMask = 0xFFFFFFFF;
     self.physicsBody.collisionBitMask ^= collectableConst | goalConst;
-//    self.physicsBody.contactTestBitMask = 0x0;
-    NSLog(@"Did Initialized Collision for Ball: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
+    self.physicsBody.contactTestBitMask = 0x0;
+//    NSLog(@"Did Initialized Collision for Ball: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
 }
 
 
