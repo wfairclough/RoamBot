@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
 <level value="1">
     <world theme="space">
-        <ball x="100" y="350" interacts="true"/>
-        <plank x="100" y="200" interacts="true" rotation="45" powered="false" />
-        <plank x="250" y="400" interacts="true" rotation="65" powered="false" />
+        <ball x="150" y="350" interacts="true"/>
+        <plank x="0" y="200" interacts="true" rotation="45" powered="false" />
+        <plank x="280" y="400" interacts="true" rotation="65" powered="false" />
+        <collectable x="150" y="100" />
+        <collectable x="150" y="200" />
+        <collectable x="150" y="300" />
     </world>
 </level>

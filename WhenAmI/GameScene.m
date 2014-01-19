@@ -27,6 +27,10 @@
 
 @property (nonatomic, strong) BallNode *ball;
 @property (nonatomic, strong) SKNode *currentlySelectedNode;
+@property (nonatomic) CGPoint ballStartPoint;
+@property (nonatomic) CGPoint collectableStartPos1;
+@property (nonatomic) CGPoint collectableStartPos2;
+@property (nonatomic) CGPoint collectableStartPos3;
 
 @end
 
@@ -52,7 +56,7 @@
         }
         
         //TEMP TEMP TEMP
-        NSArray *listOfXMLs = [[NSArray alloc] initWithObjects:@"level_00", @"level_01", @"level_02", @"level_03", nil];
+        NSArray *listOfXMLs = [[NSArray alloc] initWithObjects:@"level_-1", @"level_00", @"level_01", @"level_02", @"level_03", nil];
         for (NSString *s in listOfXMLs) {
             NSURL *fileFromBundle = [[NSBundle mainBundle]URLForResource:s withExtension:@"xml"];
             NSURL *destinationURL = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
@@ -133,7 +137,7 @@
 - (void)handleOneFingerTap:(UITapGestureRecognizer*)sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
         self.currentlySelectedNode = [self nodeAtPoint:[self convertPointFromView:[sender locationInView:self.view]]];
-        NSLog(@"Tapped on: %@", self.currentlySelectedNode.parent.name);
+        NSLog(@"Tapped on parent: %@", self.currentlySelectedNode.parent.name);
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"ball"]) {
             if (kDavMode) {
                 [self saveLevelToFile:-1];
@@ -144,6 +148,10 @@
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"cannon"]) {
             CannonNode* cannon = (CannonNode *)self.currentlySelectedNode.parent;
             [cannon fire];
+        }
+        
+        if ([self.currentlySelectedNode.name isEqualToString:@"reset"]) {
+            [self resetLevel];
         }
         
         
@@ -211,12 +219,12 @@
         if (kDavMode) {
             if (![self childNodeWithName:@"label"]) {
                 // Add Reset Label
-                SKLabelNode *resetLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
-                [resetLabel setFontSize:26.0f];
-                [resetLabel setPosition:CGPointMake(40.0f, self.size.height - 20)];
-                [resetLabel setText:@"Reset"];
-                [resetLabel setName:@"label"];
-                [self addChild:resetLabel];
+//                SKLabelNode *resetLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+//                [resetLabel setFontSize:26.0f];
+//                [resetLabel setPosition:CGPointMake(40.0f, self.size.height - 20)];
+//                [resetLabel setText:@"Reset"];
+//                [resetLabel setName:@"label"];
+//                [self addChild:resetLabel];
                 
                 // Add Save Label
                 SKLabelNode *saveLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
@@ -437,20 +445,47 @@
     
     [levelXmlParser parse];
     
+    SKSpriteNode *reset = [SKSpriteNode spriteNodeWithImageNamed:@"reload"];
+    [reset setName:@"reset"];
+    [reset setPosition:CGPointMake(30, self.size.height - 30)];
+    [self addChild:reset];
+    
+    [self setBallStartPoint:[self childNodeWithName:@"ball"].position];
+    int collectCount = 1;
+    for (GameSpriteNode *gs in [self children]) {
+        if ([gs.name isEqualToString:@"collectable"]) {
+            if (collectCount == 1) {
+                self.collectableStartPos1 = [gs position];
+            } else if (collectCount == 2) {
+                self.collectableStartPos2 = [gs position];
+            } else if (collectCount == 3) {
+                self.collectableStartPos3 = [gs position];
+            }
+            collectCount++;
+        }
+        
+    }
+    
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
     self.physicsBody.restitution = 0.5;
 }
 
 - (void)resetLevel {
-    [self removeAllChildren];
     if (kDavMode) {
+        [self removeAllChildren];
         [self loadLevel:-1];
     } else {
-        NSNumber* level = [[GamePlayer sharedInstance] selectedLevel];
-        if (level == nil)
-            level = [[GamePlayer sharedInstance] currentLevel];
-        
-        [self loadLevel:[level integerValue]];
+        [[[self ball] physicsBody] setDynamic:NO];
+        [[[self ball] physicsBody] setVelocity:CGVectorMake(0.0f, 0.0f)];
+        [[self ball] setPosition:[self ballStartPoint]];
+        for (GameSpriteNode *gs in [self children]) {
+            if ([gs.name isEqualToString:@"collectable"]) {
+                [gs removeFromParent];
+            }
+        }
+        [self addChild:[CollectableNode collectableWithPosition:[self collectableStartPos1] type:@""]];
+        [self addChild:[CollectableNode collectableWithPosition:[self collectableStartPos2] type:@""]];
+        [self addChild:[CollectableNode collectableWithPosition:[self collectableStartPos3] type:@""]];
     }
 }
 
