@@ -21,20 +21,16 @@
         double delayInSeconds = 2.0;
         double delayInSeconds2 = 7.5;
         
-        [self.imageView setHidden:NO];
-        
-//        [self.imageView setImage:[UIImage imageNamed: @"chickenwaffle2"]];
-//        [self.chickenTextImageView setImage:[UIImage imageNamed:@"chickentext1"]];
-        
-//        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"pattern"]]];
-        
-        
-        UIImage *gameLogo = [UIImage imageNamed: @"ball"];
+        [self.logoImageView setHidden:YES];
         
         // chickenwaffle Logo
         dispatch_time_t logoDelay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(logoDelay, dispatch_get_main_queue(), ^(void){
-            [self.imageView setImage:gameLogo];
+            [self.logoImageView setHidden:NO];
+            [self.chickenTextImageView setHidden:YES];
+            [self.waffleTextImageView setHidden:YES];
+            [self.imageView setHidden:YES];
+            [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"pattern"]]];
             [[GameSounds sharedInstance] playMenuMusic];
         });
         
