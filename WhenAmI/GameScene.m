@@ -45,9 +45,20 @@
             [self loadLevel:[level integerValue]];
             
         }
+        
+        //TEMP TEMP TEMP
+        NSArray *listOfXMLs = [[NSArray alloc] initWithObjects:@"level_00", @"level_01", @"level_02", @"level_03", nil];
+        for (NSString *s in listOfXMLs) {
+            NSURL *fileFromBundle = [[NSBundle mainBundle]URLForResource:s withExtension:@"xml"];
+            NSURL *destinationURL = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
+                                                                             inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:[s stringByAppendingString:@".xml"]];
+            [[NSFileManager defaultManager]copyItemAtURL:fileFromBundle toURL:destinationURL error:nil];
+        }
+        //TEMP TEMP TEMP
     }
     return self;
 }
+
 
 -(void)didMoveToView:(SKView *)view {
     // setup gesture recognizer
