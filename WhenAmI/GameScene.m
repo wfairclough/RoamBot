@@ -17,6 +17,7 @@
 #import "GoalNode.h"
 #import "CollectableNode.h"
 #import "ItemIcon.h"
+#import "LevelCompleteDialog.h"
 
 
 
@@ -366,13 +367,13 @@
         
         
         if (!kDavMode) {
-            int newLevel = [[GamePlayer sharedInstance] increaseSelectedLevel];
-        
-            [self loadLevel:newLevel];
+            [[self childNodeWithName:@"reset"] setHidden:YES];
+            
+            LevelCompleteDialog *dialog = [[LevelCompleteDialog alloc] initWithSize:self.size];
+            [self addChild:dialog];
+            
         }
         
-        
-
         return;
     }
     
@@ -413,6 +414,29 @@
     
 }
 
+#pragma mark - LoadLevel Dialog
+
+- (void) selectedNextButton {
+    NSLog(@"Next pressed");
+    int newLevel = [[GamePlayer sharedInstance] increaseSelectedLevel];
+    [[self childNodeWithName:@"loadCompleteDialog"] removeFromParent];
+    [self loadLevel:newLevel];
+}
+
+- (void) selectedRefreshButton {
+    NSLog(@"Refresh pressed");
+    [[GamePlayer sharedInstance] increaseSelectedLevel];
+    [[self childNodeWithName:@"loadCompleteDialog"] removeFromParent];
+    
+    self.ball.hidden = NO;
+    [self childNodeWithName:@"reset"].hidden = NO;
+    
+    [self resetLevel];
+}
+
+- (void) dialogInteraction {
+    
+}
 
 #pragma mark - Level Setup
 

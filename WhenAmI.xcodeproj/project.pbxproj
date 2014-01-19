@@ -18,6 +18,7 @@
 		46BAB4F1188B89FC00C5518F /* Clip1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 46BAB4EE188B89FC00C5518F /* Clip1.wav */; };
 		46BAB4F2188B89FC00C5518F /* Clip2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 46BAB4EF188B89FC00C5518F /* Clip2.wav */; };
 		46BAB4F5188B8BCA00C5518F /* Clip3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 46BAB4F4188B8BCA00C5518F /* Clip3.wav */; };
+		46CD07E5188C2D3200A55AB7 /* LevelCompleteDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CD07E4188C2D3200A55AB7 /* LevelCompleteDialog.m */; };
 		B5703682188B526000E785C1 /* level_03.xml in Resources */ = {isa = PBXBuildFile; fileRef = B5703681188B526000E785C1 /* level_03.xml */; };
 		B580DF66188AB77D00C48433 /* level_-1.xml in Resources */ = {isa = PBXBuildFile; fileRef = B580DF65188AB77D00C48433 /* level_-1.xml */; };
 		B5F4BC33188C03F200EBFC42 /* ItemIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F4BC32188C03F200EBFC42 /* ItemIcon.m */; };
@@ -96,6 +97,8 @@
 		46BAB4EE188B89FC00C5518F /* Clip1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Clip1.wav; sourceTree = "<group>"; };
 		46BAB4EF188B89FC00C5518F /* Clip2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Clip2.wav; sourceTree = "<group>"; };
 		46BAB4F4188B8BCA00C5518F /* Clip3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Clip3.wav; sourceTree = "<group>"; };
+		46CD07E3188C2D3200A55AB7 /* LevelCompleteDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelCompleteDialog.h; sourceTree = "<group>"; };
+		46CD07E4188C2D3200A55AB7 /* LevelCompleteDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCompleteDialog.m; sourceTree = "<group>"; };
 		B5703681188B526000E785C1 /* level_03.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_03.xml; sourceTree = "<group>"; };
 		B580DF65188AB77D00C48433 /* level_-1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "level_-1.xml"; sourceTree = "<group>"; };
 		B5F4BC31188C03F200EBFC42 /* ItemIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemIcon.h; sourceTree = "<group>"; };
@@ -379,6 +382,8 @@
 			children = (
 				BEDA80CC1889E203000D6023 /* GameSpriteNode.h */,
 				BEDA80CD1889E203000D6023 /* GameSpriteNode.m */,
+				46CD07E3188C2D3200A55AB7 /* LevelCompleteDialog.h */,
+				46CD07E4188C2D3200A55AB7 /* LevelCompleteDialog.m */,
 				B5F4BC31188C03F200EBFC42 /* ItemIcon.h */,
 				B5F4BC32188C03F200EBFC42 /* ItemIcon.m */,
 				BEDA80CF1889E216000D6023 /* WorldItemNode.h */,
@@ -556,6 +561,7 @@
 				46B04D4D188ACB4B00805BE1 /* GameViewController.m in Sources */,
 				BE8481481889DFFF009C21D2 /* main.m in Sources */,
 				BEDA80CE1889E203000D6023 /* GameSpriteNode.m in Sources */,
+				46CD07E5188C2D3200A55AB7 /* LevelCompleteDialog.m in Sources */,
 				BEDA80DD1889E2AA000D6023 /* LevelXmlParser.m in Sources */,
 				46BAB4E9188AFFD200C5518F /* GoalNode.m in Sources */,
 				46B04D4A188AB10700805BE1 /* WorldsViewController.m in Sources */,
