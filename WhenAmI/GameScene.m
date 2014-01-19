@@ -35,6 +35,10 @@
 @property (nonatomic) CGPoint collectableStartPos2;
 @property (nonatomic) CGPoint collectableStartPos3;
 
+@property (nonatomic) int numberOfPoweredPlanksAvailiable;
+@property (nonatomic) int numberOfWoodPlanksAvailiable;
+@property (nonatomic) int numberOfCannonsAvailiable;
+
 @end
 
 @implementation GameScene
@@ -56,6 +60,9 @@
             
             [self loadLevel:[level integerValue]];
             
+            _numberOfPoweredPlanksAvailiable = 0;
+            _numberOfWoodPlanksAvailiable = 0;
+            _numberOfCannonsAvailiable = 0;
         }
         
         //TEMP TEMP TEMP
@@ -442,9 +449,30 @@
 }
 
 - (void) setupItemIconsWithItem:(NSString *)item amount:(int)amount {
-    ItemIcon* icon = [ItemIcon itemWithPosition:CGPointMake(self.size.width/2, self.size.height-20) item:item amount:amount];
-    [self addChild:icon];
-    [self addChild:[icon amountText]];
+    if ([item isEqualToString:@"poweredplank"]) {
+        _numberOfPoweredPlanksAvailiable = amount;
+    } else if ([item isEqualToString:@"woodplank"]) {
+        _numberOfWoodPlanksAvailiable = amount;
+    } else if ([item isEqualToString:@"cannon"]) {
+        _numberOfCannonsAvailiable = amount;
+    }
+    
+    ItemIcon* icon;
+    
+    if ([item isEqualToString:@"poweredplank"] && _numberOfPoweredPlanksAvailiable > 0) {
+        icon = [ItemIcon itemWithPosition:CGPointMake(self.size.width/2, self.size.height-20) item:item amount:amount];
+        [self addChild:icon];
+        [self addChild:[icon amountText]];
+    } else if ([item isEqualToString:@"woodplank"] && _numberOfWoodPlanksAvailiable > 0) {
+        icon = [ItemIcon itemWithPosition:CGPointMake(self.size.width/2, self.size.height-20) item:item amount:amount];
+        [self addChild:icon];
+        [self addChild:[icon amountText]];
+    } else if ([item isEqualToString:@"cannon"] && _numberOfCannonsAvailiable > 0) {
+        icon = [ItemIcon itemWithPosition:CGPointMake(self.size.width/2, self.size.height-20) item:item amount:amount];
+        [self addChild:icon];
+        [self addChild:[icon amountText]];
+    }
+
 }
 
 #pragma mark - Game Logic
@@ -550,11 +578,20 @@
         for (SKSpriteNode *gs in self.children) {
             if ([gs.name isEqualToString:@"collectable"]) {
                 [gs removeFromParent];
+            } else if ([gs.name isEqualToString:@"poweredplankicon"]) {
+                [(ItemIcon*)gs setAmount:_numberOfPoweredPlanksAvailiable];
+            } else if ([gs.name isEqualToString:@"woodplankicon"]) {
+                [(ItemIcon*)gs setAmount:_numberOfWoodPlanksAvailiable];
+            } else if ([gs.name isEqualToString:@"cannonicon"]) {
+                [(ItemIcon*)gs setAmount:_numberOfCannonsAvailiable];
             }
         }
         [self addChild:[CollectableNode collectableWithPosition:[self collectableStartPos1] type:@""]];
         [self addChild:[CollectableNode collectableWithPosition:[self collectableStartPos2] type:@""]];
         [self addChild:[CollectableNode collectableWithPosition:[self collectableStartPos3] type:@""]];
+        [self setupItemIconsWithItem:@"poweredplank" amount:_numberOfPoweredPlanksAvailiable];
+        [self setupItemIconsWithItem:@"woodplank" amount:_numberOfWoodPlanksAvailiable];
+        [self setupItemIconsWithItem:@"cannon" amount:_numberOfCannonsAvailiable];
         
         [self.ball.physicsBody setDynamic:NO];
     }
