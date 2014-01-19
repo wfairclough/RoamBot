@@ -140,19 +140,19 @@
 		BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		BE84813D1889DFFF009C21D2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE84813F1889DFFF009C21D2 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
-		BE8481431889DFFF009C21D2 /* WhenAmI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WhenAmI-Info.plist"; sourceTree = "<group>"; };
+		BE8481431889DFFF009C21D2 /* RoamBot-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RoamBot-Info.plist"; sourceTree = "<group>"; };
 		BE8481451889DFFF009C21D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE8481471889DFFF009C21D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BE8481491889DFFF009C21D2 /* WhenAmI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WhenAmI-Prefix.pch"; sourceTree = "<group>"; };
+		BE8481491889DFFF009C21D2 /* RoamBot-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RoamBot-Prefix.pch"; sourceTree = "<group>"; };
 		BE84814A1889DFFF009C21D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BE84814B1889DFFF009C21D2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BE84814E1889DFFF009C21D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE8481531889DFFF009C21D2 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		BE8481541889DFFF009C21D2 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		BE8481581889DFFF009C21D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BE84815E1889DFFF009C21D2 /* WhenAmITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhenAmITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE84815E1889DFFF009C21D2 /* RoamBotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoamBotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE84815F1889DFFF009C21D2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		BE8481671889DFFF009C21D2 /* WhenAmITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WhenAmITests-Info.plist"; sourceTree = "<group>"; };
+		BE8481671889DFFF009C21D2 /* RoamBotTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RoamBotTests-Info.plist"; sourceTree = "<group>"; };
 		BE8481691889DFFF009C21D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE84816B1889DFFF009C21D2 /* WhenAmITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhenAmITests.m; sourceTree = "<group>"; };
 		BEDA80CC1889E203000D6023 /* GameSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSpriteNode.h; sourceTree = "<group>"; };
@@ -285,7 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				BE8481361889DFFF009C21D2 /* RoamBot.app */,
-				BE84815E1889DFFF009C21D2 /* WhenAmITests.xctest */,
+				BE84815E1889DFFF009C21D2 /* RoamBotTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -325,10 +325,10 @@
 		BE8481421889DFFF009C21D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BE8481431889DFFF009C21D2 /* WhenAmI-Info.plist */,
+				BE8481431889DFFF009C21D2 /* RoamBot-Info.plist */,
 				BE8481441889DFFF009C21D2 /* InfoPlist.strings */,
 				BE8481471889DFFF009C21D2 /* main.m */,
-				BE8481491889DFFF009C21D2 /* WhenAmI-Prefix.pch */,
+				BE8481491889DFFF009C21D2 /* RoamBot-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -345,7 +345,7 @@
 		BE8481661889DFFF009C21D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BE8481671889DFFF009C21D2 /* WhenAmITests-Info.plist */,
+				BE8481671889DFFF009C21D2 /* RoamBotTests-Info.plist */,
 				BE8481681889DFFF009C21D2 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -450,9 +450,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BE8481351889DFFF009C21D2 /* WhenAmI */ = {
+		BE8481351889DFFF009C21D2 /* RoamBot */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE84816F1889DFFF009C21D2 /* Build configuration list for PBXNativeTarget "WhenAmI" */;
+			buildConfigurationList = BE84816F1889DFFF009C21D2 /* Build configuration list for PBXNativeTarget "RoamBot" */;
 			buildPhases = (
 				BE8481321889DFFF009C21D2 /* Sources */,
 				BE8481331889DFFF009C21D2 /* Frameworks */,
@@ -462,14 +462,14 @@
 			);
 			dependencies = (
 			);
-			name = WhenAmI;
+			name = RoamBot;
 			productName = WhenAmI;
 			productReference = BE8481361889DFFF009C21D2 /* RoamBot.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BE84815D1889DFFF009C21D2 /* WhenAmITests */ = {
+		BE84815D1889DFFF009C21D2 /* RoamBotTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE8481721889DFFF009C21D2 /* Build configuration list for PBXNativeTarget "WhenAmITests" */;
+			buildConfigurationList = BE8481721889DFFF009C21D2 /* Build configuration list for PBXNativeTarget "RoamBotTests" */;
 			buildPhases = (
 				BE84815A1889DFFF009C21D2 /* Sources */,
 				BE84815B1889DFFF009C21D2 /* Frameworks */,
@@ -480,9 +480,9 @@
 			dependencies = (
 				BE8481641889DFFF009C21D2 /* PBXTargetDependency */,
 			);
-			name = WhenAmITests;
+			name = RoamBotTests;
 			productName = WhenAmITests;
-			productReference = BE84815E1889DFFF009C21D2 /* WhenAmITests.xctest */;
+			productReference = BE84815E1889DFFF009C21D2 /* RoamBotTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -499,7 +499,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BE8481311889DFFF009C21D2 /* Build configuration list for PBXProject "WhenAmI" */;
+			buildConfigurationList = BE8481311889DFFF009C21D2 /* Build configuration list for PBXProject "RoamBot" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -512,8 +512,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BE8481351889DFFF009C21D2 /* WhenAmI */,
-				BE84815D1889DFFF009C21D2 /* WhenAmITests */,
+				BE8481351889DFFF009C21D2 /* RoamBot */,
+				BE84815D1889DFFF009C21D2 /* RoamBotTests */,
 			);
 		};
 /* End PBXProject section */
@@ -610,7 +610,7 @@
 /* Begin PBXTargetDependency section */
 		BE8481641889DFFF009C21D2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BE8481351889DFFF009C21D2 /* WhenAmI */;
+			target = BE8481351889DFFF009C21D2 /* RoamBot */;
 			targetProxy = BE8481631889DFFF009C21D2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -720,8 +720,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WhenAmI/WhenAmI-Prefix.pch";
-				INFOPLIST_FILE = "WhenAmI/WhenAmI-Info.plist";
+				GCC_PREFIX_HEADER = "WhenAmI/RoamBot-Prefix.pch";
+				INFOPLIST_FILE = "WhenAmI/RoamBot-Info.plist";
 				PRODUCT_NAME = RoamBot;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
@@ -733,8 +733,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WhenAmI/WhenAmI-Prefix.pch";
-				INFOPLIST_FILE = "WhenAmI/WhenAmI-Info.plist";
+				GCC_PREFIX_HEADER = "WhenAmI/RoamBot-Prefix.pch";
+				INFOPLIST_FILE = "WhenAmI/RoamBot-Info.plist";
 				PRODUCT_NAME = RoamBot;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
@@ -757,8 +757,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "WhenAmITests/WhenAmITests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "WhenAmITests/RoamBotTests-Info.plist";
+				PRODUCT_NAME = RoamBotTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -776,8 +776,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WhenAmI/WhenAmI-Prefix.pch";
-				INFOPLIST_FILE = "WhenAmITests/WhenAmITests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "WhenAmITests/RoamBotTests-Info.plist";
+				PRODUCT_NAME = RoamBotTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -786,7 +786,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BE8481311889DFFF009C21D2 /* Build configuration list for PBXProject "WhenAmI" */ = {
+		BE8481311889DFFF009C21D2 /* Build configuration list for PBXProject "RoamBot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE84816D1889DFFF009C21D2 /* Debug */,
@@ -795,7 +795,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE84816F1889DFFF009C21D2 /* Build configuration list for PBXNativeTarget "WhenAmI" */ = {
+		BE84816F1889DFFF009C21D2 /* Build configuration list for PBXNativeTarget "RoamBot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE8481701889DFFF009C21D2 /* Debug */,
@@ -804,7 +804,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE8481721889DFFF009C21D2 /* Build configuration list for PBXNativeTarget "WhenAmITests" */ = {
+		BE8481721889DFFF009C21D2 /* Build configuration list for PBXNativeTarget "RoamBotTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE8481731889DFFF009C21D2 /* Debug */,
