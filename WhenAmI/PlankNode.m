@@ -30,7 +30,7 @@
         if (powered) {
             self.physicsBody.restitution = 1.0f;
         } else {
-            self.physicsBody.restitution = 0.6f;
+            self.physicsBody.restitution = 0.5f;
         }
     }
     
