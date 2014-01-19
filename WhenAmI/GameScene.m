@@ -169,6 +169,14 @@
             [self closeGame];
         }
         
+        if ([self.currentlySelectedNode.name isEqualToString:@"nextButton"]) {
+            [self selectedNextButton];
+        }
+        
+        if ([self.currentlySelectedNode.name isEqualToString:@"refreshButton"]) {
+            [self selectedRefreshButton];
+        }
+        
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"poweredplankicon"]) {
             ItemIcon *temp = (ItemIcon*)[[self currentlySelectedNode] parent];
             if ([temp amount] > 0) {
