@@ -47,8 +47,42 @@
     SKAction *cannonNoise = [SKAction playSoundFileNamed:@"cannon_noise.wav" waitForCompletion:NO];
     [self runAction:cannonNoise];
     
+    
+    if (self.ball != nil) {
+        [self.ball setHidden:NO];
+        [self.ball.physicsBody setAffectedByGravity:YES];
+        
+//        self.physicsBody.contactTestBitMask ^= ballConst;
+        [self.ball.physicsBody setVelocity:[self convertAngleToVector:self.zRotation]];
 
+        
+        self.ball = nil;
+    }
 }
+
+
+- (void)contactWithBall:(BallNode *)ball {
+    if (self.ball == nil) {
+        self.ball = ball;
+        [self.ball setHidden:NO];
+        [self.ball setPosition:CGPointMake(0.0, 0.0)];
+        
+        self.physicsBody.contactTestBitMask ^= ballConst;
+        
+        [self.ball.physicsBody setVelocity:CGVectorMake(0.0, 0.0)];
+        [self.ball.physicsBody setAffectedByGravity:NO];
+    }
+}
+
+
+- (CGVector)convertAngleToVector:(CGFloat)radians {
+    CGVector vector;
+    vector.dy = cos(radians) * 1000;
+    vector.dx = sin(radians) * -1000;
+    NSLog(@"DX: %0.2f DY: %0.2f", vector.dx, vector.dy);
+    return vector;
+}
+
 
 #pragma mark - XML Writer
 

@@ -7,11 +7,15 @@
 //
 
 #import "WorldItemNode.h"
+#import "BallNode.h"
 
 @interface CannonNode : WorldItemNode
 
+@property (nonatomic, strong) BallNode* ball;
+
 + (id)canonWithPosition:(CGPoint)position rotation:(CGFloat)degrees;
 
+- (void)contactWithBall:(BallNode*)ball;
 - (void)fire;
 
 @end

@@ -305,6 +305,21 @@
         return;
     }
     
+    
+    if (collision == (cannonConst | ballConst)) {
+        CannonNode *cannon;
+        
+        if ([contact.bodyA.node.name isEqualToString:@"cannon"])
+        {
+            cannon = (CannonNode *)contact.bodyA.node;
+        } else {
+            cannon = (CannonNode *)contact.bodyB.node;
+        }
+        
+        [cannon contactWithBall: self.ball];
+        
+    }
+    
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact {
