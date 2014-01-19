@@ -164,6 +164,10 @@
             [self resetLevel];
         }
         
+        if ([self.currentlySelectedNode.name isEqualToString:@"closeBounding"]) {
+            [self closeGame];
+        }
+        
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"poweredplankicon"]) {
             ItemIcon *temp = (ItemIcon*)[[self currentlySelectedNode] parent];
             if ([temp amount] > 0) {
@@ -542,6 +546,19 @@
     
     [levelXmlParser parse];
     
+    
+    
+    SKSpriteNode *closeBtn = [SKSpriteNode spriteNodeWithImageNamed:@"close"];
+    [closeBtn setName:@"close"];
+    [closeBtn setPosition:CGPointMake(20, self.size.height - 20)];
+    SKSpriteNode *closeBounding = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithRed:1.0f green:0.0f blue:0.0f alpha:0.4f] size:CGSizeMake(closeBtn.size.width*2, closeBtn.size.height*2)];
+    [closeBounding setName:@"closeBounding"];
+    [closeBounding setHidden:YES];
+    [closeBtn addChild:closeBounding];
+    [self addChild:closeBtn];
+    
+    
+    
     SKSpriteNode *reset = [SKSpriteNode spriteNodeWithImageNamed:@"reload"];
     [reset setName:@"reset"];
     [reset setPosition:CGPointMake(self.size.width - 20, self.size.height - 20)];
@@ -550,6 +567,7 @@
     [resetBounding setHidden:YES];
     [reset addChild:resetBounding];
     [self addChild:reset];
+    
     
     [self setBallStartPoint:[self childNodeWithName:@"ball"].position];
     int collectCount = 1;
@@ -618,6 +636,13 @@
         
         [self.ball.physicsBody setDynamic:NO];
     }
+}
+
+
+
+- (void) closeGame {
+    NSLog(@"Closing");
+    
 }
 
 
