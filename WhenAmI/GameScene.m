@@ -490,11 +490,7 @@
         [[[self ball] physicsBody] setAngularVelocity:0.0f];
         [[[self ball] physicsBody] setVelocity:CGVectorMake(0.0f, 0.0f)];
         [[self ball] setPosition:[self ballStartPoint]];
-        for (SKSpriteNode *gs in [self children]) {
-            if (gs.physicsBody != nil) {
-                gs.physicsBody.contactTestBitMask = 0x0;
-            }
-        }
+        
         for (SKSpriteNode *gs in [self children]) {
             if (gs.physicsBody != nil) {
                 gs.physicsBody.contactTestBitMask = 0x0;
