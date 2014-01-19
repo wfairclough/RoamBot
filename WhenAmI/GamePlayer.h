@@ -15,10 +15,12 @@
 @property (nonatomic, strong) NSNumber* currentLevel;
 @property (nonatomic, strong) NSNumber* selectedLevel;
 @property (nonatomic, strong) NSNumber* gameAudioEnabled;
+@property (nonatomic, strong) NSMutableDictionary* scoreTable;
 
 - (void)loadPlayer;
 - (void)savePlayer;
 - (int)increaseSelectedLevel;
+- (BOOL)setEnergyScoreForSelectedLevel:(int)currentScore;
 
 @end
 

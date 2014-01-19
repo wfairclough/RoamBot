@@ -11,6 +11,7 @@
 #define kFirstTimeLoad @"firstTimeLoad"
 #define kCurrentLevel @"currentLevel"
 #define kGameAudioEnabled @"gameAudioEnabled"
+#define kScoreTable @"scoreTable"
 
 /**
  * Singleton for GamePlayer
@@ -50,6 +51,20 @@ static GamePlayer* _sharedInstance;
     return [self.selectedLevel intValue];
 }
 
+// Returns YES if new high score
+- (BOOL)setEnergyScoreForSelectedLevel:(int)currentScore {
+    NSNumber* score = [self.scoreTable objectForKey:[self.selectedLevel stringValue]];
+    
+    if (currentScore > [score intValue]) {
+        [self.scoreTable setValue:[NSNumber numberWithInt:currentScore] forKey:[self.selectedLevel stringValue]];
+        [self savePlayer];
+        
+        return YES;
+    }
+    
+    return NO;
+}
+
 - (void)loadPlayer {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -57,10 +72,12 @@ static GamePlayer* _sharedInstance;
         // Init First Time
         [[NSUserDefaults standardUserDefaults] registerDefaults:@{kFirstTimeLoad: [NSNumber numberWithBool:NO],
                                                                   kCurrentLevel: [NSNumber numberWithInteger:1],
-                                                                  kGameAudioEnabled: [NSNumber numberWithBool:YES]}];
+                                                                  kGameAudioEnabled: [NSNumber numberWithBool:YES],
+                                                                  kScoreTable: [[NSMutableDictionary alloc] init]}];
     }
     self.currentLevel = [defaults objectForKey:kCurrentLevel];
     self.gameAudioEnabled = [defaults objectForKey:kGameAudioEnabled];
+    self.scoreTable = [NSMutableDictionary dictionaryWithDictionary:[defaults objectForKey:kScoreTable]];
     
     NSLog(@"Current Level - %@, Audio - %@", self.currentLevel, self.gameAudioEnabled);
 }
@@ -69,6 +86,7 @@ static GamePlayer* _sharedInstance;
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:kFirstTimeLoad];
     [[NSUserDefaults standardUserDefaults] setObject:self.currentLevel forKey:kCurrentLevel];
     [[NSUserDefaults standardUserDefaults] setObject:self.gameAudioEnabled forKey:kGameAudioEnabled];
+    [[NSUserDefaults standardUserDefaults] setObject:self.scoreTable forKey:kScoreTable];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
