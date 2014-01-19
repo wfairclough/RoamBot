@@ -6,5 +6,7 @@
         <collectable x="150" y="100" />
         <collectable x="150" y="200" />
         <collectable x="150" y="300" />
+        <icon type='woodplank' amount='1'/>
+        <icon type='cannon' amount='1'/>
     </world>
 </level>

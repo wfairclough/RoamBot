@@ -36,6 +36,10 @@
 @property (nonatomic) CGPoint collectableStartPos2;
 @property (nonatomic) CGPoint collectableStartPos3;
 
+@property (nonatomic) int numberOfPoweredPlanksAvailiable;
+@property (nonatomic) int numberOfWoodPlanksAvailiable;
+@property (nonatomic) int numberOfCannonsAvailiable;
+
 @end
 
 @implementation GameScene
@@ -132,7 +136,8 @@
             GameSpriteNode* boundingBoxNode = (GameSpriteNode *)self.currentlySelectedNode;
             if (boundingBoxNode.isBoundingBox) {
                 GameSpriteNode* currentGameNode = (GameSpriteNode *)boundingBoxNode.parent;
-                if ([currentGameNode allowInteractions] && !self.inProgress) {
+                
+                if ([currentGameNode allowsUserInteraction] && !self.inProgress) {
                     [currentGameNode rotateByAngle:[sender rotation]];
                     [sender setRotation:0.0];
                 }
@@ -169,11 +174,26 @@
         }
         
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"poweredplankicon"]) {
-            [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"space"]];
+            ItemIcon *temp = (ItemIcon*)[[self currentlySelectedNode] parent];
+            if ([temp amount] > 0) {
+                [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"space"]];
+                [temp redrawText];
+                _numberOfPoweredPlanksAvailiable = [temp amount];
+            }
         } else if ([self.currentlySelectedNode.parent.name isEqualToString:@"woodplankicon"]) {
-            [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"greek"]];
+            ItemIcon *temp = (ItemIcon*)[[self currentlySelectedNode] parent];
+            if ([temp amount] > 0) {
+                [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"greek"]];
+                [temp redrawText];
+                _numberOfWoodPlanksAvailiable = [temp amount];
+            }
         } else if ([self.currentlySelectedNode.parent.name isEqualToString:@"cannonicon"]) {
-            [self addChild:[CannonNode canonWithPosition:CGPointMake(self.size.width/2, self.size.height/2) rotation:45.0f]];
+            ItemIcon *temp = (ItemIcon*)[[self currentlySelectedNode] parent];
+            if ([temp amount] > 0) {
+                [self addChild:[CannonNode canonWithPosition:CGPointMake(self.size.width/2, self.size.height/2) rotation:45.0f]];
+                [temp redrawText];
+                _numberOfCannonsAvailiable = [temp amount];
+            }
         }
         
         // DavMode Only
@@ -465,9 +485,30 @@
 }
 
 - (void) setupItemIconsWithItem:(NSString *)item amount:(int)amount {
-    ItemIcon* icon = [ItemIcon itemWithPosition:CGPointMake(self.size.width/2, self.size.height-20) item:item amount:amount];
-    [self addChild:icon];
-    [self addChild:[icon amountText]];
+    if ([item isEqualToString:@"poweredplank"]) {
+        _numberOfPoweredPlanksAvailiable = amount;
+    } else if ([item isEqualToString:@"woodplank"]) {
+        _numberOfWoodPlanksAvailiable = amount;
+    } else if ([item isEqualToString:@"cannon"]) {
+        _numberOfCannonsAvailiable = amount;
+    }
+    
+    ItemIcon* icon;
+    
+    if ([item isEqualToString:@"poweredplank"] && _numberOfPoweredPlanksAvailiable >= 0) {
+        icon = [ItemIcon itemWithPosition:CGPointMake(self.size.width/2, self.size.height-20) item:item amount:amount];
+        [self addChild:icon];
+        [self addChild:[icon amountText]];
+    } else if ([item isEqualToString:@"woodplank"] && _numberOfWoodPlanksAvailiable >= 0) {
+        icon = [ItemIcon itemWithPosition:CGPointMake(self.size.width/2, self.size.height-20) item:item amount:amount];
+        [self addChild:icon];
+        [self addChild:[icon amountText]];
+    } else if ([item isEqualToString:@"cannon"] && _numberOfCannonsAvailiable >= 0) {
+        icon = [ItemIcon itemWithPosition:CGPointMake(self.size.width/2, self.size.height-20) item:item amount:amount];
+        [self addChild:icon];
+        [self addChild:[icon amountText]];
+    }
+
 }
 
 #pragma mark - Game Logic
@@ -491,8 +532,10 @@
     [self.ball.physicsBody setAffectedByGravity:YES];
     [self.ball.physicsBody setDynamic:YES];
 
+    if (!kDavMode) {
+       self.inProgress = YES;
+    }
     
-    self.inProgress = YES;
     
 }
 
@@ -512,6 +555,9 @@
             filePath = [NSString stringWithFormat:@"%@/level_%02d.xml", [self documentDirectory], level];
         }
     }
+    _numberOfPoweredPlanksAvailiable = -1;
+    _numberOfWoodPlanksAvailiable = -1;
+    _numberOfCannonsAvailiable = -1;
     
     NSData *levelData = [NSData dataWithContentsOfFile:filePath];
     
@@ -577,11 +623,23 @@
         for (SKSpriteNode *gs in self.children) {
             if ([gs.name isEqualToString:@"collectable"]) {
                 [gs removeFromParent];
+            } else if ([gs.name isEqualToString:@"poweredplankicon"]) {
+                [(ItemIcon*)gs setAmount:_numberOfPoweredPlanksAvailiable];
+                [[(ItemIcon*)gs amountText] removeFromParent];
+            } else if ([gs.name isEqualToString:@"woodplankicon"]) {
+                [(ItemIcon*)gs setAmount:_numberOfWoodPlanksAvailiable];
+                [[(ItemIcon*)gs amountText] removeFromParent];
+            } else if ([gs.name isEqualToString:@"cannonicon"]) {
+                [(ItemIcon*)gs setAmount:_numberOfCannonsAvailiable];
+                [[(ItemIcon*)gs amountText] removeFromParent];
             }
         }
         [self addChild:[CollectableNode collectableWithPosition:[self collectableStartPos1] type:@""]];
         [self addChild:[CollectableNode collectableWithPosition:[self collectableStartPos2] type:@""]];
         [self addChild:[CollectableNode collectableWithPosition:[self collectableStartPos3] type:@""]];
+        [self setupItemIconsWithItem:@"poweredplank" amount:_numberOfPoweredPlanksAvailiable];
+        [self setupItemIconsWithItem:@"woodplank" amount:_numberOfWoodPlanksAvailiable];
+        [self setupItemIconsWithItem:@"cannon" amount:_numberOfCannonsAvailiable];
         
         [self.ball.physicsBody setDynamic:NO];
     }
