@@ -376,6 +376,7 @@
         
         if (!kDavMode) {
             [[self childNodeWithName:@"reset"] setHidden:YES];
+            [self childNodeWithName:@"close"].hidden = YES;
             
             LevelCompleteDialog *dialog = [[LevelCompleteDialog alloc] initWithSize:self.size];
             [self addChild:dialog];
@@ -438,6 +439,7 @@
     
     self.ball.hidden = NO;
     [self childNodeWithName:@"reset"].hidden = NO;
+    [self childNodeWithName:@"close"].hidden = NO;
     
     [self resetLevel];
 }
