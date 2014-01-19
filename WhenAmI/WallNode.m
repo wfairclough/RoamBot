@@ -21,7 +21,12 @@
         self.name = @"wall";
         self.allowInteractions = NO;
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
-        [[self childNodeWithName:@"bounding"] setXScale:2.5];
+        if (kDavMode) {
+            [[self childNodeWithName:@"bounding"] setXScale:2.5];
+        } else {
+            [[self childNodeWithName:@"bounding"] setXScale:0.1];
+        }
+        
         self.physicsBody.dynamic = NO;
         self.physicsBody.restitution = 0.5;
 

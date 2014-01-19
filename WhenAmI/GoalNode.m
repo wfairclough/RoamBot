@@ -17,6 +17,9 @@
     if (self = [super initWithImageNamed:[NSString stringWithFormat:@"goal_%@", theme] position:position allowInteraction:NO]) {
         self.name = @"goal";
         self.theme = theme;
+        if (!kDavMode) {
+            [[self childNodeWithName:@"bounding"] setScale:0.1];
+        }
         [self setAnchorPoint:CGPointMake(self.anchorPoint.x, 0.0f)];
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;

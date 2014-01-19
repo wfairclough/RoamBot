@@ -19,7 +19,12 @@
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;
         self.physicsBody.allowsRotation = NO;
-        [[self childNodeWithName:@"bounding"] setScale:1.5];
+        if (kDavMode) {
+            [[self childNodeWithName:@"bounding"] setScale:1.5];
+        } else {
+            [[self childNodeWithName:@"bounding"] setScale:0.1];
+        }
+        
         
         [self initializeCollision];
         
