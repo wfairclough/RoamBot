@@ -33,6 +33,21 @@
 //    [self.view sendSubviewToBack:backgroundImage];
     [self.view setBackgroundColor:[UIColor darkGrayColor]];
     
+    UIImageView *earthImage = [[UIImageView alloc] initWithFrame:CGRectMake(130, 320, 350, 350)];
+    [self.view addSubview:earthImage];
+    
+    earthImage.image = [UIImage imageNamed:@"Earth2"];
+    
+    UIImageView *moonImage = [[UIImageView alloc] initWithFrame:CGRectMake(110, 110, 600, 600)];
+    [self.view addSubview:moonImage];
+    
+    moonImage.image = [UIImage imageNamed:@"Moon2"];
+    
+    //earth rotation
+    [self runSpinAnimationOnView:earthImage duration:100.0 rotations:0.005 repeat:1.0];
+    
+    //moon rotation
+    [self runSpinAnimationOnView:moonImage duration:100.0 rotations:0.02 repeat:1.0];
     
     
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
@@ -50,6 +65,18 @@
     [[self view] addSubview:[self.pageController view]];
     [self.pageController didMoveToParentViewController:self];
     
+}
+
+- (void) runSpinAnimationOnView:(UIView*)view duration:(CGFloat)duration rotations:(CGFloat)rotations repeat:(float)repeat;
+{
+    CABasicAnimation* rotationAnimation;
+    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 /* full rotation*/ * rotations * duration ];
+    rotationAnimation.duration = duration;
+    rotationAnimation.cumulative = YES;
+    rotationAnimation.repeatCount = repeat;
+    
+    [view.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {

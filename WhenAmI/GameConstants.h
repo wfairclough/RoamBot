@@ -10,7 +10,7 @@
 #define WhenAmI_GameConstants_h
 
 
-#define kDavMode YES
+#define kDavMode NO
 
 
 static const uint32_t ballConst =  0x1 << 0;

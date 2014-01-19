@@ -16,7 +16,10 @@
 - (id)initWithPosition:(CGPoint)position type:(NSString *)type {
     if (self = [super initWithImageNamed:@"energy_collectable" position:position allowInteraction:NO]) {
         self.name = @"collectable";
+        self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;
+        self.physicsBody.categoryBitMask = collectableConst;
+        self.physicsBody.contactTestBitMask = collectableConst | ballConst;
         
         SKAction *rotation = [SKAction rotateByAngle: M_PI*2 duration:5];
         //and just run the action
@@ -28,6 +31,20 @@
 
 + (id)collectableWithPosition:(CGPoint)position type:(NSString *)type {
     return [[CollectableNode alloc] initWithPosition:position type:type];
+}
+
+- (void)contactWithBall {
+    NSLog(@"CONTACT WITH BALL");
+    
+    self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:0.1f];
+    self.physicsBody.dynamic = NO;
+    self.physicsBody.contactTestBitMask ^= ballConst;
+    [self setHidden:TRUE];
+    
+    
+//    
+//    SKAction *cannonNoise = [SKAction playSoundFileNamed:@"Level Complete.mp3" waitForCompletion:NO];
+//    [self runAction:cannonNoise];
 }
 
 #pragma mark - XML Writer
