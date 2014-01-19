@@ -23,7 +23,9 @@
         [[self childNodeWithName:@"bounding"] setYScale:3.0];
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;
-        self.physicsBody.categoryBitMask = plankConst;
+        
+
+        [self initializeCollision];
         
         if (powered) {
             self.physicsBody.restitution = 1.0f;
@@ -35,6 +37,15 @@
 
 + (id)plankWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees power:(BOOL)isPowered theme:(NSString*)levelStyle {
     return [[PlankNode alloc ] initWithPosition:position allowInteraction:isInteractable rotation:degrees power:isPowered theme:levelStyle];
+}
+
+
+- (void) initializeCollision {
+    NSLog(@"Initialized Collision for Plank: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
+    self.physicsBody.categoryBitMask = plankConst;
+    self.physicsBody.collisionBitMask = 0xFFFFFFFF;
+    self.physicsBody.contactTestBitMask = 0x0;
+    NSLog(@"Did Initialized Collision for Plank: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
 }
 
 

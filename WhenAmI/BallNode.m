@@ -18,11 +18,11 @@
         self.zPosition = 1000.0f;
         [[self childNodeWithName:@"bounding"] setScale:1.6];
         self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
-        self.physicsBody.dynamic = NO;
         self.physicsBody.restitution = 0.75;
-        self.physicsBody.categoryBitMask = ballConst;
-        self.physicsBody.collisionBitMask ^= collectableConst | goalConst;
-//        self.physicsBody.contactTestBitMask =  ballConst;
+        self.physicsBody.dynamic = NO;
+        self.physicsBody.affectedByGravity = NO;
+        
+        [self initializeCollision];
     }
     
     return self;
@@ -32,6 +32,15 @@
     return [[BallNode alloc] initWithPosition:position];
 }
 
+
+- (void) initializeCollision {
+    NSLog(@"Initialized Collision for Ball: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
+    self.physicsBody.categoryBitMask = ballConst;
+    self.physicsBody.collisionBitMask = 0xFFFFFFFF;
+    self.physicsBody.collisionBitMask ^= collectableConst | goalConst;
+//    self.physicsBody.contactTestBitMask = 0x0;
+    NSLog(@"Did Initialized Collision for Ball: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
+}
 
 
 #pragma mark - XML Writer

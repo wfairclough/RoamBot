@@ -146,12 +146,7 @@
         self.currentlySelectedNode = [self nodeAtPoint:[self convertPointFromView:[sender locationInView:self.view]]];
         NSLog(@"Tapped on parent: %@", self.currentlySelectedNode.parent.name);
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"ball"]) {
-            if (kDavMode) {
-                [self saveLevelToFile:-1];
-            }
-            self.currentlySelectedNode.parent.physicsBody.affectedByGravity = YES;
-            self.currentlySelectedNode.parent.physicsBody.dynamic = YES;
-            self.inProgress = YES;
+            [self ballTapped];
         }
         
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"cannon"]) {
@@ -431,6 +426,31 @@
     /* Called before each frame is rendered */
 }
 
+
+- (void) ballTapped {
+    if (kDavMode) {
+        [self saveLevelToFile:-1];
+    }
+    
+    
+    for (GameSpriteNode *gs in [self children]) {
+        if ([gs respondsToSelector:@selector(initializeCollision)]) {
+            [gs initializeCollision];
+        } else {
+            NSLog(@"Not initing: %@", gs.name);
+            
+        }
+    }
+    
+    [self.ball.physicsBody setAffectedByGravity:YES];
+    [self.ball.physicsBody setDynamic:YES];
+
+    
+    self.inProgress = YES;
+    
+}
+
+
 #pragma mark - Private
 - (void)loadLevel:(int)level {
     static BOOL firstLoad = YES;
@@ -490,15 +510,21 @@
         [self removeAllChildren];
         [self loadLevel:-1];
     } else {
-        [[[self ball] physicsBody] setAffectedByGravity:NO];
-        [[[self ball] physicsBody] setAngularVelocity:0.0f];
-        [[[self ball] physicsBody] setVelocity:CGVectorMake(0.0f, 0.0f)];
-        [[self ball] setPosition:[self ballStartPoint]];
-        
-        for (SKSpriteNode *gs in [self children]) {
+        [self.ball.physicsBody setAffectedByGravity:NO];
+        [self.ball.physicsBody setAngularVelocity:0.0f];
+        [self.ball.physicsBody setVelocity:CGVectorMake(0.0f, 0.0f)];
+        [self.ball setPosition:self.ballStartPoint];
+
+        self.ball.physicsBody.contactTestBitMask = 0x0;
+        self.ball.physicsBody.collisionBitMask = 0x0;
+        for (SKSpriteNode *gs in self.children) {
             if (gs.physicsBody != nil) {
                 gs.physicsBody.contactTestBitMask = 0x0;
+                gs.physicsBody.collisionBitMask = 0x0;
             }
+        }
+        
+        for (SKSpriteNode *gs in self.children) {
             if ([gs.name isEqualToString:@"collectable"]) {
                 [gs removeFromParent];
             }
@@ -506,6 +532,8 @@
         [self addChild:[CollectableNode collectableWithPosition:[self collectableStartPos1] type:@""]];
         [self addChild:[CollectableNode collectableWithPosition:[self collectableStartPos2] type:@""]];
         [self addChild:[CollectableNode collectableWithPosition:[self collectableStartPos3] type:@""]];
+        
+        [self.ball.physicsBody setDynamic:NO];
     }
 }
 

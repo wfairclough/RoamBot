@@ -18,9 +18,8 @@
         [self setAnchorPoint:CGPointMake(self.anchorPoint.x, 0.0f)];
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;
-        self.physicsBody.categoryBitMask = goalConst;
-        self.physicsBody.contactTestBitMask = ballConst;
 
+        [self initializeCollision];
     }
     
     return self;
@@ -40,7 +39,11 @@
     [self runAction:levelCompleteNoise];
 }
 
-
+- (void) initializeCollision {
+    self.physicsBody.categoryBitMask = goalConst;
+    self.physicsBody.contactTestBitMask = ballConst;
+    self.physicsBody.collisionBitMask = 0xFFFFFFFF;
+}
 
 #pragma mark - XML Writer
 

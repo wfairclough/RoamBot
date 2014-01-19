@@ -23,7 +23,9 @@
         [[self childNodeWithName:@"bounding"] setXScale:2.5];
         self.physicsBody.dynamic = NO;
         self.physicsBody.restitution = 0.5;
-        self.physicsBody.categoryBitMask = wallConst;
+
+        [self initializeCollision];
+        
         self.theme = theme;
         self.imageSize = imageSize;
     }
@@ -35,6 +37,12 @@
 }
 
 
+- (void) initializeCollision {
+    NSLog(@"Initialized Collision for Wall: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
+    self.physicsBody.categoryBitMask = wallConst;
+    self.physicsBody.collisionBitMask = 0xFFFFFFFF;
+    self.physicsBody.contactTestBitMask = 0x0;
+}
 
 #pragma mark - XML Writer
 

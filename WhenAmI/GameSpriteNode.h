@@ -20,6 +20,7 @@
 - (void)rotateByAngle:(CGFloat)rotation;
 - (BOOL)isBoundingBox;
 - (BOOL) allowsUserInteraction;
+- (void) initializeCollision;
 
 
 - (NSString *)gameNodeXml;

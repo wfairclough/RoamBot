@@ -16,8 +16,8 @@
         self.name = @"cannon";
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.size.width, self.size.height * 0.43)];
         self.physicsBody.dynamic = NO;
-        self.physicsBody.categoryBitMask = cannonConst;
-        self.physicsBody.contactTestBitMask = cannonConst | ballConst;
+        
+        [self initializeCollision];
         
         [[self childNodeWithName:@"bounding"] setYScale:0.7f];
         [[self childNodeWithName:@"bounding"] setXScale:1.5f];
@@ -37,6 +37,12 @@
     return [[CannonNode alloc] initWithPosition:position rotation:degrees];
 }
 
+
+- (void) initializeCollision {
+    self.physicsBody.categoryBitMask = cannonConst;
+    self.physicsBody.contactTestBitMask = cannonConst | ballConst;
+    self.physicsBody.collisionBitMask = 0xFFFFFFFF;    
+}
 
 - (void)fire {
     
