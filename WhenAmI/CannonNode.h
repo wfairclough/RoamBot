@@ -12,10 +12,14 @@
 @interface CannonNode : WorldItemNode
 
 @property (nonatomic, strong) BallNode* ball;
+@property (nonatomic) CGFloat rotationRadians;
+@property (nonatomic) BOOL isUserPlaced;
 
 + (id)canonWithPosition:(CGPoint)position rotation:(CGFloat)degrees;
 
 - (void)contactWithBall:(BallNode*)ball;
 - (void)fire;
+- (void)startRotation;
+- (void)stopRotation;
 
 @end

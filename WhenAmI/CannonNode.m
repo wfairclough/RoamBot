@@ -13,6 +13,8 @@
 
 - (id) initWithPosition:(CGPoint)position rotation:(CGFloat)degrees {
     if (self = [super initWithImageNamed:@"Cannon" position:position allowInteraction:NO rotation:degrees]) {
+        self.isUserPlaced = false;
+        self.rotationRadians = [GameSpriteNode degreesToRadians:degrees];
         self.name = @"cannon";
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.size.width, self.size.height * 0.43)];
         self.physicsBody.dynamic = NO;
@@ -22,12 +24,6 @@
         [[self childNodeWithName:@"bounding"] setYScale:0.7f];
         [[self childNodeWithName:@"bounding"] setXScale:1.5f];
         
-        SKAction *rotateLeft = [SKAction rotateByAngle: [GameSpriteNode degreesToRadians:140] duration:1];
-        SKAction *rotateRight = [SKAction rotateByAngle: -1 * [GameSpriteNode degreesToRadians:140] duration:1];
-        SKAction *seq = [SKAction sequence:@[rotateLeft, rotateRight]];
-        
-        //and just run the action
-        [self runAction: [SKAction repeatActionForever:seq]];
     }
     
     return self;
@@ -75,6 +71,23 @@
         
         self.ball = nil;
     }
+}
+
+- (void)startRotation {
+    self.rotationRadians = [self zRotation];
+    
+    SKAction *rotateLeft = [SKAction rotateByAngle: -1 * [GameSpriteNode degreesToRadians:70] duration:1];
+    SKAction *rotateRight = [SKAction rotateByAngle: [GameSpriteNode degreesToRadians:140] duration:2];
+    SKAction *rotateCenter = [SKAction rotateByAngle: -1 * [GameSpriteNode degreesToRadians:70] duration:1];
+    SKAction *seq = [SKAction sequence:@[rotateLeft, rotateRight, rotateCenter]];
+    
+    //and just run the action
+    [self runAction: [SKAction repeatActionForever:seq]];
+}
+
+- (void)stopRotation {
+    [self removeAllActions];
+    self.zRotation = self.rotationRadians;
 }
 
 
