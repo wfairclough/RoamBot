@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LVB-YS-i5n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LVB-YS-i5n">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -12,7 +12,7 @@
                         <viewControllerLayoutGuide type="top" id="9LK-ca-bty"/>
                         <viewControllerLayoutGuide type="bottom" id="Shc-YE-khU"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bdc-N1-crn" customClass="SKView">
+                    <view key="view" contentMode="scaleToFill" id="bdc-N1-crn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -21,10 +21,10 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="eEe-bS-zYp" id="2lP-C7-nds"/>
+                        <outlet property="view" destination="bdc-N1-crn" id="lwU-5O-SDa"/>
                         <segue destination="Skh-R7-bR1" kind="custom" identifier="LogoToWorldTransition" customClass="CustomFadeTransition" id="6x8-z3-oTh"/>
                     </connections>
                 </viewController>

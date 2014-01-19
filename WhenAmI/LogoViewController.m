@@ -25,6 +25,13 @@
         
         [self.imageView setImage:[UIImage imageNamed: @"chickenwaffle2"]];
         
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"pattern"]]];
+        
+//        UIImage *patternImage = [UIImage imageNamed: @"pattern"];
+//        UIColor *background = [[UIColor alloc] initWithPatternImage:patternImage];
+//        [[self view] setBackgroundColor:[UIColor colorWithPatternImage:patternImage]];
+        
+        
         UIImage *gameLogo = [UIImage imageNamed: @"ball"];
         
         // chickenwaffle Logo
@@ -41,7 +48,9 @@
         });
     } else {
         // Configure the view.
-        SKView * skView = (SKView *)self.view;
+        SKView* skView = [[SKView alloc] initWithFrame:self.view.frame];
+        self.view = skView;
+//        SKView * skView = (SKView *)self.view;
         skView.showsFPS = kDavMode;
         skView.showsNodeCount = kDavMode;
         
