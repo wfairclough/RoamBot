@@ -1,11 +1,16 @@
 <?xml version="1.0"?>
-<level value='2'>
+<level value='1'>
 	<world theme='space'>
-        <ball x='80.500328' y='422.500366'/>
-        <goal x='35.500130' y='154.000214'/>
-        <wall x='54.000172' y='65.000198' interacts='false' rotation='0.000000' imageSize='medium'/>
-        <wall x='13.500416' y='140.000473' interacts='false' rotation='-91.414795' imageSize='small'/>
-        <wall x='101.500137' y='266.000153' interacts='false' rotation='85.950165' imageSize='large'/>
+        <ball x='52.500080' y='511.500366'></ball>
+        <goal x='28.000082' y='-0.499944' rotation='0.000000' theme='space' />
+        <collectable x='237.000153' y='73.000031'/>
+        <collectable x='78.000061' y='84.500145'/>
+        <collectable x='179.500137' y='402.000519'/>
+        <wall x='21.000067' y='250.500031' interacts='false' rotation='72.610901' theme='space' imageSize='medium'></wall>
+        <wall x='297.000397' y='390.501587' interacts='false' rotation='20.849535' theme='space' imageSize='large'></wall>
+        <wall x='268.000275' y='559.500488' interacts='false' rotation='-12.814762' theme='space' imageSize='medium'></wall>
+        <wall x='29.000111' y='72.000198' interacts='false' rotation='80.091225' theme='space' imageSize='small'></wall>
+        <wall x='324.000305' y='98.500443' interacts='false' rotation='-30.777014' theme='space' imageSize='large'></wall>
         <icon type='poweredplank' amount='1'/>
 	</world>
 </level>
