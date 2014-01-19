@@ -18,7 +18,7 @@
         self.position = position;
         GameSpriteNode *boundingBox = [GameSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.3] size:self.size];
         boundingBox.name = @"bounding";
-        [boundingBox setHidden:YES];
+        [boundingBox setHidden:NO];
         [self addChild:boundingBox];
     }
     
