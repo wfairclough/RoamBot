@@ -60,9 +60,6 @@
             
             [self loadLevel:[level integerValue]];
             
-            _numberOfPoweredPlanksAvailiable = 0;
-            _numberOfWoodPlanksAvailiable = 0;
-            _numberOfCannonsAvailiable = 0;
         }
         
         //TEMP TEMP TEMP
@@ -171,18 +168,21 @@
             if ([temp amount] > 0) {
                 [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"space"]];
                 [temp redrawText];
+                _numberOfPoweredPlanksAvailiable = [temp amount];
             }
         } else if ([self.currentlySelectedNode.parent.name isEqualToString:@"woodplankicon"]) {
             ItemIcon *temp = (ItemIcon*)[[self currentlySelectedNode] parent];
             if ([temp amount] > 0) {
                 [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"greek"]];
                 [temp redrawText];
+                _numberOfWoodPlanksAvailiable = [temp amount];
             }
         } else if ([self.currentlySelectedNode.parent.name isEqualToString:@"cannonicon"]) {
             ItemIcon *temp = (ItemIcon*)[[self currentlySelectedNode] parent];
             if ([temp amount] > 0) {
                 [self addChild:[CannonNode canonWithPosition:CGPointMake(self.size.width/2, self.size.height/2) rotation:45.0f]];
                 [temp redrawText];
+                _numberOfCannonsAvailiable = [temp amount];
             }
         }
         
@@ -469,19 +469,16 @@
     
     ItemIcon* icon;
     
-    if ([item isEqualToString:@"poweredplank"] && _numberOfPoweredPlanksAvailiable > 0) {
+    if ([item isEqualToString:@"poweredplank"] && _numberOfPoweredPlanksAvailiable >= 0) {
         icon = [ItemIcon itemWithPosition:CGPointMake(self.size.width/2, self.size.height-20) item:item amount:amount];
-        _numberOfPoweredPlanksAvailiable -= 1;
         [self addChild:icon];
         [self addChild:[icon amountText]];
-    } else if ([item isEqualToString:@"woodplank"] && _numberOfWoodPlanksAvailiable > 0) {
+    } else if ([item isEqualToString:@"woodplank"] && _numberOfWoodPlanksAvailiable >= 0) {
         icon = [ItemIcon itemWithPosition:CGPointMake(self.size.width/2, self.size.height-20) item:item amount:amount];
-        _numberOfWoodPlanksAvailiable -= 1;
         [self addChild:icon];
         [self addChild:[icon amountText]];
-    } else if ([item isEqualToString:@"cannon"] && _numberOfCannonsAvailiable > 0) {
+    } else if ([item isEqualToString:@"cannon"] && _numberOfCannonsAvailiable >= 0) {
         icon = [ItemIcon itemWithPosition:CGPointMake(self.size.width/2, self.size.height-20) item:item amount:amount];
-        _numberOfCannonsAvailiable -= 1;
         [self addChild:icon];
         [self addChild:[icon amountText]];
     }
@@ -530,9 +527,9 @@
             filePath = [NSString stringWithFormat:@"%@/level_%02d.xml", [self documentDirectory], level];
         }
     }
-    _numberOfPoweredPlanksAvailiable = 0;
-    _numberOfWoodPlanksAvailiable = 0;
-    _numberOfCannonsAvailiable = 0;
+    _numberOfPoweredPlanksAvailiable = -1;
+    _numberOfWoodPlanksAvailiable = -1;
+    _numberOfCannonsAvailiable = -1;
     
     NSData *levelData = [NSData dataWithContentsOfFile:filePath];
     
