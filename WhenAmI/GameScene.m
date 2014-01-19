@@ -156,6 +156,11 @@
         NSLog(@"Tapped on parent: %@", self.currentlySelectedNode.parent.name);
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"ball"]) {
             [self ballTapped];
+            for (CannonNode* c in [self children]) {
+                if ([c respondsToSelector:@selector(isUserPlaced)] && [c isUserPlaced]) {
+                    [c startRotation];
+                }
+            }
         }
         
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"cannon"]) {
@@ -183,24 +188,27 @@
             [self closeGame];
         }
         
-        if ([self.currentlySelectedNode.parent.name isEqualToString:@"poweredplankicon"]) {
+        if (!self.inProgress && [self.currentlySelectedNode.parent.name isEqualToString:@"poweredplankicon"]) {
             ItemIcon *temp = (ItemIcon*)[[self currentlySelectedNode] parent];
             if ([temp amount] > 0) {
                 [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:YES theme:@"space"]];
                 [temp redrawText];
                 _numberOfPoweredPlanksAvailiable = [temp amount];
             }
-        } else if ([self.currentlySelectedNode.parent.name isEqualToString:@"woodplankicon"]) {
+        } else if (!self.inProgress && [self.currentlySelectedNode.parent.name isEqualToString:@"woodplankicon"]) {
             ItemIcon *temp = (ItemIcon*)[[self currentlySelectedNode] parent];
             if ([temp amount] > 0) {
                 [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"greek"]];
                 [temp redrawText];
                 _numberOfWoodPlanksAvailiable = [temp amount];
             }
-        } else if ([self.currentlySelectedNode.parent.name isEqualToString:@"cannonicon"]) {
+        } else if (!self.inProgress && [self.currentlySelectedNode.parent.name isEqualToString:@"cannonicon"]) {
             ItemIcon *temp = (ItemIcon*)[[self currentlySelectedNode] parent];
             if ([temp amount] > 0) {
-                [self addChild:[CannonNode canonWithPosition:CGPointMake(self.size.width/2, self.size.height/2) rotation:45.0f]];
+                CannonNode *moveableCannon = [CannonNode canonWithPosition:CGPointMake(self.size.width/2, self.size.height/2) rotation:45.0f];
+                [moveableCannon setAllowInteractions:YES];
+                [moveableCannon setIsUserPlaced:YES];
+                [self addChild:moveableCannon];
                 [temp redrawText];
                 _numberOfCannonsAvailiable = [temp amount];
             }
@@ -221,7 +229,9 @@
                 } else if ([label.text  isEqualToString:@"Reset"]) {
                     [self resetLevel];
                 } else if ([label.text  isEqualToString:@"C"]) {
-                    [self addChild:[CannonNode canonWithPosition:CGPointMake(self.size.width/2, self.size.height/2) rotation:45.0f]];
+                    CannonNode *tempCannon = [CannonNode canonWithPosition:CGPointMake(self.size.width/2, self.size.height/2) rotation:45.0f];
+                    [self addChild:tempCannon];
+                    [tempCannon startRotation];
                 } else if ([label.text  isEqualToString:@"E"]) {
                     [self addChild:[CollectableNode collectableWithPosition:CGPointMake(self.size.width/2, self.size.height/2) type:@""]];
                 } else if ([label.text  isEqualToString:@"S"]) {
@@ -321,7 +331,7 @@
                 [cannonLabel setName:@"label"];
                 [self addChild:cannonLabel];
                 
-                // Add Cannon Label
+                // Add Energy Label
                 SKLabelNode *energyLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
                 [energyLabel setFontSize:48.0f];
                 [energyLabel setPosition:CGPointMake(self.size.width - 30, self.size.height - 240)];
@@ -359,7 +369,7 @@
             GameSpriteNode* boundingBoxNode = (GameSpriteNode *)self.currentlySelectedNode;
             if (boundingBoxNode.isBoundingBox) {
                 GameSpriteNode* currentGameNode = (GameSpriteNode *)boundingBoxNode.parent;
-                if ([currentGameNode allowsUserInteraction] && !self.inProgress) {
+                if ([currentGameNode allowInteractions] && !self.inProgress) {
                     CGPoint pos = CGPointMake((currentGameNode.position.x + [sender translationInView:self.view].x), (currentGameNode.position.y - [sender translationInView:self.view].y));
                     [currentGameNode setPosition:pos];
                     [sender setTranslation:CGPointMake(0.0, 0.0) inView:self.view];
@@ -518,8 +528,9 @@
 }
 
 - (void) setupCanonWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)degrees {
-    CannonNode* canon = [CannonNode canonWithPosition:CGPointMake(x, y) rotation:degrees];
-    [self addChild:canon];
+    CannonNode* cannon = [CannonNode canonWithPosition:CGPointMake(x, y) rotation:degrees];
+    [self addChild:cannon];
+    [cannon startRotation];
 }
 
 - (void) setupItemIconsWithItem:(NSString *)item amount:(int)amount {
@@ -693,6 +704,10 @@
             } else if ([gs.name isEqualToString:@"cannonicon"]) {
                 [(ItemIcon*)gs setAmount:_numberOfCannonsAvailiable];
                 [[(ItemIcon*)gs amountText] removeFromParent];
+            } else if ([gs respondsToSelector:@selector(isUserPlaced)]) {
+                if ([(CannonNode*)gs isUserPlaced]) {
+                    [(CannonNode*)gs stopRotation];
+                }
             }
         }
         [self addChild:[CollectableNode collectableWithPosition:[self collectableStartPos1] type:@""]];
