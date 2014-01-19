@@ -180,7 +180,7 @@
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"poweredplankicon"]) {
             ItemIcon *temp = (ItemIcon*)[[self currentlySelectedNode] parent];
             if ([temp amount] > 0) {
-                [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"space"]];
+                [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:YES theme:@"space"]];
                 [temp redrawText];
                 _numberOfPoweredPlanksAvailiable = [temp amount];
             }
@@ -208,8 +208,10 @@
                     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Select a size" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"small",@"medium",@"large",nil];
                     alert.tag = 2;
                     [alert show];
+                } else if ([label.text  isEqualToString:@"P1"]) {
+                    [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:YES theme:@"space"]];
                 } else if ([label.text  isEqualToString:@"P"]) {
-                    [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"space"]];
+                    [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"greek"]];
                 } else if ([label.text  isEqualToString:@"Reset"]) {
                     [self resetLevel];
                 } else if ([label.text  isEqualToString:@"C"]) {
@@ -287,13 +289,15 @@
                 [openLabel setName:@"label"];
                 [self addChild:openLabel];
                 
+                
+                
                 // Add Plank Label
-                SKLabelNode *plankLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
-                [plankLabel setFontSize:48.0f];
-                [plankLabel setPosition:CGPointMake(self.size.width - 30, self.size.height - 90)];
-                [plankLabel setText:@"P"];
-                [plankLabel setName:@"label"];
-                [self addChild:plankLabel];
+                SKLabelNode *powerPlankLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+                [powerPlankLabel setFontSize:48.0f];
+                [powerPlankLabel setPosition:CGPointMake(self.size.width - 30, self.size.height - 90)];
+                [powerPlankLabel setText:@"P"];
+                [powerPlankLabel setName:@"label"];
+                [self addChild:powerPlankLabel];
                 
                 // Add Wall Label
                 SKLabelNode *wallLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
@@ -318,6 +322,14 @@
                 [energyLabel setText:@"E"];
                 [energyLabel setName:@"label"];
                 [self addChild:energyLabel];
+                
+                // Add Powered Plank Label
+                SKLabelNode *plankLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+                [plankLabel setFontSize:48.0f];
+                [plankLabel setPosition:CGPointMake(self.size.width - 30, self.size.height - 290)];
+                [plankLabel setText:@"P1"];
+                [plankLabel setName:@"label"];
+                [self addChild:plankLabel];
                 
                 
             } else {
@@ -471,7 +483,7 @@
 }
 
 - (void) setupPlankWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable rotationAngle:(float)rotation  powered:(BOOL)powered theme:(NSString*)theme{
-    PlankNode *plank = [PlankNode plankWithPosition:CGPointMake(x, y) allowInteraction:(BOOL)isInteractable rotation:rotation power:YES theme:theme];
+    PlankNode *plank = [PlankNode plankWithPosition:CGPointMake(x, y) allowInteraction:(BOOL)isInteractable rotation:rotation power:powered theme:theme];
     [self addChild:plank];
 }
 
