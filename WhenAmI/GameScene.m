@@ -339,6 +339,16 @@
         }
         
         [goal contactWithBall: self.ball];
+        
+        
+        if (!kDavMode) {
+            int newLevel = [[GamePlayer sharedInstance] increaseSelectedLevel];
+        
+            [self loadLevel:newLevel];
+        }
+        
+        
+
         return;
     }
     
@@ -513,10 +523,14 @@
     
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
     self.physicsBody.restitution = 0.5;
+    
+    
+    self.inProgress = NO;
 }
 
 - (void)resetLevel {
     self.inProgress = NO;
+    
     if (kDavMode) {
         [self removeAllChildren];
         [self loadLevel:-1];

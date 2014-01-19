@@ -41,10 +41,13 @@ static GamePlayer* _sharedInstance;
     return _sharedInstance;
 }
 
-- (int) increaseCurrentLevel {
-    self.currentLevel = [NSNumber numberWithInt:[self.currentLevel intValue] + 1];
+- (int) increaseSelectedLevel {
+    self.selectedLevel = [NSNumber numberWithInt:[self.selectedLevel intValue] + 1];
+    if ([self.selectedLevel intValue] > [self.currentLevel intValue])
+        self.currentLevel = self.selectedLevel;
+    
     [self savePlayer];
-    return [self.currentLevel intValue];
+    return [self.selectedLevel intValue];
 }
 
 - (void)loadPlayer {
