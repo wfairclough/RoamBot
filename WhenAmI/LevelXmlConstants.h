@@ -20,6 +20,7 @@
 #define kRotationAttribute @"rotation"
 #define kThemeAttribute @"theme"
 #define kPoweredAttribute @"powered"
+#define kAmountAttribute @"amount"
 
 #define kGameNodeTag @"gameNode"
 #define kCollectableTag @"collectable"
@@ -28,6 +29,7 @@
 #define kWallTag @"wall"
 #define kCannonTag @"cannon"
 #define kGoalTag @"goal"
+#define kIconTag @"icon"
 
 
 #endif

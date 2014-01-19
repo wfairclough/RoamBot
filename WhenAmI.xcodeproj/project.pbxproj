@@ -20,6 +20,7 @@
 		46BAB4F5188B8BCA00C5518F /* Clip3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 46BAB4F4188B8BCA00C5518F /* Clip3.wav */; };
 		B5703682188B526000E785C1 /* level_03.xml in Resources */ = {isa = PBXBuildFile; fileRef = B5703681188B526000E785C1 /* level_03.xml */; };
 		B580DF66188AB77D00C48433 /* level_-1.xml in Resources */ = {isa = PBXBuildFile; fileRef = B580DF65188AB77D00C48433 /* level_-1.xml */; };
+		B5F4BC33188C03F200EBFC42 /* ItemIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F4BC32188C03F200EBFC42 /* ItemIcon.m */; };
 		BE12D6EA188A3099009937C9 /* LevelXmlWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE12D6E9188A3099009937C9 /* LevelXmlWriter.m */; };
 		BE12D6EC188AB07C009937C9 /* level_00.xml in Resources */ = {isa = PBXBuildFile; fileRef = BE12D6EB188AB07C009937C9 /* level_00.xml */; };
 		BE12D6EE188AC403009937C9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE12D6ED188AC403009937C9 /* AVFoundation.framework */; };
@@ -93,6 +94,8 @@
 		46BAB4F4188B8BCA00C5518F /* Clip3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Clip3.wav; sourceTree = "<group>"; };
 		B5703681188B526000E785C1 /* level_03.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_03.xml; sourceTree = "<group>"; };
 		B580DF65188AB77D00C48433 /* level_-1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "level_-1.xml"; sourceTree = "<group>"; };
+		B5F4BC31188C03F200EBFC42 /* ItemIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemIcon.h; sourceTree = "<group>"; };
+		B5F4BC32188C03F200EBFC42 /* ItemIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemIcon.m; sourceTree = "<group>"; };
 		BE12D6E7188A2BAD009937C9 /* LevelXmlConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelXmlConstants.h; sourceTree = "<group>"; };
 		BE12D6E8188A3099009937C9 /* LevelXmlWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelXmlWriter.h; sourceTree = "<group>"; };
 		BE12D6E9188A3099009937C9 /* LevelXmlWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelXmlWriter.m; sourceTree = "<group>"; };
@@ -364,6 +367,8 @@
 			children = (
 				BEDA80CC1889E203000D6023 /* GameSpriteNode.h */,
 				BEDA80CD1889E203000D6023 /* GameSpriteNode.m */,
+				B5F4BC31188C03F200EBFC42 /* ItemIcon.h */,
+				B5F4BC32188C03F200EBFC42 /* ItemIcon.m */,
 				BEDA80CF1889E216000D6023 /* WorldItemNode.h */,
 				BEDA80D01889E216000D6023 /* WorldItemNode.m */,
 				BEDA80D21889E226000D6023 /* BallNode.h */,
@@ -540,6 +545,7 @@
 				46B04D4A188AB10700805BE1 /* WorldsViewController.m in Sources */,
 				46B04D46188AAEDC00805BE1 /* LevelViewController.m in Sources */,
 				BEDA80D41889E226000D6023 /* BallNode.m in Sources */,
+				B5F4BC33188C03F200EBFC42 /* ItemIcon.m in Sources */,
 				46B04D40188AA7E800805BE1 /* CustomFadeTransition.m in Sources */,
 				BEDA80D11889E216000D6023 /* WorldItemNode.m in Sources */,
 			);

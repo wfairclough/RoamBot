@@ -105,6 +105,12 @@
         if ([self.setupDelegate respondsToSelector:@selector (setupCollectableWithXPosition:yPosition:type:)]) {
             [self.setupDelegate setupCollectableWithXPosition:x yPosition:y type:type];
         }
+    } else if ([elementName isEqualToString:kIconTag]) {
+        NSString *itemType = [attributeDict valueForKey:kTypeAttribute];
+        int amount = [[attributeDict valueForKey:kAmountAttribute] intValue];
+        if ([self.setupDelegate respondsToSelector:@selector(setupItemIconsWithItem:amount:)]) {
+            [self.setupDelegate setupItemIconsWithItem:itemType amount:amount];
+        }
     }
 
 

@@ -16,12 +16,13 @@
 #import "GameSounds.h"
 #import "GoalNode.h"
 #import "CollectableNode.h"
+#import "ItemIcon.h"
 
 
 
 #define kSpaceWorld @"space"
 #define kGreekWorld @"greek"
-#define kMediaevalWorld @"mediaeval"
+#define kMedievalWorld @"medieval"
 
 @interface GameScene()
 
@@ -163,6 +164,13 @@
             [self resetLevel];
         }
         
+        if ([self.currentlySelectedNode.parent.name isEqualToString:@"poweredplankicon"]) {
+            [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"space"]];
+        } else if ([self.currentlySelectedNode.parent.name isEqualToString:@"woodplankicon"]) {
+            [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"greek"]];
+        } else if ([self.currentlySelectedNode.parent.name isEqualToString:@"cannonicon"]) {
+            [self addChild:[CannonNode canonWithPosition:CGPointMake(self.size.width/2, self.size.height/2) rotation:45.0f]];
+        }
         
         // DavMode Only
         if (kDavMode) {
@@ -389,8 +397,8 @@
         SKSpriteNode* bg = [SKSpriteNode spriteNodeWithImageNamed:@"greek-bg"];
         [bg setAnchorPoint:CGPointMake(0.0f, 0.0f)];
         [self addChild:bg];
-    } else if ([worldType isEqualToString:kMediaevalWorld]) {
-        SKSpriteNode* bg = [SKSpriteNode spriteNodeWithImageNamed:@"mediaeval-bg"];
+    } else if ([worldType isEqualToString:kMedievalWorld]) {
+        SKSpriteNode* bg = [SKSpriteNode spriteNodeWithImageNamed:@"medieval-bg"];
         [bg setAnchorPoint:CGPointMake(0.0f, 0.0f)];
         [self addChild:bg];
     }
@@ -424,6 +432,12 @@
 - (void) setupCanonWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)degrees {
     CannonNode* canon = [CannonNode canonWithPosition:CGPointMake(x, y) rotation:degrees];
     [self addChild:canon];
+}
+
+- (void) setupItemIconsWithItem:(NSString *)item amount:(int)amount {
+    ItemIcon* icon = [ItemIcon itemWithPosition:CGPointMake(self.size.width/2, self.size.height-20) item:item amount:amount];
+    [self addChild:icon];
+    [self addChild:[icon amountText]];
 }
 
 #pragma mark - Game Logic

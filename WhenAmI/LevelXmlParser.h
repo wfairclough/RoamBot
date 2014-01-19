@@ -22,6 +22,7 @@
 - (void) setupGoalWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)degrees theme:(NSString *)theme;
 - (void) setupCanonWithXPosition:(float)x yPosition:(float)y rotationAngle:(float)degrees;
 - (void) setupCollectableWithXPosition:(float)x yPosition:(float)y type:(NSString*)type;
+- (void) setupItemIconsWithItem:(NSString*)item amount:(int)amount;
 
 
 
