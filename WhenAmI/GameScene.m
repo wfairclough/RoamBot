@@ -145,6 +145,8 @@
                     [self resetLevel];
                 } else if ([label.text  isEqualToString:@"C"]) {
                     [self addChild:[CannonNode canonWithPosition:CGPointMake(self.size.width/2, self.size.height/2) rotation:45.0f]];
+                } else if ([label.text  isEqualToString:@"E"]) {
+                    [self addChild:[CollectableNode collectableWithPosition:CGPointMake(self.size.width/2, self.size.height/2) type:@""]];
                 } else if ([label.text  isEqualToString:@"S"]) {
                     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Hey Davyn! Level number please :D" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"SAVE",nil];
                     alert.tag = 0;
@@ -240,6 +242,14 @@
                 [cannonLabel setName:@"label"];
                 [self addChild:cannonLabel];
                 
+                // Add Cannon Label
+                SKLabelNode *energyLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+                [energyLabel setFontSize:48.0f];
+                [energyLabel setPosition:CGPointMake(self.size.width - 30, self.size.height - 190)];
+                [energyLabel setText:@"E"];
+                [energyLabel setName:@"label"];
+                [self addChild:energyLabel];
+                
                 
             } else {
                 if (![self childNodeWithName:@"label"].isHidden) {
@@ -262,9 +272,11 @@
             GameSpriteNode* boundingBoxNode = (GameSpriteNode *)self.currentlySelectedNode;
             if (boundingBoxNode.isBoundingBox) {
                 GameSpriteNode* currentGameNode = (GameSpriteNode *)boundingBoxNode.parent;
-                CGPoint pos = CGPointMake((currentGameNode.position.x + [sender translationInView:self.view].x), (currentGameNode.position.y - [sender translationInView:self.view].y));
-                [currentGameNode setPosition:pos];
-                [sender setTranslation:CGPointMake(0.0, 0.0) inView:self.view];
+                if ([currentGameNode allowsUserInteraction]) {
+                    CGPoint pos = CGPointMake((currentGameNode.position.x + [sender translationInView:self.view].x), (currentGameNode.position.y - [sender translationInView:self.view].y));
+                    [currentGameNode setPosition:pos];
+                    [sender setTranslation:CGPointMake(0.0, 0.0) inView:self.view];
+                }
                 
             }
         }

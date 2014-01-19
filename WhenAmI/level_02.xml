@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
-<level value='1'>
+<level value='2'>
 	<world theme='greek'>
-			<ball x='121.000404' y='461.000885'></ball>
-			<plank x='223.500320' y='58.500175' interacts='true' rotation='85.666519'></plank>
-			<plank x='304.000427' y='204.000412' interacts='true' rotation='0.000000'></plank>
-			<plank x='110.000137' y='130.000153' interacts='true' rotation='-49.608688'></plank>
+        <ball x='80.500328' y='552.500366'/>
+        <goal x='35.500130' y='154.000214'/>
+        <wall x='54.000172' y='65.000198' interacts='false' rotation='0.000000' imageSize='medium'/>
+        <wall x='33.500416' y='140.000473' interacts='false' rotation='-91.414795' imageSize='small'/>
+        <plank x='221.501434' y='106.001907' interacts='true' rotation='35.493732'/>
+        <wall x='101.500137' y='266.000153' interacts='false' rotation='85.950165' imageSize='large'/>
 	</world>
 </level>

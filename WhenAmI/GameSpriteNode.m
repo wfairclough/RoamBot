@@ -59,7 +59,7 @@
 }
 
 
-- (BOOL) isDavMode {
+- (BOOL) allowsUserInteraction {
     if (kDavMode)
         return kDavMode;
     
