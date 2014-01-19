@@ -11,5 +11,6 @@
 @interface LogoViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UIImageView* imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *chickenTextImageView;
 
 @end

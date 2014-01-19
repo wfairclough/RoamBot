@@ -5,7 +5,7 @@
         <goal x='35.500130' y='154.000214'/>
         <wall x='54.000172' y='65.000198' interacts='false' rotation='0.000000' imageSize='medium'/>
         <wall x='33.500416' y='140.000473' interacts='false' rotation='-91.414795' imageSize='small'/>
-        <plank x='221.501434' y='106.001907' interacts='true' rotation='35.493732'/>
         <wall x='101.500137' y='266.000153' interacts='false' rotation='85.950165' imageSize='large'/>
+        <icon type='poweredplank' amount='1'/>
 	</world>
 </level>

@@ -42,7 +42,7 @@
 }
 
 - (void) initializeCollision {
-    NSLog(@"AHHHHHHHHHH");
+
 }
 
 + (CGFloat)degreesToRadians:(CGFloat)degrees {
