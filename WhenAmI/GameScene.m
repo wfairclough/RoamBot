@@ -461,14 +461,17 @@
     
     if ([item isEqualToString:@"poweredplank"] && _numberOfPoweredPlanksAvailiable > 0) {
         icon = [ItemIcon itemWithPosition:CGPointMake(self.size.width/2, self.size.height-20) item:item amount:amount];
+        _numberOfPoweredPlanksAvailiable -= 1;
         [self addChild:icon];
         [self addChild:[icon amountText]];
     } else if ([item isEqualToString:@"woodplank"] && _numberOfWoodPlanksAvailiable > 0) {
         icon = [ItemIcon itemWithPosition:CGPointMake(self.size.width/2, self.size.height-20) item:item amount:amount];
+        _numberOfWoodPlanksAvailiable -= 1;
         [self addChild:icon];
         [self addChild:[icon amountText]];
     } else if ([item isEqualToString:@"cannon"] && _numberOfCannonsAvailiable > 0) {
         icon = [ItemIcon itemWithPosition:CGPointMake(self.size.width/2, self.size.height-20) item:item amount:amount];
+        _numberOfCannonsAvailiable -= 1;
         [self addChild:icon];
         [self addChild:[icon amountText]];
     }
@@ -517,6 +520,9 @@
             filePath = [NSString stringWithFormat:@"%@/level_%02d.xml", [self documentDirectory], level];
         }
     }
+    _numberOfPoweredPlanksAvailiable = 0;
+    _numberOfWoodPlanksAvailiable = 0;
+    _numberOfCannonsAvailiable = 0;
     
     NSData *levelData = [NSData dataWithContentsOfFile:filePath];
     
@@ -580,10 +586,13 @@
                 [gs removeFromParent];
             } else if ([gs.name isEqualToString:@"poweredplankicon"]) {
                 [(ItemIcon*)gs setAmount:_numberOfPoweredPlanksAvailiable];
+                [[(ItemIcon*)gs amountText] removeFromParent];
             } else if ([gs.name isEqualToString:@"woodplankicon"]) {
                 [(ItemIcon*)gs setAmount:_numberOfWoodPlanksAvailiable];
+                [[(ItemIcon*)gs amountText] removeFromParent];
             } else if ([gs.name isEqualToString:@"cannonicon"]) {
                 [(ItemIcon*)gs setAmount:_numberOfCannonsAvailiable];
+                [[(ItemIcon*)gs amountText] removeFromParent];
             }
         }
         [self addChild:[CollectableNode collectableWithPosition:[self collectableStartPos1] type:@""]];
