@@ -9,18 +9,19 @@
 #import "GoalNode.h"
 #import "LevelXmlConstants.h"
 
+
 @implementation GoalNode
 
 - (id)initWithPosition:(CGPoint)position rotation:(CGFloat)rotation theme:(NSString *)theme {
-    if (self = [super initWithImageNamed:@"world_2_goal" position:position allowInteraction:NO]) {
+    NSLog(@"Theme: %@", theme);
+    if (self = [super initWithImageNamed:[NSString stringWithFormat:@"goal_%@", theme] position:position allowInteraction:NO]) {
         self.name = @"goal";
         self.theme = theme;
         [self setAnchorPoint:CGPointMake(self.anchorPoint.x, 0.0f)];
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;
-        self.physicsBody.categoryBitMask = goalConst;
-        self.physicsBody.contactTestBitMask = ballConst;
 
+        [self initializeCollision];
     }
     
     return self;
@@ -30,17 +31,28 @@
     return [[GoalNode alloc] initWithPosition:position rotation:rotation theme:theme];
 }
 
-- (void)contactWithBall {
+- (void)contactWithBall:(BallNode*)ball {
+    
+    if ([self.theme isEqualToString:@"space"] || [self.theme isEqualToString:@"button"]) {
+        if (ball != nil) {
+            [ball setHidden:YES];
+        }
+    }
+    
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.size.width, self.size.height * 0.2)];
     self.physicsBody.dynamic = NO;
     self.physicsBody.contactTestBitMask ^= ballConst;
-    [self setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"world_2_base"]]];
+    [self setTexture:[SKTexture textureWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"goal_%@_base", self.theme]]]];
     
     SKAction *levelCompleteNoise = [SKAction playSoundFileNamed:@"Level Complete.mp3" waitForCompletion:NO];
     [self runAction:levelCompleteNoise];
 }
 
-
+- (void) initializeCollision {
+    self.physicsBody.categoryBitMask = goalConst;
+    self.physicsBody.contactTestBitMask = ballConst;
+    self.physicsBody.collisionBitMask = 0xFFFFFFFF;
+}
 
 #pragma mark - XML Writer
 

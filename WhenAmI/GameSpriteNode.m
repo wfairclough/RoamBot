@@ -41,6 +41,10 @@
     return [[GameSpriteNode alloc] initWithImageNamed:name position:position allowInteraction:isInteractable rotation:degrees];
 }
 
+- (void) initializeCollision {
+    NSLog(@"AHHHHHHHHHH");
+}
+
 + (CGFloat)degreesToRadians:(CGFloat)degrees {
     return degrees * M_PI / 180;
 }

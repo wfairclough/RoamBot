@@ -19,10 +19,8 @@
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;
         self.physicsBody.allowsRotation = NO;
-        self.physicsBody.categoryBitMask = collectableConst;
-        self.physicsBody.collisionBitMask = 0x0;
-        self.physicsBody.contactTestBitMask = ballConst;
         
+        [self initializeCollision];
         
         SKAction *rotation = [SKAction rotateByAngle: M_PI*2 duration:5];
         //and just run the action
@@ -34,6 +32,14 @@
 
 + (id)collectableWithPosition:(CGPoint)position type:(NSString *)type {
     return [[CollectableNode alloc] initWithPosition:position type:type];
+}
+
+- (void) initializeCollision {
+//    NSLog(@"Initialized Collision for Collectable: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
+    self.physicsBody.categoryBitMask = collectableConst;
+    self.physicsBody.collisionBitMask = 0x0;
+    self.physicsBody.contactTestBitMask = ballConst;
+//    NSLog(@"Did Initialized Collision for Collectable: %x    %x", self.physicsBody.categoryBitMask, self.physicsBody.collisionBitMask);
 }
 
 - (void)contactWithBall {

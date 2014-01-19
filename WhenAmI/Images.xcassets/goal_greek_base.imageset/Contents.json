@@ -2,12 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "goal_greek_base.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "World 2 Goal (2).png"
+      "filename" : "goal_greek_base@2x.png"
     }
   ],
   "info" : {
