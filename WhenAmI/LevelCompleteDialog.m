@@ -36,6 +36,7 @@
         SKSpriteNode *closeButton = [[SKSpriteNode alloc] initWithImageNamed:@"close"];
         [closeButton setName:@"closeButton"];
         [closeButton setPosition:CGPointMake((size.width/2) - 50, (size.height/2) + 50)];
+        [closeButton setHidden:YES];
         
         [self addChild:highscoreText];
         [self addChild:levelCompleteText];
