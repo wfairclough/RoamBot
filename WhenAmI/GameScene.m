@@ -625,6 +625,12 @@
 }
 
 - (void)resetLevel {
+    
+    GoalNode* goal = (GoalNode *)[self childNodeWithName:@"goal"];
+    
+    if (goal != nil)
+        [goal resetGoal];
+    
     self.inProgress = NO;
     
     if (kDavMode) {

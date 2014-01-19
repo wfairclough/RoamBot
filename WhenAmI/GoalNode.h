@@ -16,5 +16,5 @@
 
 + (id)goalWithPosition:(CGPoint)position rotation:(CGFloat)rotation theme:(NSString *)theme;
 - (void)contactWithBall:(BallNode*)ball;
-
+- (void)resetGoal;
 @end
