@@ -19,6 +19,7 @@
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;
         self.physicsBody.allowsRotation = NO;
+        [[self childNodeWithName:@"bounding"] setScale:1.5];
         
         [self initializeCollision];
         

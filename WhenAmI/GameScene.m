@@ -281,7 +281,7 @@
                 // Add Plank Label
                 SKLabelNode *plankLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
                 [plankLabel setFontSize:48.0f];
-                [plankLabel setPosition:CGPointMake(self.size.width - 30, self.size.height - 40)];
+                [plankLabel setPosition:CGPointMake(self.size.width - 30, self.size.height - 90)];
                 [plankLabel setText:@"P"];
                 [plankLabel setName:@"label"];
                 [self addChild:plankLabel];
@@ -289,7 +289,7 @@
                 // Add Wall Label
                 SKLabelNode *wallLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
                 [wallLabel setFontSize:48.0f];
-                [wallLabel setPosition:CGPointMake(self.size.width - 30, self.size.height - 90)];
+                [wallLabel setPosition:CGPointMake(self.size.width - 30, self.size.height - 140)];
                 [wallLabel setText:@"W"];
                 [wallLabel setName:@"label"];
                 [self addChild:wallLabel];
@@ -297,7 +297,7 @@
                 // Add Cannon Label
                 SKLabelNode *cannonLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
                 [cannonLabel setFontSize:48.0f];
-                [cannonLabel setPosition:CGPointMake(self.size.width - 30, self.size.height - 140)];
+                [cannonLabel setPosition:CGPointMake(self.size.width - 30, self.size.height - 190)];
                 [cannonLabel setText:@"C"];
                 [cannonLabel setName:@"label"];
                 [self addChild:cannonLabel];
@@ -305,7 +305,7 @@
                 // Add Cannon Label
                 SKLabelNode *energyLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
                 [energyLabel setFontSize:48.0f];
-                [energyLabel setPosition:CGPointMake(self.size.width - 30, self.size.height - 190)];
+                [energyLabel setPosition:CGPointMake(self.size.width - 30, self.size.height - 240)];
                 [energyLabel setText:@"E"];
                 [energyLabel setName:@"label"];
                 [self addChild:energyLabel];
