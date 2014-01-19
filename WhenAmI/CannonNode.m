@@ -49,12 +49,16 @@
     
     
     if (self.ball != nil) {
+        CGVector firingVector = [self convertAngleToVector:self.zRotation];
+        CGPoint ballPos = CGPointMake(self.position.x + (firingVector.dx * 0.045), self.position.y + (firingVector.dy * 0.045));
+
         [self.ball setHidden:NO];
         [self.ball.physicsBody setAffectedByGravity:YES];
+        [self.ball setPosition:ballPos];
         
-//        self.physicsBody.contactTestBitMask ^= ballConst;
-        [self.ball.physicsBody setVelocity:[self convertAngleToVector:self.zRotation]];
-
+        
+        self.physicsBody.contactTestBitMask ^= ballConst;
+        [self.ball.physicsBody setVelocity:firingVector];
         
         self.ball = nil;
     }
@@ -64,8 +68,7 @@
 - (void)contactWithBall:(BallNode *)ball {
     if (self.ball == nil) {
         self.ball = ball;
-        [self.ball setHidden:NO];
-        [self.ball setPosition:CGPointMake(0.0, 0.0)];
+        [self.ball setHidden:YES];
         
         self.physicsBody.contactTestBitMask ^= ballConst;
         
