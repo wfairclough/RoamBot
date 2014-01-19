@@ -414,26 +414,33 @@
     
 }
 
+- (void)didEndContact:(SKPhysicsContact *)contact {
+    
+}
+
+#pragma mark - LoadLevel Dialog
+
 - (void) selectedNextButton {
+    NSLog(@"Next pressed");
     int newLevel = [[GamePlayer sharedInstance] increaseSelectedLevel];
     [[self childNodeWithName:@"loadCompleteDialog"] removeFromParent];
     [self loadLevel:newLevel];
 }
 
 - (void) selectedRefreshButton {
+    NSLog(@"Refresh pressed");
     [[GamePlayer sharedInstance] increaseSelectedLevel];
     [[self childNodeWithName:@"loadCompleteDialog"] removeFromParent];
+    
+    self.ball.hidden = NO;
+    [self childNodeWithName:@"reset"].hidden = NO;
+    
     [self resetLevel];
 }
 
 - (void) dialogInteraction {
     
 }
-
-- (void)didEndContact:(SKPhysicsContact *)contact {
-    
-}
-
 
 #pragma mark - Level Setup
 

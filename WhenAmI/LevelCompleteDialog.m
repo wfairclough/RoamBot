@@ -24,7 +24,7 @@
         [nextButton setPosition:CGPointMake(size.width/2, (size.height/2) - 50)];
         
         SKSpriteNode *refreshButton = [[SKSpriteNode alloc] initWithImageNamed:@"reload"];
-        [nextButton setName:@"refreshButton"];
+        [refreshButton setName:@"refreshButton"];
         [refreshButton setPosition:CGPointMake((size.width/2) + 50, (size.height/2) + 50)];
         
         [self addChild:levelCompleteText];
