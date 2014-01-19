@@ -415,7 +415,11 @@
             
             // Update Score and display if higher
             [dialog setHighscoreOn:[[GamePlayer sharedInstance] setEnergyScoreForSelectedLevel:_energyScore]];
-
+            
+            if ([[[GamePlayer sharedInstance] selectedLevel] intValue] == 9) {
+                NSLog(@"At the end");
+                [dialog theEnd:YES];
+            }
 
             [self addChild:dialog];
             

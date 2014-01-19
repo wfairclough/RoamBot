@@ -28,6 +28,11 @@
         [nextButton setName:@"nextButton"];
         [nextButton setPosition:CGPointMake(size.width/2, (size.height/2) - 50)];
         
+        SKSpriteNode *endButton = [[SKSpriteNode alloc] initWithImageNamed:@"end"];
+        [endButton setName:@"end"];
+        [endButton setHidden:YES];
+        [endButton setPosition:CGPointMake(size.width/2, (size.height/2) - 50)];
+        
         SKSpriteNode *refreshButton = [[SKSpriteNode alloc] initWithImageNamed:@"reload"];
         [refreshButton setName:@"refreshButton"];
         [refreshButton setPosition:CGPointMake((size.width/2) + 50, (size.height/2) + 50)];
@@ -43,6 +48,7 @@
         [self addChild:nextButton];
         [self addChild:refreshButton];
         [self addChild:closeButton];
+        [self addChild:endButton];
     }
     
     return self;
@@ -50,6 +56,12 @@
 
 - (void) setHighscoreOn:(BOOL)value {
     [[self childNodeWithName:@"highscoreNode"] setHidden:!value];
+}
+
+- (void)theEnd:(BOOL)value {
+    NSLog(@"The end %d", value);
+    [[self childNodeWithName:@"nextButton"] setHidden:value];
+    [[self childNodeWithName:@"end"] setHidden:!value];
 }
 
 @end
