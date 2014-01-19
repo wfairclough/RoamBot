@@ -22,6 +22,7 @@
         [[self childNodeWithName:@"bounding"] setYScale:3.0];
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;
+        self.physicsBody.categoryBitMask = plankConst;
     }
     
     return self;

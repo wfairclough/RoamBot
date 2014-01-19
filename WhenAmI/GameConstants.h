@@ -10,13 +10,15 @@
 #define WhenAmI_GameConstants_h
 
 
-#define kDavMode NO
+#define kDavMode YES
 
 
-static const uint32_t ballConst =  0x1 << 0;
-static const uint32_t collectableConst =  0x1 << 1;
-static const uint32_t goalConst = 0x1 << 2;
-static const uint32_t cannonConst =  0x1 << 3;
+static const uint32_t ballConst         =   0x1 << 0;
+static const uint32_t collectableConst  =   0x1 << 1;
+static const uint32_t goalConst         =   0x1 << 2;
+static const uint32_t cannonConst       =   0x1 << 3;
+static const uint32_t plankConst        =   0x1 << 4;
+static const uint32_t wallConst         =   0x1 << 5;
 
 
 

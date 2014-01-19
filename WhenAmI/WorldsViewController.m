@@ -28,10 +28,9 @@
     
     [super viewDidLoad];
     
-//    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"clouds2"]];
-//    [self.view addSubview:backgroundImage];
-//    [self.view sendSubviewToBack:backgroundImage];
-    [self.view setBackgroundColor:[UIColor darkGrayColor]];
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"space_background"]];
+    [self.view addSubview:backgroundImage];
+    [self.view sendSubviewToBack:backgroundImage];
     
     UIImageView *earthImage = [[UIImageView alloc] initWithFrame:CGRectMake(130, 320, 350, 350)];
     [self.view addSubview:earthImage];

@@ -316,6 +316,22 @@
         return;
     }
     
+    if (collision == (collectableConst | ballConst)) {
+        CollectableNode *collectable;
+        
+        if ([contact.bodyA.node.name isEqualToString:@"collectable"])
+        {
+            collectable = (CollectableNode*)contact.bodyA.node;
+        } else {
+            collectable = (CollectableNode*)contact.bodyB.node;
+        }
+        
+        [collectable contactWithBall];
+        
+        return;
+    }
+    
+    
     
     if (collision == (cannonConst | ballConst)) {
         CannonNode *cannon;

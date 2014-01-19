@@ -23,6 +23,7 @@
         [[self childNodeWithName:@"bounding"] setXScale:2.5];
         self.physicsBody.dynamic = NO;
         self.physicsBody.restitution = 0.5;
+        self.physicsBody.categoryBitMask = wallConst;
         self.theme = theme;
         self.imageSize = imageSize;
     }
