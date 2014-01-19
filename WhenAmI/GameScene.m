@@ -18,6 +18,7 @@
 #import "CollectableNode.h"
 #import "ItemIcon.h"
 #import "LevelCompleteDialog.h"
+#import "Story.h"
 
 
 
@@ -597,6 +598,8 @@
 - (void)loadLevel:(int)level {
     static BOOL firstLoad = YES;
     
+    
+    
     _energyScore = 0;
 
     [self removeAllChildren];
@@ -623,12 +626,25 @@
     [levelXmlParser parse];
     
     if(level == 1) {
-        SKSpriteNode *tutorial = [[SKSpriteNode alloc] initWithImageNamed:@"tutorial"];
-        [tutorial setName:@"tutorial"];
-        [tutorial setZPosition:2000.0];
-        [tutorial setAnchorPoint:CGPointMake(0,0)];
-        [tutorial setPosition:CGPointMake(0,0)];
-        [self addChild:tutorial];
+        double delayTime = 38.0;
+        
+        Story *theStory = [[Story alloc] initWithSize:self.size];
+        [theStory setZPosition:10000.0];
+        [self addChild:theStory];
+        
+        dispatch_time_t storyDelay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayTime * NSEC_PER_SEC));
+        dispatch_after(storyDelay, dispatch_get_main_queue(), ^(void){
+            SKSpriteNode *tutorial = [[SKSpriteNode alloc] initWithImageNamed:@"tutorial"];
+            [tutorial setName:@"tutorial"];
+            [tutorial setZPosition:2000.0];
+            [tutorial setAnchorPoint:CGPointMake(0,0)];
+            [tutorial setPosition:CGPointMake(0,0)];
+            [self addChild:tutorial];
+            [theStory removeFromParent];
+        });
+
+        
+        
     }
     
     SKSpriteNode *closeBtn = [SKSpriteNode spriteNodeWithImageNamed:@"close"];
