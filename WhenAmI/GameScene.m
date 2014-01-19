@@ -373,7 +373,7 @@
             GameSpriteNode* boundingBoxNode = (GameSpriteNode *)self.currentlySelectedNode;
             if (boundingBoxNode.isBoundingBox) {
                 GameSpriteNode* currentGameNode = (GameSpriteNode *)boundingBoxNode.parent;
-                if ([currentGameNode allowInteractions] && !self.inProgress) {
+                if ([currentGameNode allowsUserInteraction] && !self.inProgress) {
                     CGPoint pos = CGPointMake((currentGameNode.position.x + [sender translationInView:self.view].x), (currentGameNode.position.y - [sender translationInView:self.view].y));
                     [currentGameNode setPosition:pos];
                     [sender setTranslation:CGPointMake(0.0, 0.0) inView:self.view];
