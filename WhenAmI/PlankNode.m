@@ -14,6 +14,7 @@
 
 - (id)initWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable rotation:(CGFloat)degrees power:(BOOL)powered theme:(NSString*)theme {
     NSString *imageName;
+    NSLog(@"Plank Theme: %@", theme);
     imageName = [@"plank_" stringByAppendingString:theme];
     if (self = [super initWithImageNamed:imageName position:position allowInteraction:isInteractable rotation:degrees]) {
         self.name = @"plank";
@@ -23,6 +24,10 @@
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;
         self.physicsBody.categoryBitMask = plankConst;
+        
+        if (powered) {
+            self.physicsBody.restitution = 1.0f;
+        }
     }
     
     return self;

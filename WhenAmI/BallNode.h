@@ -10,7 +10,7 @@
 
 @interface BallNode : WorldItemNode
 
-- (id) initWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable;
-+ (id)ballWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable;
+- (id) initWithPosition:(CGPoint)position;
++ (id)ballWithPosition:(CGPoint)position;
 
 @end

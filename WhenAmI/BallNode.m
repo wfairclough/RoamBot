@@ -12,8 +12,8 @@
 
 @implementation BallNode
 
-- (id) initWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable {
-    if (self = [super initWithImageNamed:@"ball" position:position allowInteraction:isInteractable]) {
+- (id) initWithPosition:(CGPoint)position {
+    if (self = [super initWithImageNamed:@"ball" position:position allowInteraction:NO]) {
         self.name = @"ball";
         self.zPosition = 1000.0f;
         [[self childNodeWithName:@"bounding"] setScale:1.6];
@@ -28,8 +28,8 @@
     return self;
 }
 
-+ (id)ballWithPosition:(CGPoint)position allowInteraction:(BOOL)isInteractable {
-    return [[BallNode alloc] initWithPosition:position allowInteraction:isInteractable];
++ (id)ballWithPosition:(CGPoint)position {
+    return [[BallNode alloc] initWithPosition:position];
 }
 
 

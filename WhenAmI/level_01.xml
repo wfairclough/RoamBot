@@ -2,8 +2,8 @@
 <level value="1">
     <world theme="space">
         <ball x="150" y="350" interacts="true"/>
-        <plank x="0" y="200" interacts="true" rotation="45" powered="false" />
-        <plank x="280" y="400" interacts="true" rotation="65" powered="false" />
+        <plank x="0" y="200" interacts="true" rotation="45" powered="true" />
+        <plank x="280" y="400" interacts="true" rotation="65" powered="true" />
         <collectable x="150" y="100" />
         <collectable x="150" y="200" />
         <collectable x="150" y="300" />

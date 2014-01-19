@@ -49,10 +49,9 @@
     } else if ([elementName isEqualToString:kBallTag]){
         float x = [[attributeDict valueForKey:kXAttribute] floatValue];
         float y = [[attributeDict valueForKey:kYAttribute] floatValue];
-        bool isInteractable = [[attributeDict valueForKey:kInteractable] boolValue];
         
-        if ([self.setupDelegate respondsToSelector:@selector (setupBallWithXPosition:yPosition:allowInteraction:)]) {
-            [self.setupDelegate setupBallWithXPosition:x yPosition:y allowInteraction:isInteractable];
+        if ([self.setupDelegate respondsToSelector:@selector (setupBallWithXPosition:yPosition:)]) {
+            [self.setupDelegate setupBallWithXPosition:x yPosition:y];
         }
         
     } else if ([elementName isEqualToString:kPlankTag]){

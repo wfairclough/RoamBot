@@ -2,7 +2,7 @@
 <level value="1">
     <world theme="greek">
         <ball x="100" y="350" interacts="true"/>
-        <plank x="150" y="100" interacts="true" rotation="45" powered="false" />
-        <plank x="250" y="400" interacts="true" rotation="65" powered="false" />
+        <plank x="150" y="100" interacts="true" rotation="45" powered="true" />
+        <plank x="250" y="400" interacts="true" rotation="65" powered="true" />
     </world>
 </level>

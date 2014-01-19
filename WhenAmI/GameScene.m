@@ -56,9 +56,12 @@
         }
         
         //TEMP TEMP TEMP
-        NSArray *listOfXMLs = [[NSArray alloc] initWithObjects:@"level_-1", @"level_00", @"level_01", @"level_02", @"level_03", nil];
+        NSArray *listOfXMLs = @[@"level_-1", @"level_00", @"level_01", @"level_02", @"level_03", @"level_04", @"level_05", @"level_06", @"level_07", @"level_08", @"level_09"];
         for (NSString *s in listOfXMLs) {
             NSURL *fileFromBundle = [[NSBundle mainBundle]URLForResource:s withExtension:@"xml"];
+            
+            if (fileFromBundle == nil) continue;
+            
             NSURL *destinationURL = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
                                                                              inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:[s stringByAppendingString:@".xml"]];
             [[NSFileManager defaultManager]copyItemAtURL:fileFromBundle toURL:destinationURL error:nil];
@@ -322,10 +325,11 @@
         if ([contact.bodyA.node.name isEqualToString:@"goal"])
         {
             goal = (GoalNode*)contact.bodyA.node;
-            [goal contactWithBall];
         } else {
             goal = (GoalNode*)contact.bodyB.node;
         }
+        
+        [goal contactWithBall];
         return;
     }
     
@@ -386,8 +390,8 @@
     }
 }
 
-- (void) setupBallWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable {
-    self.ball = [BallNode ballWithPosition:CGPointMake(x, y) allowInteraction:isInteractable];
+- (void) setupBallWithXPosition:(float)x yPosition:(float)y {
+    self.ball = [BallNode ballWithPosition:CGPointMake(x, y)];
     [self addChild:self.ball];
 }
 
