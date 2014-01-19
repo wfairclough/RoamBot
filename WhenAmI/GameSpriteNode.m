@@ -18,7 +18,7 @@
         self.position = position;
         GameSpriteNode *boundingBox = [GameSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.3] size:self.size];
         boundingBox.name = @"bounding";
-        [boundingBox setHidden:NO];
+        [boundingBox setHidden:YES];
         [self addChild:boundingBox];
     }
     
@@ -42,7 +42,7 @@
 }
 
 - (void) initializeCollision {
-    NSLog(@"AHHHHHHHHHH");
+
 }
 
 + (CGFloat)degreesToRadians:(CGFloat)degrees {
