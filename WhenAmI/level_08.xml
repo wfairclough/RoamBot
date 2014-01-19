@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <level value='1'>
-	<world theme='space'>
+	<world theme='mediaeval'>
 			<ball x='72.367798' y='17.511459'></ball>
 			<goal x='100.000000' y='0.000000' rotation='0.000000' theme='space' />
 			<collectable x='150.000000' y='50.000000'/>

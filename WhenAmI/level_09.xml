@@ -1,23 +1,23 @@
 <?xml version="1.0"?>
 <level value='1'>
-	<world theme='space'>
-			<ball x='113.262901' y='151.687378'></ball>
-			<goal x='31.000158' y='379.000641' rotation='0.000000' theme='space' />
-			<collectable x='187.000000' y='226.000000'/>
-			<wall x='24.000092' y='366.000427' interacts='false' rotation='90.399879' theme='space' imageSize='medium'></wall>
-			<wall x='293.000488' y='150.000198' interacts='false' rotation='89.787209' theme='space' imageSize='small'></wall>
-			<cannon x='289.000122' y='199.000076' rotation='76.279770' />
-			<wall x='293.000305' y='251.000137' interacts='false' rotation='90.668030' theme='space' imageSize='small'></wall>
-			<wall x='16.000381' y='174.000763' interacts='false' rotation='93.206696' theme='space' imageSize='small'></wall>
-			<cannon x='30.000099' y='130.000122' rotation='-87.468513' />
-			<wall x='18.000095' y='85.000175' interacts='false' rotation='89.910080' theme='space' imageSize='small'></wall>
-			<wall x='18.000076' y='228.500153' interacts='false' rotation='91.486008' theme='space' imageSize='small'></wall>
-			<cannon x='32.500080' y='269.500122' rotation='-73.022026' />
-			<wall x='18.000069' y='318.000061' interacts='false' rotation='91.316772' theme='space' imageSize='small'></wall>
-			<plank x='295.000397' y='319.000122' interacts='true' rotation='54.146156' theme='space' />
-			<wall x='277.000549' y='47.000217' interacts='false' rotation='115.089561' theme='space' imageSize='small'></wall>
-			<plank x='141.000122' y='42.000278' interacts='true' rotation='4.535671' theme='space' />
-			<wall x='312.000244' y='78.000160' interacts='false' rotation='-33.238216' theme='space' imageSize='small'></wall>
-			<wall x='235.000275' y='41.000092' interacts='false' rotation='84.030838' theme='space' imageSize='small'></wall>
+	<world theme='mediaeval'>
+        <ball x='113.262901' y='151.687378'></ball>
+        <goal x='31.000158' y='379.000641' rotation='0.000000' theme='space' />
+        <collectable x='187.000000' y='226.000000'/>
+        <wall x='24.000092' y='366.000427' interacts='false' rotation='90.399879' imageSize='medium'></wall>
+        <wall x='293.000488' y='150.000198' interacts='false' rotation='89.787209' imageSize='small'></wall>
+        <cannon x='289.000122' y='199.000076' rotation='76.279770' />
+        <wall x='293.000305' y='251.000137' interacts='false' rotation='90.668030' imageSize='small'></wall>
+        <wall x='16.000381' y='174.000763' interacts='false' rotation='93.206696' imageSize='small'></wall>
+        <cannon x='30.000099' y='130.000122' rotation='-87.468513' />
+        <wall x='18.000095' y='85.000175' interacts='false' rotation='89.910080' imageSize='small'></wall>
+        <wall x='18.000076' y='228.500153' interacts='false' rotation='91.486008' imageSize='small'></wall>
+        <cannon x='32.500080' y='269.500122' rotation='-73.022026' />
+        <wall x='18.000069' y='318.000061' interacts='false' rotation='91.316772' imageSize='small'></wall>
+        <plank x='295.000397' y='319.000122' interacts='true' rotation='54.146156' />
+        <wall x='277.000549' y='47.000217' interacts='false' rotation='115.089561' imageSize='small'></wall>
+        <plank x='141.000122' y='42.000278' interacts='true' rotation='4.535671' />
+        <wall x='312.000244' y='78.000160' interacts='false' rotation='-33.238216' imageSize='small'></wall>
+        <wall x='235.000275' y='41.000092' interacts='false' rotation='84.030838' imageSize='small'></wall>
 	</world>
 </level>

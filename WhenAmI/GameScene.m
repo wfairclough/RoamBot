@@ -18,6 +18,11 @@
 #import "CollectableNode.h"
 
 
+
+#define kSpaceWorld @"space"
+#define kGreekWorld @"greek"
+#define kMediaevalWorld @"mediaeval"
+
 @interface GameScene()
 
 @property (nonatomic, strong) BallNode *ball;
@@ -355,6 +360,24 @@
 
 
 #pragma mark - Level Setup
+
+- (void) setupWorldType:(NSString*)worldType {
+    
+    if ([worldType isEqualToString:kSpaceWorld]) {
+        SKSpriteNode* bg = [SKSpriteNode spriteNodeWithImageNamed:@"space-bg"];
+        [bg setAnchorPoint:CGPointMake(0.0f, 0.0f)];
+        [self addChild:bg];
+    } else if ([worldType isEqualToString:kGreekWorld]) {
+        SKSpriteNode* bg = [SKSpriteNode spriteNodeWithImageNamed:@"greek-bg"];
+        [bg setAnchorPoint:CGPointMake(0.0f, 0.0f)];
+        [self addChild:bg];
+    } else if ([worldType isEqualToString:kMediaevalWorld]) {
+        SKSpriteNode* bg = [SKSpriteNode spriteNodeWithImageNamed:@"mediaeval-bg"];
+        [bg setAnchorPoint:CGPointMake(0.0f, 0.0f)];
+        [self addChild:bg];
+    }
+}
+
 - (void) setupBallWithXPosition:(float)x yPosition:(float)y allowInteraction:(BOOL)isInteractable {
     self.ball = [BallNode ballWithPosition:CGPointMake(x, y) allowInteraction:isInteractable];
     [self addChild:self.ball];
