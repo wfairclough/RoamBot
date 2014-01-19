@@ -17,6 +17,7 @@
 #import "GoalNode.h"
 #import "CollectableNode.h"
 #import "ItemIcon.h"
+#import "LevelCompleteDialog.h"
 
 
 
@@ -157,6 +158,14 @@
         
         if ([self.currentlySelectedNode.name isEqualToString:@"resetBounding"]) {
             [self resetLevel];
+        }
+        
+        if ([self.currentlySelectedNode.name isEqualToString:@"nextButton"]) {
+            [self selectedNextButton];
+        }
+        
+        if ([self.currentlySelectedNode.name isEqualToString:@"refreshButton"]) {
+            [self selectedRefreshButton];
         }
         
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"poweredplankicon"]) {
@@ -342,13 +351,13 @@
         
         
         if (!kDavMode) {
-            int newLevel = [[GamePlayer sharedInstance] increaseSelectedLevel];
-        
-            [self loadLevel:newLevel];
+            [[self childNodeWithName:@"reset"] setHidden:YES];
+            
+            LevelCompleteDialog *dialog = [[LevelCompleteDialog alloc] initWithSize:self.size];
+            [self addChild:dialog];
+            
         }
         
-        
-
         return;
     }
     
@@ -382,6 +391,22 @@
         [cannon contactWithBall: self.ball];
         
     }
+    
+}
+
+- (void) selectedNextButton {
+    int newLevel = [[GamePlayer sharedInstance] increaseSelectedLevel];
+    [[self childNodeWithName:@"loadCompleteDialog"] removeFromParent];
+    [self loadLevel:newLevel];
+}
+
+- (void) selectedRefreshButton {
+    [[GamePlayer sharedInstance] increaseSelectedLevel];
+    [[self childNodeWithName:@"loadCompleteDialog"] removeFromParent];
+    [self resetLevel];
+}
+
+- (void) dialogInteraction {
     
 }
 

@@ -87,8 +87,8 @@
     </scenes>
     <resources>
         <image name="chickenhead" width="620" height="620"/>
-        <image name="chickentext1" width="1118" height="310"/>
-        <image name="waffletext" width="865" height="312"/>
+        <image name="chickentext1" width="1120" height="310"/>
+        <image name="waffletext" width="867" height="314"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <nil key="statusBar"/>
