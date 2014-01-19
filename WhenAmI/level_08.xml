@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <level value='1'>
-	<world theme='mediaeval'>
+	<world theme='mideavel'>
         <ball x='72.367798' y='300'></ball>
-        <goal x='100.000000' y='0.000000' rotation='0.000000' theme='space' />
+        <goal x='100.000000' y='0.000000' rotation='0.000000' />
         <collectable x='150.000000' y='50.000000'/>
         <cannon x='89.000282' y='215.000473' rotation='-97.457253' />
         <wall x='147.500366' y='325.000732' interacts='false' rotation='1.326567' imageSize='medium'></wall>

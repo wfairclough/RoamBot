@@ -8,12 +8,13 @@
 
 #import "WorldItemNode.h"
 #import "GameConstants.h"
+#import "BallNode.h"
 
 @interface GoalNode : WorldItemNode
 
 @property (nonatomic, strong) NSString *theme;
 
 + (id)goalWithPosition:(CGPoint)position rotation:(CGFloat)rotation theme:(NSString *)theme;
-- (void)contactWithBall;
+- (void)contactWithBall:(BallNode*)ball;
 
 @end

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <level value='2'>
-	<world theme='greek'>
+	<world theme='space'>
         <ball x='80.500328' y='552.500366'/>
         <goal x='35.500130' y='154.000214'/>
         <wall x='54.000172' y='65.000198' interacts='false' rotation='0.000000' imageSize='medium'/>

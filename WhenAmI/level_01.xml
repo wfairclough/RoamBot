@@ -2,6 +2,7 @@
 <level value="1">
     <world theme="space">
         <ball x="150" y="350" interacts="true"/>
+        <goal x='35.0' y='0'/>
         <plank x="0" y="200" interacts="true" rotation="45" powered="true" />
         <plank x="280" y="400" interacts="true" rotation="65" powered="true" />
         <collectable x="150" y="100" />

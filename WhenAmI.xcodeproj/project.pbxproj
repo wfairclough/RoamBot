@@ -36,6 +36,10 @@
 		BE12D70B188B1E42009937C9 /* cannon_noise.wav in Resources */ = {isa = PBXBuildFile; fileRef = BE12D70A188B1E42009937C9 /* cannon_noise.wav */; };
 		BE12D710188B7B4E009937C9 /* level_08.xml in Resources */ = {isa = PBXBuildFile; fileRef = BE12D70E188B7B4E009937C9 /* level_08.xml */; };
 		BE12D711188B7B4E009937C9 /* level_09.xml in Resources */ = {isa = PBXBuildFile; fileRef = BE12D70F188B7B4E009937C9 /* level_09.xml */; };
+		BE12D713188C1E9D009937C9 /* level_04.xml in Resources */ = {isa = PBXBuildFile; fileRef = BE12D712188C1E9D009937C9 /* level_04.xml */; };
+		BE12D715188C1EA5009937C9 /* level_05.xml in Resources */ = {isa = PBXBuildFile; fileRef = BE12D714188C1EA5009937C9 /* level_05.xml */; };
+		BE12D717188C1EAD009937C9 /* level_06.xml in Resources */ = {isa = PBXBuildFile; fileRef = BE12D716188C1EAD009937C9 /* level_06.xml */; };
+		BE12D719188C1EB4009937C9 /* level_07.xml in Resources */ = {isa = PBXBuildFile; fileRef = BE12D718188C1EB4009937C9 /* level_07.xml */; };
 		BE84813A1889DFFF009C21D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8481391889DFFF009C21D2 /* Foundation.framework */; };
 		BE84813C1889DFFF009C21D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */; };
 		BE84813E1889DFFF009C21D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813D1889DFFF009C21D2 /* UIKit.framework */; };
@@ -113,6 +117,10 @@
 		BE12D70A188B1E42009937C9 /* cannon_noise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cannon_noise.wav; sourceTree = "<group>"; };
 		BE12D70E188B7B4E009937C9 /* level_08.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_08.xml; sourceTree = "<group>"; };
 		BE12D70F188B7B4E009937C9 /* level_09.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_09.xml; sourceTree = "<group>"; };
+		BE12D712188C1E9D009937C9 /* level_04.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_04.xml; sourceTree = "<group>"; };
+		BE12D714188C1EA5009937C9 /* level_05.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_05.xml; sourceTree = "<group>"; };
+		BE12D716188C1EAD009937C9 /* level_06.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_06.xml; sourceTree = "<group>"; };
+		BE12D718188C1EB4009937C9 /* level_07.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_07.xml; sourceTree = "<group>"; };
 		BE8481361889DFFF009C21D2 /* WhenAmI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhenAmI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8481391889DFFF009C21D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -344,6 +352,10 @@
 				BEDA80DE1889E820000D6023 /* level_01.xml */,
 				46BAB4E5188AE9B700C5518F /* level_02.xml */,
 				B5703681188B526000E785C1 /* level_03.xml */,
+				BE12D712188C1E9D009937C9 /* level_04.xml */,
+				BE12D714188C1EA5009937C9 /* level_05.xml */,
+				BE12D716188C1EAD009937C9 /* level_06.xml */,
+				BE12D718188C1EB4009937C9 /* level_07.xml */,
 				BE12D70E188B7B4E009937C9 /* level_08.xml */,
 				BE12D70F188B7B4E009937C9 /* level_09.xml */,
 			);
@@ -481,12 +493,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE12D719188C1EB4009937C9 /* level_07.xml in Resources */,
 				46BAB4E6188AE9B700C5518F /* level_02.xml in Resources */,
 				B580DF66188AB77D00C48433 /* level_-1.xml in Resources */,
 				BE12D710188B7B4E009937C9 /* level_08.xml in Resources */,
 				BE12D6F9188AC499009937C9 /* Press 1.wav in Resources */,
 				46BAB4F2188B89FC00C5518F /* Clip2.wav in Resources */,
 				BE12D6FC188AC499009937C9 /* RomeBotLevel.mp3 in Resources */,
+				BE12D713188C1E9D009937C9 /* level_04.xml in Resources */,
 				BE12D6EC188AB07C009937C9 /* level_00.xml in Resources */,
 				BE12D6F6188AC499009937C9 /* Level Complete.mp3 in Resources */,
 				BE12D6F8188AC499009937C9 /* MainMenuNoIntro.mp3 in Resources */,
@@ -495,6 +509,7 @@
 				46BAB4F5188B8BCA00C5518F /* Clip3.wav in Resources */,
 				B5703682188B526000E785C1 /* level_03.xml in Resources */,
 				46B04D47188AAEDC00805BE1 /* LevelViewController.xib in Resources */,
+				BE12D715188C1EA5009937C9 /* level_05.xml in Resources */,
 				BE8481591889DFFF009C21D2 /* Images.xcassets in Resources */,
 				BE12D6FA188AC499009937C9 /* Press 2.wav in Resources */,
 				BE84814F1889DFFF009C21D2 /* Main.storyboard in Resources */,
@@ -503,6 +518,7 @@
 				BE12D6F7188AC499009937C9 /* MainMenuWithIntro.mp3 in Resources */,
 				BEDA80DF1889E820000D6023 /* level_01.xml in Resources */,
 				BE12D6FB188AC499009937C9 /* Press 3.wav in Resources */,
+				BE12D717188C1EAD009937C9 /* level_06.xml in Resources */,
 				46BAB4F1188B89FC00C5518F /* Clip1.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

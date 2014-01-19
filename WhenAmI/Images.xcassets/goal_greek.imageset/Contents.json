@@ -2,12 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "goal_greek.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Big Red Button.png"
+      "filename" : "goal_greek@2x.png"
     }
   ],
   "info" : {

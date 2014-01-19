@@ -2,7 +2,7 @@
 <level value='3'>
 	<world theme='space'>
         <ball x='21.567890' y='465.592041'/>
-        <goal x='125.500122' y='229.500153'/>
+        <goal x='125.500122' y='229.500153' theme='button' />
         <wall x='91.000145' y='419.000641' interacts='false' rotation='-101.646370' imageSize='large'/>
         <wall x='270.000488' y='314.000458' interacts='false' rotation='6.845267' imageSize='small'/>
         <plank x='85.003845' y='104.005409' interacts='true' rotation='-38.571552' />

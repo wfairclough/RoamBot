@@ -330,7 +330,7 @@
             goal = (GoalNode*)contact.bodyB.node;
         }
         
-        [goal contactWithBall];
+        [goal contactWithBall: self.ball];
         return;
     }
     
