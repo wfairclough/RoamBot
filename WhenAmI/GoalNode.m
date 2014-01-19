@@ -31,6 +31,10 @@
     return [[GoalNode alloc] initWithPosition:position rotation:rotation theme:theme];
 }
 
+- (void)resetGoal {
+    [self setTexture:[SKTexture textureWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"goal_%@", self.theme]]]];
+}
+
 - (void)contactWithBall:(BallNode*)ball {
     
     if ([self.theme isEqualToString:@"space"] || [self.theme isEqualToString:@"button"]) {

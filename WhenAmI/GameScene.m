@@ -177,6 +177,10 @@
             [self selectedRefreshButton];
         }
         
+        if ([self.currentlySelectedNode.name isEqualToString:@"closeButton"]) {
+            [self closeGame];
+        }
+        
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"poweredplankicon"]) {
             ItemIcon *temp = (ItemIcon*)[[self currentlySelectedNode] parent];
             if ([temp amount] > 0) {
@@ -388,6 +392,7 @@
         
         if (!kDavMode) {
             [[self childNodeWithName:@"reset"] setHidden:YES];
+            [self childNodeWithName:@"close"].hidden = YES;
             
             LevelCompleteDialog *dialog = [[LevelCompleteDialog alloc] initWithSize:self.size];
             [self addChild:dialog];
@@ -450,6 +455,7 @@
     
     self.ball.hidden = NO;
     [self childNodeWithName:@"reset"].hidden = NO;
+    [self childNodeWithName:@"close"].hidden = NO;
     
     [self resetLevel];
 }
@@ -637,6 +643,12 @@
 }
 
 - (void)resetLevel {
+    
+    GoalNode* goal = (GoalNode *)[self childNodeWithName:@"goal"];
+    
+    if (goal != nil)
+        [goal resetGoal];
+    
     self.inProgress = NO;
     
     if (kDavMode) {
