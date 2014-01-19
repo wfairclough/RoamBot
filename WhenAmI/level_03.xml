@@ -10,6 +10,6 @@
         <collectable x='188.500305' y='444.500397'/>
         <collectable x='124.500114' y='320.000061'/>
         <collectable x='256.500366' y='353.000305'/>
-        <icon type'poweredplank' amount'1'/>
+        <icon type='poweredplank' amount='1'/>
 	</world>
 </level>
