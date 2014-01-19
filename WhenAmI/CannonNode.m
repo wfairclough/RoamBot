@@ -69,6 +69,7 @@
         self.physicsBody.contactTestBitMask ^= ballConst;
         [self.ball.physicsBody setVelocity:firingVector];
         
+        self.ball.inCannon = NO;
         self.ball = nil;
     }
 }
@@ -95,6 +96,7 @@
     if (self.ball == nil) {
         self.ball = ball;
         [self.ball setHidden:YES];
+        self.ball.inCannon = YES;
         
         self.physicsBody.contactTestBitMask ^= ballConst;
         

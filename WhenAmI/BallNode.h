@@ -13,4 +13,6 @@
 - (id) initWithPosition:(CGPoint)position;
 + (id)ballWithPosition:(CGPoint)position;
 
+@property BOOL inCannon;
+
 @end

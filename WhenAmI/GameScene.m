@@ -571,6 +571,9 @@
 
 
 - (void) ballTapped {
+    if (self.ball.inCannon == YES)
+        return;
+    
     if (kDavMode) {
         [self saveLevelToFile:-1];
     }
@@ -583,6 +586,8 @@
     }
     
     [self.ball.physicsBody setAffectedByGravity:YES];
+    
+
     [self.ball.physicsBody setDynamic:YES];
 
     if (!kDavMode) {
@@ -677,6 +682,9 @@
 }
 
 - (void)resetLevel {
+    if (self.ball.inCannon == YES)
+        return;
+    
     _energyScore = 0;
     
     GoalNode* goal = (GoalNode *)[self childNodeWithName:@"goal"];
@@ -728,6 +736,8 @@
         [self setupItemIconsWithItem:@"poweredplank" amount:_numberOfPoweredPlanksAvailiable];
         [self setupItemIconsWithItem:@"woodplank" amount:_numberOfWoodPlanksAvailiable];
         [self setupItemIconsWithItem:@"cannon" amount:_numberOfCannonsAvailiable];
+        
+                NSLog(@"SEtting dynmaic 2");
         
         [self.ball.physicsBody setDynamic:NO];
     }
