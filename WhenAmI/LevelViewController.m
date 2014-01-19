@@ -50,9 +50,35 @@
     NSString *btn2ImageName;
     NSString *btn3ImageName;
     
-    [self.level1Btn setTag:((self.index * 3) + 1)];
-    [self.level2Btn setTag:((self.index * 3) + 2)];
-    [self.level3Btn setTag:((self.index * 3) + 3)];
+    int firstPicLevel = ((self.index * 3) + 1);
+    int secondPicLevel = ((self.index * 3) + 2);
+    int thirdPicLevel = ((self.index * 3) + 3);
+    
+    [self.level1Btn setTag:firstPicLevel];
+    [self.level2Btn setTag:secondPicLevel];
+    [self.level3Btn setTag:thirdPicLevel];
+    
+    
+    int firstScore = [[GamePlayer sharedInstance] scoreForLevel:firstPicLevel];
+    int secondScore = [[GamePlayer sharedInstance] scoreForLevel:secondPicLevel];
+    int thirdScore = [[GamePlayer sharedInstance] scoreForLevel:thirdPicLevel];
+    
+    if (firstScore >= 1) {
+        NSLog(@"Score > 1");
+    }
+    [self.level1Orb1 setEnabled:(firstScore >= 1)];
+    [self.level1Orb2 setEnabled:(firstScore >= 2)];
+    [self.level1Orb3 setEnabled:(firstScore >= 3)];
+    
+    [self.leve2Orb1 setEnabled:(secondScore >= 1)];
+    [self.leve2Orb2 setEnabled:(secondScore >= 2)];
+    [self.leve2Orb3 setEnabled:(secondScore >= 3)];
+    
+    [self.leve3Orb1 setEnabled:(thirdScore >= 1)];
+    [self.leve3Orb2 setEnabled:(thirdScore >= 2)];
+    [self.leve3Orb3 setEnabled:(thirdScore >= 3)];
+    
+    
     
     if(self.level1Btn.tag > level) {
         btn1ImageName = [NSString stringWithFormat:@"menu_button_%d_off", self.index];

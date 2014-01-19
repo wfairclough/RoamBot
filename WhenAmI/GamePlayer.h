@@ -21,6 +21,7 @@
 - (void)savePlayer;
 - (int)increaseSelectedLevel;
 - (BOOL)setEnergyScoreForSelectedLevel:(int)currentScore;
+- (int)scoreForLevel:(int)level;
 
 @end
 

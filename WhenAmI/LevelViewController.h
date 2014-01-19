@@ -22,6 +22,18 @@
 @property (weak, nonatomic) IBOutlet UIButton *level2Btn;
 @property (weak, nonatomic) IBOutlet UIButton *level3Btn;
 
+
+@property (weak, nonatomic) IBOutlet UIButton *level1Orb1;
+@property (weak, nonatomic) IBOutlet UIButton *level1Orb2;
+@property (weak, nonatomic) IBOutlet UIButton *level1Orb3;
+@property (weak, nonatomic) IBOutlet UIButton *leve2Orb1;
+@property (weak, nonatomic) IBOutlet UIButton *leve2Orb2;
+@property (weak, nonatomic) IBOutlet UIButton *leve2Orb3;
+@property (weak, nonatomic) IBOutlet UIButton *leve3Orb1;
+@property (weak, nonatomic) IBOutlet UIButton *leve3Orb2;
+@property (weak, nonatomic) IBOutlet UIButton *leve3Orb3;
+
+
 @property(nonatomic) AVAudioPlayer *audio;
 
 @end

@@ -53,17 +53,27 @@ static GamePlayer* _sharedInstance;
 
 // Returns YES if new high score
 - (BOOL)setEnergyScoreForSelectedLevel:(int)currentScore {
-    NSNumber* score = [self.scoreTable objectForKey:[self.selectedLevel stringValue]];
+    int score = [self scoreForLevel:[self.selectedLevel intValue]];
     
-    if (currentScore > [score intValue]) {
+    if (currentScore > score) {
         [self.scoreTable setValue:[NSNumber numberWithInt:currentScore] forKey:[self.selectedLevel stringValue]];
         [self savePlayer];
-        NSLog(@"NEW HIGHSCORE!!! %@    %d", score, currentScore);
+        NSLog(@"NEW HIGHSCORE!!! %d    %d", score, currentScore);
         return YES;
     }
     
-            NSLog(@"No highscore :(   %@    %d", score, currentScore);
+            NSLog(@"No highscore :(   %d    %d", score, currentScore);
     return NO;
+}
+
+
+- (int)scoreForLevel:(int)level {
+    NSNumber* score = [self.scoreTable objectForKey:[NSString stringWithFormat:@"%d", level]];
+    
+    if (score == nil)
+        return 0;
+    
+    return [score intValue];
 }
 
 - (void)loadPlayer {
