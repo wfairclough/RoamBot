@@ -1,12 +1,20 @@
 <?xml version="1.0"?>
-<level value="1">
-    <world theme="medieval">
-        <ball x="100" y="450" interacts="true"/>
-        <goal x="100" y="0" />
-        <collectable x="150" y="100" />
-        <collectable x="150" y="200" />
-        <collectable x="150" y="300" />
+<level value='7'>
+	<world theme='medieval'>
+        <ball x='231.911285' y='542.693665'></ball>
+        <goal x='100.000000' y='0.000000' rotation='0.000000' />
+        <wall x='147.500366' y='325.000732' interacts='false' rotation='1.326567' imageSize='medium'></wall>
+        <cannon x='247.000214' y='237.000000' rotation='-157.012955' />
+        <wall x='95.000526' y='144.000153' interacts='false' rotation='90.903915' imageSize='large'></wall>
+        <wall x='191.000229' y='146.000214' interacts='false' rotation='0.000000' imageSize='medium'></wall>
+        <wall x='191.000336' y='6.000173' interacts='false' rotation='0.000000' imageSize='small'></wall>
+        <wall x='259.000580' y='407.500793' interacts='false' rotation='-75.600540' imageSize='large'></wall>
+        <cannon x='70.000092' y='224.000092' rotation='-104.552109' />
+        <collectable x='72.000137' y='515.001160'/>
+        <collectable x='178.000153' y='328.500122'/>
+        <collectable x='138.500183' y='66.000427'/>
         <icon type='woodplank' amount='1'/>
-        <icon type='cannon' amount='1'/>
-    </world>
+        <icon type='poweredplank' amount='1'/>
+	</world>
 </level>
+
