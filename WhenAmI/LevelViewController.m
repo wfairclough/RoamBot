@@ -39,7 +39,7 @@
     BOOL icon3Enabled = false;
     
     int level = [[[GamePlayer sharedInstance] currentLevel] intValue];
-    
+
     //TODO: hard coded until we have level select implemented properly with GamePlayer settings
     [self.level1Btn addTarget:self action:@selector(levelPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.level2Btn addTarget:self action:@selector(levelPressed:) forControlEvents:UIControlEventTouchUpInside];
