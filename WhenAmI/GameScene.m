@@ -163,6 +163,10 @@
             }
         }
         
+        if ([self.currentlySelectedNode.name isEqualToString:@"tutorial"]) {
+            [[self childNodeWithName:@"tutorial"] removeFromParent];
+        }
+        
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"cannon"]) {
             CannonNode* cannon = (CannonNode *)self.currentlySelectedNode.parent;
             [cannon fire];
@@ -618,7 +622,14 @@
     
     [levelXmlParser parse];
     
-    
+    if(level == 1) {
+        SKSpriteNode *tutorial = [[SKSpriteNode alloc] initWithImageNamed:@"tutorial"];
+        [tutorial setName:@"tutorial"];
+        [tutorial setZPosition:2000.0];
+        [tutorial setAnchorPoint:CGPointMake(0,0)];
+        [tutorial setPosition:CGPointMake(0,0)];
+        [self addChild:tutorial];
+    }
     
     SKSpriteNode *closeBtn = [SKSpriteNode spriteNodeWithImageNamed:@"close"];
     [closeBtn setName:@"close"];

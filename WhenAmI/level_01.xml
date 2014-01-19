@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<level value="1">
-    <world theme="space">
-        <ball x="150" y="350" interacts="true"/>
-        <goal x='35.0' y='0'/>
-        <collectable x="150" y="100" />
-        <collectable x="150" y="200" />
-        <collectable x="150" y="300" />
-        <icon type='poweredplank' amount='2'/>
-    </world>
+<level value='1'>
+	<world theme='space'>
+        <ball x='243.500244' y='481.000214'></ball>
+        <goal x='147.000732' y='-4.500000' rotation='0.000000' />
+        <collectable x='115.500114' y='88.500031'/>
+        <collectable x='33.500023' y='228.500107'/>
+        <collectable x='242.000336' y='349.501312'/>
+        <icon type='poweredplank' amount='1'/>
+	</world>
 </level>
