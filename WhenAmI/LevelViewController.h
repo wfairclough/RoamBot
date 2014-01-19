@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WorldsViewController.h"
 #import <SpriteKit/SpriteKit.h>
+#import <AVFoundation/AVAudioPlayer.h>
 
 @interface LevelViewController : UIViewController
 
@@ -20,5 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *level1Btn;
 @property (weak, nonatomic) IBOutlet UIButton *level2Btn;
 @property (weak, nonatomic) IBOutlet UIButton *level3Btn;
+
+@property(nonatomic) AVAudioPlayer *audio;
 
 @end

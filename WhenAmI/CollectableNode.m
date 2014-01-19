@@ -37,20 +37,13 @@
 }
 
 - (void)contactWithBall {
-    NSLog(@"CONTACT WITH BALL");
-    
+    NSLog(@"Energy collected");
     SKAction *collectedNoise = [SKAction playSoundFileNamed:@"Clip1.wav" waitForCompletion:NO];
     [self runAction:collectedNoise];
+
+    self.physicsBody.contactTestBitMask = 0x0;
     
-    self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:0.1f];
-    self.physicsBody.dynamic = NO;
-    self.physicsBody.contactTestBitMask ^= ballConst;
     [self setHidden:TRUE];
-    
-    
-//    
-//    SKAction *cannonNoise = [SKAction playSoundFileNamed:@"Level Complete.mp3" waitForCompletion:NO];
-//    [self runAction:cannonNoise];
 }
 
 #pragma mark - XML Writer
