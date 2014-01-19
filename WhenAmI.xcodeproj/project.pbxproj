@@ -42,6 +42,10 @@
 		BE12D715188C1EA5009937C9 /* level_05.xml in Resources */ = {isa = PBXBuildFile; fileRef = BE12D714188C1EA5009937C9 /* level_05.xml */; };
 		BE12D717188C1EAD009937C9 /* level_06.xml in Resources */ = {isa = PBXBuildFile; fileRef = BE12D716188C1EAD009937C9 /* level_06.xml */; };
 		BE12D719188C1EB4009937C9 /* level_07.xml in Resources */ = {isa = PBXBuildFile; fileRef = BE12D718188C1EB4009937C9 /* level_07.xml */; };
+		BE12D71C188C67E9009937C9 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE12D71B188C67E9009937C9 /* logo@2x.png */; };
+		BE12D71F188C6823009937C9 /* logo_set.png in Resources */ = {isa = PBXBuildFile; fileRef = BE12D71D188C6823009937C9 /* logo_set.png */; };
+		BE12D720188C6823009937C9 /* logo_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = BE12D71E188C6823009937C9 /* logo_spot.png */; };
+		BE12D722188C68D5009937C9 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BE12D721188C68D5009937C9 /* logo.png */; };
 		BE84813A1889DFFF009C21D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8481391889DFFF009C21D2 /* Foundation.framework */; };
 		BE84813C1889DFFF009C21D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */; };
 		BE84813E1889DFFF009C21D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE84813D1889DFFF009C21D2 /* UIKit.framework */; };
@@ -127,7 +131,11 @@
 		BE12D714188C1EA5009937C9 /* level_05.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_05.xml; sourceTree = "<group>"; };
 		BE12D716188C1EAD009937C9 /* level_06.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_06.xml; sourceTree = "<group>"; };
 		BE12D718188C1EB4009937C9 /* level_07.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level_07.xml; sourceTree = "<group>"; };
-		BE8481361889DFFF009C21D2 /* WhenAmI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhenAmI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE12D71B188C67E9009937C9 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		BE12D71D188C6823009937C9 /* logo_set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_set.png; sourceTree = "<group>"; };
+		BE12D71E188C6823009937C9 /* logo_spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_spot.png; sourceTree = "<group>"; };
+		BE12D721188C68D5009937C9 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		BE8481361889DFFF009C21D2 /* RoamBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoamBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8481391889DFFF009C21D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE84813B1889DFFF009C21D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		BE84813D1889DFFF009C21D2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -213,6 +221,7 @@
 		BE12D704188B1B58009937C9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BE12D71A188C67D7009937C9 /* logo */,
 				BE12D705188B1B5D009937C9 /* Atlas */,
 			);
 			name = Images;
@@ -251,6 +260,17 @@
 			name = Music;
 			sourceTree = "<group>";
 		};
+		BE12D71A188C67D7009937C9 /* logo */ = {
+			isa = PBXGroup;
+			children = (
+				BE12D71D188C6823009937C9 /* logo_set.png */,
+				BE12D721188C68D5009937C9 /* logo.png */,
+				BE12D71E188C6823009937C9 /* logo_spot.png */,
+				BE12D71B188C67E9009937C9 /* logo@2x.png */,
+			);
+			name = logo;
+			sourceTree = "<group>";
+		};
 		BE84812D1889DFFF009C21D2 = {
 			isa = PBXGroup;
 			children = (
@@ -264,7 +284,7 @@
 		BE8481371889DFFF009C21D2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE8481361889DFFF009C21D2 /* WhenAmI.app */,
+				BE8481361889DFFF009C21D2 /* RoamBot.app */,
 				BE84815E1889DFFF009C21D2 /* WhenAmITests.xctest */,
 			);
 			name = Products;
@@ -444,7 +464,7 @@
 			);
 			name = WhenAmI;
 			productName = WhenAmI;
-			productReference = BE8481361889DFFF009C21D2 /* WhenAmI.app */;
+			productReference = BE8481361889DFFF009C21D2 /* RoamBot.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BE84815D1889DFFF009C21D2 /* WhenAmITests */ = {
@@ -509,6 +529,7 @@
 				BE12D710188B7B4E009937C9 /* level_08.xml in Resources */,
 				BE12D6F9188AC499009937C9 /* Press 1.wav in Resources */,
 				46BAB4F2188B89FC00C5518F /* Clip2.wav in Resources */,
+				BE12D720188C6823009937C9 /* logo_spot.png in Resources */,
 				BE12D6FC188AC499009937C9 /* RomeBotLevel.mp3 in Resources */,
 				BE12D713188C1E9D009937C9 /* level_04.xml in Resources */,
 				BE12D6EC188AB07C009937C9 /* level_00.xml in Resources */,
@@ -518,7 +539,9 @@
 				BE12D70B188B1E42009937C9 /* cannon_noise.wav in Resources */,
 				46BAB4F5188B8BCA00C5518F /* Clip3.wav in Resources */,
 				B5703682188B526000E785C1 /* level_03.xml in Resources */,
+				BE12D722188C68D5009937C9 /* logo.png in Resources */,
 				46B04D47188AAEDC00805BE1 /* LevelViewController.xib in Resources */,
+				BE12D71F188C6823009937C9 /* logo_set.png in Resources */,
 				BE12D715188C1EA5009937C9 /* level_05.xml in Resources */,
 				BE8481591889DFFF009C21D2 /* Images.xcassets in Resources */,
 				BE12D6FA188AC499009937C9 /* Press 2.wav in Resources */,
@@ -528,6 +551,7 @@
 				BE12D6F7188AC499009937C9 /* MainMenuWithIntro.mp3 in Resources */,
 				BEDA80DF1889E820000D6023 /* level_01.xml in Resources */,
 				BE12D6FB188AC499009937C9 /* Press 3.wav in Resources */,
+				BE12D71C188C67E9009937C9 /* logo@2x.png in Resources */,
 				BE12D717188C1EAD009937C9 /* level_06.xml in Resources */,
 				46BAB4F1188B89FC00C5518F /* Clip1.wav in Resources */,
 			);
@@ -694,12 +718,11 @@
 		BE8481701889DFFF009C21D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WhenAmI/WhenAmI-Prefix.pch";
 				INFOPLIST_FILE = "WhenAmI/WhenAmI-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RoamBot;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -708,12 +731,11 @@
 		BE8481711889DFFF009C21D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WhenAmI/WhenAmI-Prefix.pch";
 				INFOPLIST_FILE = "WhenAmI/WhenAmI-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RoamBot;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};

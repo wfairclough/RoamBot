@@ -632,6 +632,7 @@
     }
     
     SKSpriteNode *closeBtn = [SKSpriteNode spriteNodeWithImageNamed:@"close"];
+    [closeBtn setHidden:YES];
     [closeBtn setName:@"close"];
     [closeBtn setPosition:CGPointMake(20, self.size.height - 20)];
     SKSpriteNode *closeBounding = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithRed:1.0f green:0.0f blue:0.0f alpha:0.4f] size:CGSizeMake(closeBtn.size.width*2, closeBtn.size.height*2)];
