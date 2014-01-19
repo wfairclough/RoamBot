@@ -36,8 +36,8 @@
     self.physicsBody.contactTestBitMask ^= ballConst;
     [self setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"world_2_base"]]];
     
-    SKAction *cannonNoise = [SKAction playSoundFileNamed:@"Level Complete.mp3" waitForCompletion:NO];
-    [self runAction:cannonNoise];
+    SKAction *levelCompleteNoise = [SKAction playSoundFileNamed:@"Level Complete.mp3" waitForCompletion:NO];
+    [self runAction:levelCompleteNoise];
 }
 
 
