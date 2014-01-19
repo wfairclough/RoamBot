@@ -336,6 +336,11 @@
         }
         
         [goal contactWithBall];
+        
+        int newLevel = [[GamePlayer sharedInstance] increaseCurrentLevel];
+        
+        [self loadLevel:newLevel];
+        
         return;
     }
     

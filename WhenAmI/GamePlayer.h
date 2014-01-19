@@ -18,6 +18,8 @@
 
 - (void)loadPlayer;
 - (void)savePlayer;
+- (int)increaseCurrentLevel;
+
 @end
 
 

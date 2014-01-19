@@ -41,6 +41,12 @@ static GamePlayer* _sharedInstance;
     return _sharedInstance;
 }
 
+- (int) increaseCurrentLevel {
+    self.currentLevel = [NSNumber numberWithInt:[self.currentLevel intValue] + 1];
+    [self savePlayer];
+    return [self.currentLevel intValue];
+}
+
 - (void)loadPlayer {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -60,6 +66,7 @@ static GamePlayer* _sharedInstance;
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:kFirstTimeLoad];
     [[NSUserDefaults standardUserDefaults] setObject:self.currentLevel forKey:kCurrentLevel];
     [[NSUserDefaults standardUserDefaults] setObject:self.gameAudioEnabled forKey:kGameAudioEnabled];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end
