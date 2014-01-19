@@ -1,10 +1,21 @@
 <?xml version="1.0"?>
 <level value="1">
     <world theme="greek">
-        <ball x="100" y="450" interacts="true"/>
-        <goal x="100" y="0" />
-        <collectable x="150" y="100" />
-        <collectable x="150" y="200" />
-        <collectable x="150" y="300" />
+        <ball x='55.000275' y='457.501282'></ball>
+        <goal x='157.001999' y='2.003001' rotation='0.000000'  />
+        <wall x='13.000107' y='125.000221' interacts='false' rotation='0.000000'  imageSize='large'></wall>
+        <wall x='302.000427' y='128.500244' interacts='false' rotation='0.000000'  imageSize='large'></wall>
+        <wall x='206.000305' y='65.500221' interacts='false' rotation='0.000000'  imageSize='medium'></wall>
+        <wall x='61.250526' y='274.000977' interacts='false' rotation='116.301277'  imageSize='small'></wall>
+        <wall x='302.000183' y='285.500214' interacts='false' rotation='0.000000'  imageSize='small'></wall>
+        <wall x='108.500076' y='63.500195' interacts='false' rotation='0.000000'  imageSize='medium'></wall>
+        <wall x='117.750404' y='287.750885' interacts='false' rotation='-90.280182'  imageSize='small'></wall>
+        <wall x='26.500113' y='241.000610' interacts='false' rotation='-25.075413'  imageSize='small'></wall>
+        <wall x='107.500046' y='292.000000' interacts='false' rotation='0.000000'  imageSize='small'></wall>
+        <collectable x='131.500534' y='412.001709'/>
+        <collectable x='135.250916' y='311.251862'/>
+        <collectable x='239.000732' y='207.500610'/>
+        <icon type='woodplank' amount='2'/>
+        <icon type='poweredplank' amount='1'/>
     </world>
 </level>
