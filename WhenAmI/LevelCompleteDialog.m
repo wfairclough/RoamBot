@@ -27,9 +27,15 @@
         [refreshButton setName:@"refreshButton"];
         [refreshButton setPosition:CGPointMake((size.width/2) + 50, (size.height/2) + 50)];
         
+        
+        SKSpriteNode *closeButton = [[SKSpriteNode alloc] initWithImageNamed:@"close"];
+        [closeButton setName:@"closeButton"];
+        [closeButton setPosition:CGPointMake((size.width/2) - 50, (size.height/2) + 50)];
+        
         [self addChild:levelCompleteText];
         [self addChild:nextButton];
         [self addChild:refreshButton];
+        [self addChild:closeButton];
     }
     
     return self;
