@@ -158,7 +158,7 @@
             [cannon fire];
         }
         
-        if ([self.currentlySelectedNode.name isEqualToString:@"reset"]) {
+        if ([self.currentlySelectedNode.name isEqualToString:@"resetBounding"]) {
             [self resetLevel];
         }
         
@@ -456,7 +456,11 @@
     
     SKSpriteNode *reset = [SKSpriteNode spriteNodeWithImageNamed:@"reload"];
     [reset setName:@"reset"];
-    [reset setPosition:CGPointMake(30, self.size.height - 30)];
+    [reset setPosition:CGPointMake(self.size.width - 20, self.size.height - 20)];
+    SKSpriteNode *resetBounding = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithRed:1.0f green:0.0f blue:0.0f alpha:0.4f] size:CGSizeMake(reset.size.width*2, reset.size.height*2)];
+    [resetBounding setName:@"resetBounding"];
+    [resetBounding setHidden:YES];
+    [reset addChild:resetBounding];
     [self addChild:reset];
     
     [self setBallStartPoint:[self childNodeWithName:@"ball"].position];
