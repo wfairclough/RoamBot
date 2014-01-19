@@ -36,6 +36,9 @@
 - (void)contactWithBall {
     NSLog(@"CONTACT WITH BALL");
     
+    SKAction *collectedNoise = [SKAction playSoundFileNamed:@"Clip1.wav" waitForCompletion:NO];
+    [self runAction:collectedNoise];
+    
     self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:0.1f];
     self.physicsBody.dynamic = NO;
     self.physicsBody.contactTestBitMask ^= ballConst;
