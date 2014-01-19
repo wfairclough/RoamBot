@@ -11,9 +11,11 @@
 
 @interface ItemIcon : GameSpriteNode
 
+@property (nonatomic) int amount;
 @property (nonatomic, strong) SKLabelNode *amountText;
 
 - (id) initWithPosition:(CGPoint)position item:(NSString*)item amount:(int)amount;
+- (void) redrawText;
 + (id) itemWithPosition:(CGPoint)position item:(NSString*)item amount:(int)amount;
 
 @end

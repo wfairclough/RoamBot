@@ -160,11 +160,23 @@
         }
         
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"poweredplankicon"]) {
-            [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"space"]];
+            ItemIcon *temp = (ItemIcon*)[[self currentlySelectedNode] parent];
+            if ([temp amount] > 0) {
+                [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"space"]];
+                [temp redrawText];
+            }
         } else if ([self.currentlySelectedNode.parent.name isEqualToString:@"woodplankicon"]) {
-            [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"greek"]];
+            ItemIcon *temp = (ItemIcon*)[[self currentlySelectedNode] parent];
+            if ([temp amount] > 0) {
+                [self addChild:[PlankNode plankWithPosition:CGPointMake(self.size.width/2, self.size.height/2) allowInteraction:YES rotation:0.0f power:NO theme:@"greek"]];
+                [temp redrawText];
+            }
         } else if ([self.currentlySelectedNode.parent.name isEqualToString:@"cannonicon"]) {
-            [self addChild:[CannonNode canonWithPosition:CGPointMake(self.size.width/2, self.size.height/2) rotation:45.0f]];
+            ItemIcon *temp = (ItemIcon*)[[self currentlySelectedNode] parent];
+            if ([temp amount] > 0) {
+                [self addChild:[CannonNode canonWithPosition:CGPointMake(self.size.width/2, self.size.height/2) rotation:45.0f]];
+                [temp redrawText];
+            }
         }
         
         // DavMode Only
