@@ -396,11 +396,12 @@
             [[self childNodeWithName:@"reset"] setHidden:YES];
             [self childNodeWithName:@"close"].hidden = YES;
             
-            if ([[GamePlayer sharedInstance] setEnergyScoreForSelectedLevel:_energyScore]) {
-                
-            }
-            
             LevelCompleteDialog *dialog = [[LevelCompleteDialog alloc] initWithSize:self.size];
+            
+            // Update Score and display if higher
+            [dialog setHighscoreOn:[[GamePlayer sharedInstance] setEnergyScoreForSelectedLevel:_energyScore]];
+
+
             [self addChild:dialog];
             
         }

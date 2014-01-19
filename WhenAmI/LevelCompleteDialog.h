@@ -11,5 +11,6 @@
 @interface LevelCompleteDialog : SKSpriteNode
 
 - (id) initWithSize:(CGSize)size;
+- (void) setHighscoreOn:(BOOL)value;
 
 @end

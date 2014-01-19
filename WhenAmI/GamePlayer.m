@@ -58,10 +58,11 @@ static GamePlayer* _sharedInstance;
     if (currentScore > [score intValue]) {
         [self.scoreTable setValue:[NSNumber numberWithInt:currentScore] forKey:[self.selectedLevel stringValue]];
         [self savePlayer];
-        
+        NSLog(@"NEW HIGHSCORE!!! %@    %d", score, currentScore);
         return YES;
     }
     
+            NSLog(@"No highscore :(   %@    %d", score, currentScore);
     return NO;
 }
 

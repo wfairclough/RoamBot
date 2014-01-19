@@ -19,6 +19,11 @@
         SKSpriteNode *levelCompleteText = [[SKSpriteNode alloc] initWithImageNamed:@"levelcompletetext"];
         [levelCompleteText setPosition:CGPointMake(size.width/2 - 20, (size.height/2) + 100)];
         
+        SKSpriteNode *highscoreText = [[SKSpriteNode alloc] initWithImageNamed:@"highscore"];
+        [highscoreText setName:@"highscoreNode"];
+        [highscoreText setHidden:YES];
+        [highscoreText setPosition:CGPointMake(size.width/2 + 100, (size.height/2) + 130)];
+        
         SKSpriteNode *nextButton = [[SKSpriteNode alloc] initWithImageNamed:@"nextbutton"];
         [nextButton setName:@"nextButton"];
         [nextButton setPosition:CGPointMake(size.width/2, (size.height/2) - 50)];
@@ -32,6 +37,7 @@
         [closeButton setName:@"closeButton"];
         [closeButton setPosition:CGPointMake((size.width/2) - 50, (size.height/2) + 50)];
         
+        [self addChild:highscoreText];
         [self addChild:levelCompleteText];
         [self addChild:nextButton];
         [self addChild:refreshButton];
@@ -39,6 +45,10 @@
     }
     
     return self;
+}
+
+- (void) setHighscoreOn:(BOOL)value {
+    [[self childNodeWithName:@"highscoreNode"] setHidden:!value];
 }
 
 @end
