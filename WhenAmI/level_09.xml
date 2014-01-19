@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <level value='1'>
 	<world theme='medieval'>
-        <ball x='113.262901' y='151.687378'></ball>
+        <ball x='31.262901' y='460.687378'></ball>
         <goal x='31.000158' y='379.000641' rotation='0.000000' />
         <collectable x='187.000000' y='226.000000'/>
         <wall x='24.000092' y='366.000427' interacts='false' rotation='90.399879' imageSize='medium'></wall>

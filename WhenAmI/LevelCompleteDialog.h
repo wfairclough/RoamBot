@@ -13,4 +13,6 @@
 - (id) initWithSize:(CGSize)size;
 - (void) setHighscoreOn:(BOOL)value;
 
+- (void)theEnd:(BOOL)value;
+
 @end
