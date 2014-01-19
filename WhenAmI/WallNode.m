@@ -19,6 +19,7 @@
     imageName = [[[@"wall_" stringByAppendingString:imageSize] stringByAppendingString:@"_"] stringByAppendingString:theme];
     if (self = [super initWithImageNamed:imageName position:position allowInteraction:NO rotation:degrees]) {
         self.name = @"wall";
+        self.allowInteractions = NO;
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         [[self childNodeWithName:@"bounding"] setXScale:2.5];
         self.physicsBody.dynamic = NO;

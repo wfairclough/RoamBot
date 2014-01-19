@@ -135,7 +135,8 @@
             GameSpriteNode* boundingBoxNode = (GameSpriteNode *)self.currentlySelectedNode;
             if (boundingBoxNode.isBoundingBox) {
                 GameSpriteNode* currentGameNode = (GameSpriteNode *)boundingBoxNode.parent;
-                if ([currentGameNode allowInteractions] && !self.inProgress) {
+                
+                if ([currentGameNode allowsUserInteraction] && !self.inProgress) {
                     [currentGameNode rotateByAngle:[sender rotation]];
                     [sender setRotation:0.0];
                 }
@@ -506,8 +507,10 @@
     [self.ball.physicsBody setAffectedByGravity:YES];
     [self.ball.physicsBody setDynamic:YES];
 
+    if (!kDavMode) {
+       self.inProgress = YES;
+    }
     
-    self.inProgress = YES;
     
 }
 
