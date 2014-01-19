@@ -1,10 +1,25 @@
 <?xml version="1.0"?>
-<level value="1">
-    <world theme="greek">
-        <ball x="100" y="450" interacts="true"/>
-        <goal x="100" y="0" />
-        <collectable x="150" y="100" />
-        <collectable x="150" y="200" />
-        <collectable x="150" y="300" />
-    </world>
+<level value='1'>
+	<world theme='greek'>
+        <ball x='301.816223' y='506.068359'></ball>
+        <goal x='22.000257' y='13.500321' rotation='0.000000' />
+        <collectable x='132.000122' y='70.500046'/>
+        <collectable x='30.000093' y='446.500458'/>
+        <collectable x='187.000183' y='321.500061'/>
+        <wall x='26.500328' y='2.500422' interacts='false' rotation='-89.217072' imageSize='small'></wall>
+        <wall x='282.000641' y='473.500946' interacts='false' rotation='104.046913' imageSize='medium'></wall>
+        <wall x='7.500091' y='293.000732' interacts='false' rotation='-34.731205' imageSize='large'></wall>
+        <wall x='26.000154' y='404.000549' interacts='false' rotation='-103.824638' imageSize='medium'></wall>
+        <wall x='187.000519' y='387.500458' interacts='false' rotation='0.000000' imageSize='small'></wall>
+        <wall x='125.000031' y='307.500000' interacts='false' rotation='0.000000' imageSize='small'></wall>
+        <wall x='54.000099' y='261.500000' interacts='false' rotation='0.000000' imageSize='small'></wall>
+        <wall x='188.500198' y='264.000000' interacts='false' rotation='0.000000' imageSize='small'></wall>
+        <wall x='252.000351' y='333.500153' interacts='false' rotation='0.000000' imageSize='small'></wall>
+        <wall x='323.000488' y='232.000443' interacts='false' rotation='0.000000' imageSize='small'></wall>
+        <wall x='101.000244' y='160.500137' interacts='false' rotation='0.000000' imageSize='medium'></wall>
+        <wall x='263.000244' y='214.000244' interacts='false' rotation='0.000000' imageSize='small'></wall>
+        <wall x='322.000092' y='385.500427' interacts='false' rotation='0.000000' imageSize='medium'></wall>
+        <wall x='317.500671' y='-5.499338' interacts='false' rotation='0.000000' imageSize='large'></wall>
+        <icon type='woodplank' amount='4' />
+	</world>
 </level>
