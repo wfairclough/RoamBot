@@ -18,8 +18,11 @@
         self.name = @"collectable";
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;
+        self.physicsBody.allowsRotation = NO;
         self.physicsBody.categoryBitMask = collectableConst;
-        self.physicsBody.contactTestBitMask = collectableConst | ballConst;
+        self.physicsBody.collisionBitMask = 0x0;
+        self.physicsBody.contactTestBitMask = ballConst;
+        
         
         SKAction *rotation = [SKAction rotateByAngle: M_PI*2 duration:5];
         //and just run the action
@@ -34,11 +37,13 @@
 }
 
 - (void)contactWithBall {
-    NSLog(@"CONTACT WITH BALL");
-    
-    self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:0.1f];
-    self.physicsBody.dynamic = NO;
-    self.physicsBody.contactTestBitMask ^= ballConst;
+    NSLog(@"Energy collected");
+//    self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:0.1f];
+//    self.physicsBody.dynamic = NO;
+//    self.physicsBody.allowsRotation = NO;
+//    self.physicsBody.categoryBitMask = collectableConst;
+//    self.physicsBody.collisionBitMask = 0x0;
+
     [self setHidden:TRUE];
     
     

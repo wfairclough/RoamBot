@@ -19,7 +19,7 @@
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;
         self.physicsBody.categoryBitMask = goalConst;
-        self.physicsBody.contactTestBitMask = goalConst | ballConst;
+        self.physicsBody.contactTestBitMask = ballConst;
 
     }
     
@@ -31,7 +31,6 @@
 }
 
 - (void)contactWithBall {
-    NSLog(@"CONTACT WITH BALL");
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.size.width, self.size.height * 0.2)];
     self.physicsBody.dynamic = NO;
     self.physicsBody.contactTestBitMask ^= ballConst;
