@@ -149,6 +149,7 @@
             if (kDavMode) {
                 [self saveLevelToFile:-1];
             }
+            self.currentlySelectedNode.parent.physicsBody.affectedByGravity = YES;
             self.currentlySelectedNode.parent.physicsBody.dynamic = YES;
             self.inProgress = YES;
         }
@@ -485,10 +486,19 @@
         [self removeAllChildren];
         [self loadLevel:-1];
     } else {
-        [[[self ball] physicsBody] setDynamic:NO];
+        [[[self ball] physicsBody] setAffectedByGravity:NO];
+        [[[self ball] physicsBody] setAngularVelocity:0.0f];
         [[[self ball] physicsBody] setVelocity:CGVectorMake(0.0f, 0.0f)];
         [[self ball] setPosition:[self ballStartPoint]];
-        for (GameSpriteNode *gs in [self children]) {
+        for (SKSpriteNode *gs in [self children]) {
+            if (gs.physicsBody != nil) {
+                gs.physicsBody.contactTestBitMask = 0x0;
+            }
+        }
+        for (SKSpriteNode *gs in [self children]) {
+            if (gs.physicsBody != nil) {
+                gs.physicsBody.contactTestBitMask = 0x0;
+            }
             if ([gs.name isEqualToString:@"collectable"]) {
                 [gs removeFromParent];
             }
