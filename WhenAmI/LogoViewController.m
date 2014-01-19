@@ -19,11 +19,15 @@
     if (kDavMode == NO) {
         
         double delayInSeconds = 2.0;
-        double delayInSeconds2 = 4.0;
+        double delayInSeconds2 = 7.5;
         
         [self.imageView setHidden:NO];
         
-        [self.imageView setImage:[UIImage imageNamed: @"chickenwaffle2"]];
+//        [self.imageView setImage:[UIImage imageNamed: @"chickenwaffle2"]];
+//        [self.chickenTextImageView setImage:[UIImage imageNamed:@"chickentext1"]];
+        
+//        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"pattern"]]];
+        
         
         UIImage *gameLogo = [UIImage imageNamed: @"ball"];
         
@@ -41,7 +45,9 @@
         });
     } else {
         // Configure the view.
-        SKView * skView = (SKView *)self.view;
+        SKView* skView = [[SKView alloc] initWithFrame:self.view.frame];
+        self.view = skView;
+//        SKView * skView = (SKView *)self.view;
         skView.showsFPS = kDavMode;
         skView.showsNodeCount = kDavMode;
         
