@@ -21,6 +21,13 @@
         
         [[self childNodeWithName:@"bounding"] setYScale:0.7f];
         [[self childNodeWithName:@"bounding"] setXScale:1.5f];
+        
+        SKAction *rotateLeft = [SKAction rotateByAngle: [GameSpriteNode degreesToRadians:140] duration:1];
+        SKAction *rotateRight = [SKAction rotateByAngle: -1 * [GameSpriteNode degreesToRadians:140] duration:1];
+        SKAction *seq = [SKAction sequence:@[rotateLeft, rotateRight]];
+        
+        //and just run the action
+        [self runAction: [SKAction repeatActionForever:seq]];
     }
     
     return self;
