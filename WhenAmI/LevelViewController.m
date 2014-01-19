@@ -93,6 +93,20 @@
 // Load SpriteKit View
 - (IBAction)levelPressed:(UIButton *)sender {
     NSLog(@"Tag: %d", sender.tag);
+    
+    if(sender.isEnabled == TRUE) {
+        NSString *pathEnabled = [[NSBundle mainBundle]pathForResource:@"Clip2" ofType:@"wav"];
+        self.audio = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:pathEnabled] error:NULL];
+        [self.audio play];
+        
+    }
+    
+    if (sender.isEnabled == FALSE) {
+        NSString *pathDisabled = [[NSBundle mainBundle]pathForResource:@"Clip3" ofType:@"wav"];
+        self.audio = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:pathDisabled] error:NULL];
+        [self.audio play];
+    }
+    
     [[GamePlayer sharedInstance] setSelectedLevel:[NSNumber numberWithInteger:sender.tag]];
     [self.delegate playLevel:[sender tag]];
     

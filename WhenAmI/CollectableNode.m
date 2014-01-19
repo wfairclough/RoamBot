@@ -38,18 +38,12 @@
 
 - (void)contactWithBall {
     NSLog(@"Energy collected");
-//    self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:0.1f];
-//    self.physicsBody.dynamic = NO;
-//    self.physicsBody.allowsRotation = NO;
-//    self.physicsBody.categoryBitMask = collectableConst;
-//    self.physicsBody.collisionBitMask = 0x0;
+    SKAction *collectedNoise = [SKAction playSoundFileNamed:@"Clip1.wav" waitForCompletion:NO];
+    [self runAction:collectedNoise];
 
+    self.physicsBody.contactTestBitMask = 0x0;
+    
     [self setHidden:TRUE];
-    
-    
-//    
-//    SKAction *cannonNoise = [SKAction playSoundFileNamed:@"Level Complete.mp3" waitForCompletion:NO];
-//    [self runAction:cannonNoise];
 }
 
 #pragma mark - XML Writer
