@@ -40,6 +40,8 @@
 @property (nonatomic) int numberOfWoodPlanksAvailiable;
 @property (nonatomic) int numberOfCannonsAvailiable;
 
+@property (nonatomic) int energyScore;
+
 @end
 
 @implementation GameScene
@@ -394,6 +396,10 @@
             [[self childNodeWithName:@"reset"] setHidden:YES];
             [self childNodeWithName:@"close"].hidden = YES;
             
+            if ([[GamePlayer sharedInstance] setEnergyScoreForSelectedLevel:_energyScore]) {
+                
+            }
+            
             LevelCompleteDialog *dialog = [[LevelCompleteDialog alloc] initWithSize:self.size];
             [self addChild:dialog];
             
@@ -413,6 +419,8 @@
         }
         
         [collectable contactWithBall];
+        
+        _energyScore++;
         
         return;
     }
@@ -572,6 +580,8 @@
 #pragma mark - Private
 - (void)loadLevel:(int)level {
     static BOOL firstLoad = YES;
+    
+    _energyScore = 0;
 
     [self removeAllChildren];
     NSString *filePath = nil;
@@ -643,6 +653,7 @@
 }
 
 - (void)resetLevel {
+    _energyScore = 0;
     
     GoalNode* goal = (GoalNode *)[self childNodeWithName:@"goal"];
     
@@ -697,6 +708,7 @@
 
 
 - (void) closeGame {
+    _energyScore = 0;
     NSLog(@"Closing");
     
 }
