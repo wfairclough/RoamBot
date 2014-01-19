@@ -19,17 +19,14 @@
     if (kDavMode == NO) {
         
         double delayInSeconds = 2.0;
-        double delayInSeconds2 = 4.0;
+        double delayInSeconds2 = 7.5;
         
         [self.imageView setHidden:NO];
         
-        [self.imageView setImage:[UIImage imageNamed: @"chickenwaffle2"]];
+//        [self.imageView setImage:[UIImage imageNamed: @"chickenwaffle2"]];
+//        [self.chickenTextImageView setImage:[UIImage imageNamed:@"chickentext1"]];
         
-        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"pattern"]]];
-        
-//        UIImage *patternImage = [UIImage imageNamed: @"pattern"];
-//        UIColor *background = [[UIColor alloc] initWithPatternImage:patternImage];
-//        [[self view] setBackgroundColor:[UIColor colorWithPatternImage:patternImage]];
+//        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"pattern"]]];
         
         
         UIImage *gameLogo = [UIImage imageNamed: @"ball"];
