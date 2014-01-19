@@ -29,6 +29,8 @@
         
         if (powered) {
             self.physicsBody.restitution = 1.0f;
+        } else {
+            self.physicsBody.restitution = 0.6f;
         }
     }
     
@@ -55,7 +57,8 @@
 - (NSString *)gameNodeXml {
     NSString *interacts = (self.allowInteractions) ? @"true" : @"false";
     CGFloat degrees = [GameSpriteNode radiansToDegrees:self.zRotation];
-    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' interacts='%@' rotation='%f' theme='%@' />", kPlankTag, self.position.x, self.position.y, interacts, degrees, self.theme];
+    NSString* pow = (self.isPowered) ? @"true" : @"false";
+    return [NSString stringWithFormat:@"\t<%@ x='%f' y='%f' interacts='%@' rotation='%f' theme='%@' powered='%@' />", kPlankTag, self.position.x, self.position.y, interacts, degrees, self.theme, pow];
 }
 
 
