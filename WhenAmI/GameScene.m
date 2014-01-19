@@ -25,6 +25,8 @@
 
 @interface GameScene()
 
+@property (nonatomic) BOOL inProgress;
+
 @property (nonatomic, strong) BallNode *ball;
 @property (nonatomic, strong) SKNode *currentlySelectedNode;
 @property (nonatomic) CGPoint ballStartPoint;
@@ -128,8 +130,10 @@
             GameSpriteNode* boundingBoxNode = (GameSpriteNode *)self.currentlySelectedNode;
             if (boundingBoxNode.isBoundingBox) {
                 GameSpriteNode* currentGameNode = (GameSpriteNode *)boundingBoxNode.parent;
-                [currentGameNode rotateByAngle:[sender rotation]];
-                [sender setRotation:0.0];
+                if ([currentGameNode allowInteractions] && !self.inProgress) {
+                    [currentGameNode rotateByAngle:[sender rotation]];
+                    [sender setRotation:0.0];
+                }
             }
         }
     } else if (sender.state == UIGestureRecognizerStateEnded) {
@@ -146,6 +150,7 @@
                 [self saveLevelToFile:-1];
             }
             self.currentlySelectedNode.parent.physicsBody.dynamic = YES;
+            self.inProgress = YES;
         }
         
         if ([self.currentlySelectedNode.parent.name isEqualToString:@"cannon"]) {
@@ -299,7 +304,7 @@
             GameSpriteNode* boundingBoxNode = (GameSpriteNode *)self.currentlySelectedNode;
             if (boundingBoxNode.isBoundingBox) {
                 GameSpriteNode* currentGameNode = (GameSpriteNode *)boundingBoxNode.parent;
-                if ([currentGameNode allowsUserInteraction]) {
+                if ([currentGameNode allowsUserInteraction] && !self.inProgress) {
                     CGPoint pos = CGPointMake((currentGameNode.position.x + [sender translationInView:self.view].x), (currentGameNode.position.y - [sender translationInView:self.view].y));
                     [currentGameNode setPosition:pos];
                     [sender setTranslation:CGPointMake(0.0, 0.0) inView:self.view];
@@ -475,6 +480,7 @@
 }
 
 - (void)resetLevel {
+    self.inProgress = NO;
     if (kDavMode) {
         [self removeAllChildren];
         [self loadLevel:-1];
