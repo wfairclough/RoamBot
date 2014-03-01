@@ -14,6 +14,7 @@ Artist:
 - Davyn Wagner
 
 
+[Video of Game Play](https://www.youtube.com/watch?v=VKlo-GkXAvA)
 
 
 Screenshots
